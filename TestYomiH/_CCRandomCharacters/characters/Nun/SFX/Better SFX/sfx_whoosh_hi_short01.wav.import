@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_whoosh_hi_short01.wav-9796f6dbe2d355214f42fd18f82a1245.sample"
+
+[deps]
+
+source_file="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_whoosh_hi_short01.wav"
+dest_files=[ "res://.import/sfx_whoosh_hi_short01.wav-9796f6dbe2d355214f42fd18f82a1245.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

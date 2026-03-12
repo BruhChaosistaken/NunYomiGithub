@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit_slash_m.wav-32a1ecda9f7b5dbb5ce937b0417d6f93.sample"
+
+[deps]
+
+source_file="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/hit_slash_m.wav"
+dest_files=[ "res://.import/hit_slash_m.wav-32a1ecda9f7b5dbb5ce937b0417d6f93.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

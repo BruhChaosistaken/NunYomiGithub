@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/WhiteFade.tres" type="Gradient" id=1]
+[ext_resource path="res://characters/stickman/sprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/White-Red.tres" type="Gradient" id=3]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Impact_Line_01.png" type="Texture" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Dot_01.png" type="Texture" id=7]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/4b50e402-6f1f-47bd-8c39-00e8f6b30ce5.png" type="Texture" id=8]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.980572 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0112469 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="ParticleEffect" instance=ExtResource( 4 )]
+material = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 2 )
+position = Vector2( -70, -19 )
+scale = Vector2( 6, -0.5 )
+amount = 1
+lifetime = 0.4
+texture = ExtResource( 6 )
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = ExtResource( 3 )
+anim_speed = 1.0
+
+[node name="Ref" type="CPUParticles2D" parent="." index="2"]
+visible = false
+position = Vector2( 0, -18 )
+amount = 1
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+
+[node name="Wind" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 1, 1, 1, 0.47451 )
+material = SubResource( 4 )
+position = Vector2( -174.896, -39 )
+scale = Vector2( -1, 1 )
+amount = 2
+lifetime = 0.4
+explosiveness = 1.0
+lifetime_randomness = 0.3
+texture = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 50, 1 )
+gravity = Vector2( 0, 0 )
+scale_amount_random = 0.5
+color_ramp = ExtResource( 1 )
+anim_speed = 1.0
+anim_speed_random = 0.22
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="4"]
+material = SubResource( 5 )
+position = Vector2( -103, -26 )
+z_index = -10
+amount = 20
+lifetime = 0.4
+explosiveness = 1.0
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 123, 25 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 520.01
+initial_velocity_random = 1.0
+linear_accel = -500.0
+linear_accel_random = 1.0
+damping = 1000.0
+damping_random = 1.0
+scale_amount = 0.01
+scale_amount_random = 0.1
+color_ramp = ExtResource( 3 )

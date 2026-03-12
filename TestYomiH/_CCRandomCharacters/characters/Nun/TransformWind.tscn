@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/stickman/sprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/865fef28-0f75-4099-adbe-79bf03c3feb7.png" type="Texture" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.512082, 0, 0, Vector2( 1, 1 ), 1.18788, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.113636, 1 )
+colors = PoolColorArray( 0.893939, 0.893939, 0.893939, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+scale = Vector2( 1, 0.05 )
+z_index = -10
+amount = 2
+lifetime = 0.2
+explosiveness = 0.2
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="2"]
+visible = false
+position = Vector2( 0, -18 )
+amount = 1
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )

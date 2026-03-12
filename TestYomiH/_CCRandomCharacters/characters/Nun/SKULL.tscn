@@ -1,0 +1,167 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/BlockUpdSkull.gd" type="Script" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Glow_Hard_01.png" type="Texture" id=3]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Projectile/SKULL.png" type="Texture" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/hit_slash_l.wav" type="AudioStream" id=7]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Slash.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fx/big_hollow_circle.png" type="Texture" id=9]
+[ext_resource path="res://fx/big_filled_circle.png" type="Texture" id=10]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/SUFFER1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SKULLupd.gd" type="Script" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.204545, 1 )
+colors = PoolColorArray( 1, 0.152344, 0.152344, 1, 1, 0.137255, 0.137255, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 1 ), 0.0, -1.98161, 0, 0, Vector2( 1, 0 ), -0.586495, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0.878788 )
+colors = PoolColorArray( 1, 0.152344, 0.152344, 1, 1, 0.203922, 0.203922, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="SKULL" instance=ExtResource( 5 )]
+material = SubResource( 1 )
+script = ExtResource( 12 )
+ground_friction = "0.8"
+air_friction = "0.15"
+max_ground_speed = "12"
+max_air_speed = "15"
+max_fall_speed = "15"
+damages_own_team = true
+has_projectile_parry_window = false
+deletes_other_projectiles = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+apply_hitlag_when_hit_by_melee = false
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 12 )
+frames = SubResource( 9 )
+
+[node name="Glow" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+material = SubResource( 10 )
+z_index = -100
+amount = 1
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 11 )
+
+[node name="Spice" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+material = SubResource( 13 )
+z_index = 10
+amount = 30
+lifetime = 0.9
+local_coords = false
+texture = ExtResource( 10 )
+normalmap = ExtResource( 9 )
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2( 0, 0 )
+scale_amount = 0.2
+scale_amount_curve = SubResource( 14 )
+color_ramp = SubResource( 15 )
+
+[node name="Cross Outside" type="CPUParticles2D" parent="Flip/Sprite" index="2"]
+material = SubResource( 16 )
+amount = 5
+lifetime = 0.5
+explosiveness = 1.0
+texture = ExtResource( 6 )
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angular_velocity = -720.0
+color = Color( 1, 0.054902, 0.054902, 1 )
+anim_offset = 1.0
+
+[node name="CollisionBox" parent="." index="2"]
+width = 15
+height = 15
+
+[node name="Hurtbox" parent="." index="3"]
+width = 15
+height = 15
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 2 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "default"
+anim_length = 14
+ticks_per_frame = 2
+particle_scene = ExtResource( 11 )
+move_speed = "5.0"
+homing_turn_speed = "0"
+homing_accel = "0"
+max_homing_speed = "0"
+lifetime = 80
+relative_data_dir = false
+fizzle_on_ground = false
+bounce_on_ground = true
+num_bounces = 2
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 4 )
+width = 10
+height = 10
+damage = 65
+damage_in_combo = 50
+chip_damage_modifier = "0.5"
+hitstun_ticks = 20
+hitlag_ticks = 3
+allowed_to_hit_own_team = false
+plus_frames = 1
+hit_particle = ExtResource( 8 )
+replace_hit_particle = true
+hit_sound = ExtResource( 7 )
+knockback = "2"
+grounded_hit_state = "HurtAerial"
+start_tick = 7
+active_ticks = 1
+always_on = true

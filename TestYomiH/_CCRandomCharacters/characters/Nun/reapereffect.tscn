@@ -1,0 +1,134 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fx/particle_square_4x4.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Glow_Hard_01.png" type="Texture" id=3]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/865fef28-0f75-4099-adbe-79bf03c3feb7.png" type="Texture" id=4]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Judgement.png" type="Texture" id=5]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+
+[sub_resource type="ShaderMaterial" id=12]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.15268, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.212121, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.152344, 0.152344, 1, 1, 0.136719, 0.136719, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 0.152344, 0.152344, 1, 1, 0.215686, 0.215686, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 2.87082, 0, 0, Vector2( 1, 1 ), 0.177901, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 1, 0.152344, 0.152344, 1, 1, 0.211765, 0.211765, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+visible = false
+frames = SubResource( 2 )
+offset = Vector2( 0, -18 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 3 )
+position = Vector2( 0, -52 )
+scale = Vector2( 10000, 7 )
+z_index = -10
+amount = 1
+lifetime = 0.3
+explosiveness = 1.0
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+scale_amount = 1.5
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="3"]
+material = SubResource( 6 )
+position = Vector2( 0, -52 )
+scale = Vector2( 10000, 6 )
+z_index = 10
+amount = 2
+lifetime = 0.3
+explosiveness = 1.0
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="4"]
+material = SubResource( 7 )
+position = Vector2( 0, -52 )
+z_index = -10
+amount = 50
+lifetime = 0.3
+explosiveness = 1.0
+randomness = 0.2
+texture = ExtResource( 3 )
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+linear_accel = -100.0
+damping = 1000.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.2
+scale_amount_random = 1.0
+color_ramp = SubResource( 8 )
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="." index="5"]
+material = SubResource( 9 )
+position = Vector2( 0, -52 )
+z_index = -10
+amount = 1
+lifetime = 0.2
+explosiveness = 1.0
+randomness = 0.2
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.3
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )

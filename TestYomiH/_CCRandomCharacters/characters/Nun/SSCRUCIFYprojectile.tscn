@@ -1,0 +1,103 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Specials/EXPUNGE/EXPUNGECRUCIFY.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/CrucifyDefault.gd" type="Script" id=3]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SSCRUCIFYprojectile.gd" type="Script" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Slash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/CARVE INSERT.wav" type="AudioStream" id=7]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/ModeChange.wav" type="AudioStream" id=8]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/act_cmn01#165.wav" type="AudioStream" id=9]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/SUFFER1.tscn" type="PackedScene" id=10]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="SSCRUCIFY" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+max_fall_speed = "15"
+has_projectile_parry_window = false
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = SubResource( 10 )
+frame = 1
+
+[node name="Spawn" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+fallback_state = "Wait"
+sprite_animation = "default"
+anim_length = 16
+ticks_per_frame = 2
+disable_at_end = true
+particle_scene = ExtResource( 10 )
+spawn_particle_on_enter = true
+move_x = 0
+num_hits = 2
+lifetime = 20
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+y = -13
+width = 30
+height = 30
+damage = 70
+chip_damage_modifier = "2.0"
+hitstun_ticks = 24
+damage_proration = -1
+di_modifier = "0.8"
+sdi_modifier = "0.5"
+plus_frames = 4
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+hit_sound = ExtResource( 7 )
+hit_bass_sound = ExtResource( 9 )
+bass_on_whiff = true
+dir_x = "0.5"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+start_tick = 3

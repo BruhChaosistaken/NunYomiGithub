@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Atk_Piling.wav-ee2152ea97a0fe4d01c01bee10d79928.sample"
+
+[deps]
+
+source_file="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/Atk_Piling.wav"
+dest_files=[ "res://.import/Atk_Piling.wav-ee2152ea97a0fe4d01c01bee10d79928.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

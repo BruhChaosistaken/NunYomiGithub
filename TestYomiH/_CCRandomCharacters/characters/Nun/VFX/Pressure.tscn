@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Dot_01.png" type="Texture" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/Red.tres" type="Gradient" id=2]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Glow_Hard_01.png" type="Texture" id=4]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Dash F.png" type="Texture" id=5]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/magic_shield_runes_a_cyan.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+// for circles
+uniform float amplitude: hint_range(0, 2, 0.01) = 2.0;
+uniform float frequency: hint_range(0, 15, 0.01) = 12.69;
+uniform float rippleRate : hint_range(0.5, 150.0, 0.1) = 9.2;
+
+
+// for wave
+uniform float waveAmplitude = 0.1;
+uniform float waveFrequency = 4.0;
+uniform float blendingAmount = 0.6;
+
+
+// other
+uniform sampler2D noise;
+
+
+
+vec2 wave(vec2 uv, float time) {
+    return vec2(
+        uv.x + sin(uv.y * waveFrequency * 5.0 + time) * waveAmplitude,
+        uv.y + sin(uv.x * waveFrequency + time) * waveAmplitude
+    );
+}
+
+void fragment() {
+	vec2 wave_uv = wave(UV, TIME);
+	vec4 ns = texture(noise, wave_uv);
+	
+	vec2 motion = vec2(0.0, 1.0);
+	float pi = 3.14159265358979323846;
+	vec2 uv = UV * 2.0 - 1.0;
+
+	float dist = length(uv);
+	ns *= 1.4142135;
+	dist += -0.1 * ns.x;
+	float ripple = sin(dist * -frequency * pi + rippleRate * TIME) * amplitude / (dist + 1.0);
+
+
+	vec4 color = vec4(1.0, 1.0, 1.0, 2.0 * ripple);
+	
+	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5; 
+
+
+	color.a *= 1.0 * alphaScalar * (ripple + ns.x * ns.y);
+	color.a = max(color.a - (ns.y * 0.45), 0.0);
+
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/amplitude = 0.97
+shader_param/frequency = 3.89
+shader_param/rippleRate = 3.1
+shader_param/waveAmplitude = 0.1
+shader_param/waveFrequency = 4.0
+shader_param/blendingAmount = 0.6
+shader_param/noise = ExtResource( 7 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="ParticleEffect" instance=ExtResource( 3 )]
+material = SubResource( 7 )
+position = Vector2( 0, -18 )
+free = false
+one_shot = false
+start_enabled = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.129412 )
+material = SubResource( 2 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+amount = 3
+texture = ExtResource( 1 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+color_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 4 )
+z_index = 1
+amount = 1
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 1.5
+color_ramp = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
+visible = false
+frames = SubResource( 6 )

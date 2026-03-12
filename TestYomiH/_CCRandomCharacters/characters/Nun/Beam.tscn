@@ -1,0 +1,378 @@
+[gd_scene load_steps=67 format=2]
+
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/4b50e402-6f1f-47bd-8c39-00e8f6b30ce5.png" type="Texture" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/5ab4d21e-111a-47d6-8f22-2525e3e303d8.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Supers/Sin release beam.png" type="Texture" id=3]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/White-Red.tres" type="Gradient" id=4]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/WhiteFade.tres" type="Gradient" id=5]
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/BeamDefault.gd" type="Script" id=7]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Beam.gd" type="Script" id=8]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=9]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Slash.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_JJ_plasma_blast_sm01.wav" type="AudioStream" id=11]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Fight FX/014_electric_ml.wav" type="AudioStream" id=12]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Supers/SinReleaseFrontBeam.png" type="Texture" id=13]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 3 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 3 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 3 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 3 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 3 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=27]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=28]
+_data = [ Vector2( 0, 0 ), 0.0, 2.14255, 0, 0, Vector2( 1, 1 ), 0.136265, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=29]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 25
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=30]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 13 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 13 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 13 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 13 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 13 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 13 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 13 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 13 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 13 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 13 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 13 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 13 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 13 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 13 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 13 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 13 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 13 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 13 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 13 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 13 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 13 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 13 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=53]
+animations = [ {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
+"loop": true,
+"name": "default2",
+"speed": 5.0
+} ]
+
+[node name="Beam" instance=ExtResource( 6 )]
+position = Vector2( 90, -18 )
+script = ExtResource( 8 )
+max_fall_speed = "15"
+extra_state_variables = "h
+lifetime
+Hitbox"
+has_projectile_parry_window = false
+movable = false
+apply_hitlag_when_hit_by_melee = false
+projectile_immune = true
+
+[node name="Sprite" parent="Flip" index="0"]
+position = Vector2( 1959, 0 )
+scale = Vector2( 20.4063, 1 )
+frames = SubResource( 26 )
+animation = "Default"
+frame = 5
+
+[node name="Electricity" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+unique_name_in_owner = true
+material = SubResource( 27 )
+position = Vector2( -2.89127, 0 )
+scale = Vector2( 0.0490045, 1 )
+z_index = 5
+amount = 50
+lifetime = 0.15
+explosiveness = 0.2
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1900, 18 )
+gravity = Vector2( 0, 0 )
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 28 )
+color_ramp = ExtResource( 4 )
+
+[node name="Glow" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+unique_name_in_owner = true
+visible = false
+material = SubResource( 29 )
+position = Vector2( 139.32, 0 )
+scale = Vector2( 2.45022, 1 )
+z_index = 5
+amount = 1
+lifetime = 0.2
+explosiveness = 0.2
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+color_ramp = ExtResource( 4 )
+anim_speed = 1.0
+
+[node name="Wind" type="CPUParticles2D" parent="Flip/Sprite" index="2"]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0.47451 )
+material = SubResource( 30 )
+position = Vector2( -2.891, -18 )
+rotation = 3.14159
+scale = Vector2( 0.05, -1 )
+amount = 35
+lifetime = 0.2
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 2000, 1 )
+gravity = Vector2( 0, 0 )
+scale_amount_random = 0.5
+color_ramp = ExtResource( 5 )
+anim_speed = 1.0
+anim_speed_random = 1.0
+
+[node name="FrontBeamSprite" type="AnimatedSprite" parent="Flip" index="2"]
+unique_name_in_owner = true
+position = Vector2( -90, 0 )
+scale = Vector2( 0.9375, 1 )
+frames = SubResource( 53 )
+animation = "default2"
+frame = 13
+
+[node name="CollisionBox" parent="." index="2"]
+width = 0
+height = 0
+
+[node name="Hurtbox" parent="." index="3"]
+width = 0
+height = 0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 7 )
+anim_length = 50
+ticks_per_frame = 2
+endless = false
+move_x = 0
+clash = false
+num_hits = 50
+lifetime = 49
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 9 )
+x = 1800
+width = 1900
+height = 40
+damage = 40
+minimum_damage = 30
+chip_damage_modifier = "3.0"
+hitlag_ticks = 0
+victim_hitlag = 4
+cancellable = false
+hits_otg = true
+di_modifier = "0.1"
+sdi_modifier = "0.0"
+meter_gain_modifier = "0.1"
+ignore_armor = true
+ignore_projectile_armor = true
+plus_frames = 1
+screenshake_amount = 1
+hit_particle = ExtResource( 10 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, 0 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 12 )
+dir_y = "-0.1"
+knockback = "15"
+block_pushback_modifier = "0.1"
+pushback_x = "0.1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+wall_slam = true
+start_tick = 1
+active_ticks = 33
+looping = true

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/303_tag_assist_drive.wav-081a75e926f5be8cee814fcfa4bd5cdb.sample"
+
+[deps]
+
+source_file="res://_CCRandomCharacters/characters/Nun/SFX/Timestop/303_tag_assist_drive.wav"
+dest_files=[ "res://.import/303_tag_assist_drive.wav-081a75e926f5be8cee814fcfa4bd5cdb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

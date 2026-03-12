@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Za warudo Reversed.wav-2440b1ec1d987d0f735562f64956fecc.sample"
+
+[deps]
+
+source_file="res://_CCRandomCharacters/characters/Nun/SFX/Timestop/Za warudo Reversed.wav"
+dest_files=[ "res://.import/Za warudo Reversed.wav-2440b1ec1d987d0f735562f64956fecc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

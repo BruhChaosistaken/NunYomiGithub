@@ -1,0 +1,9 @@
+# Exported from Godot Engine
+
+newmtl handle
+Kd 0.057802 0.057802 0.057802
+Ks 0.500000 0.500000 0.500000
+
+newmtl blade
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000

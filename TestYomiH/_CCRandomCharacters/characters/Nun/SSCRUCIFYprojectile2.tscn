@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Specials/EXPUNGE/EXPUNGECRUCIFY.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/CrucifyDefault.gd" type="Script" id=3]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SSCRUCIFYprojectile.gd" type="Script" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://sound/common/slash2.wav" type="AudioStream" id=6]
+[ext_resource path="res://characters/stickman/projectiles/StickyBombExplode.gd" type="Script" id=7]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/ModeChange.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/common/explosion4.wav" type="AudioStream" id=9]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/SUFFER1.tscn" type="PackedScene" id=10]
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "Explode",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "dormant",
+"speed": 5.0
+} ]
+
+[node name="SSCRUCIFY" instance=ExtResource( 1 )]
+z_index = 4
+script = ExtResource( 4 )
+max_fall_speed = "15"
+extra_state_variables = "detonating
+attached
+"
+has_projectile_parry_window = false
+deletes_other_projectiles = false
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = SubResource( 10 )
+animation = "Explode"
+
+[node name="Spawn" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+fallback_state = "dormant"
+sprite_animation = "dormant"
+anim_length = 16
+ticks_per_frame = 4
+particle_scene = ExtResource( 10 )
+spawn_particle_on_enter = true
+move_x = 0
+num_hits = 2
+lifetime = 20
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Explode" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 7 )
+anim_length = 7
+ticks_per_frame = 2
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Explode" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 16
+height = 16
+damage = 80
+hitstun_ticks = 24
+hitlag_ticks = 1
+victim_hitlag = 10
+damage_proration = 1
+whiff_sound = ExtResource( 9 )
+hit_sound = ExtResource( 6 )
+dir_x = "-1.0"
+knockback = "9.0"
+launch_reversible = true
+grounded_hit_state = "HurtAerial"
+start_tick = 2
+active_ticks = 2
+
+[node name="BigExplode" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 7 )
+sprite_animation = "Explode"
+anim_length = 7
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/BigExplode" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 16
+height = 16
+damage = 100
+hitstun_ticks = 24
+hitlag_ticks = 1
+victim_hitlag = 10
+whiff_sound = ExtResource( 9 )
+hit_sound = ExtResource( 6 )
+dir_x = "-1.0"
+knockback = "11.0"
+launch_reversible = true
+grounded_hit_state = "HurtAerial"
+start_tick = 1
+active_ticks = 2

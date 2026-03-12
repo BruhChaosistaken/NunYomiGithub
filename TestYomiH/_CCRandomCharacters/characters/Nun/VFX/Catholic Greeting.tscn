@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/London Greeting.png" type="Texture" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = true
+shader_param/use_extra_color_2 = true
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 0.933333, 0.933333, 0.933333, 1 )
+shader_param/extra_color_2 = Color( 0.752941, 0.796078, 0.862745, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.393939, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.358724, 0.0994899, 0.165311, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 0.45098, 0, 0, 1 )
+material = SubResource( 1 )
+position = Vector2( 21, 0 )
+z_index = -10
+amount = 1
+lifetime = 0.5
+explosiveness = 0.2
+lifetime_randomness = 0.2
+texture = ExtResource( 2 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+linear_accel = -100.0
+color_ramp = SubResource( 4 )
+anim_offset = 0.23
