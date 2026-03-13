@@ -8,6 +8,7 @@
 [ext_resource path="res://characters/stickman/sprites/idle.png" type="Texture" id=6]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Cross_Slash_01 - Copy.png" type="Texture" id=7]
 
+
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 2 )

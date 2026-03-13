@@ -8,6 +8,7 @@
 [ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/magic_shield_runes_a_cyan.png" type="Texture" id=7]
 
+
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
 shader = ExtResource( 6 )

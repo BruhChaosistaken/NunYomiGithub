@@ -231,16 +231,22 @@ func tick():
 	if Pressure_Left < 10 and insanity > 0:
 		insanity -= 0.5
 
+	if insanity == 99:
+		play_sound("MaxStart")
+		spawn_particle_effect_relative(Insanity_Effect, hurtbox_pos_relative_float())
+
 	if insanity >= 100:
 		insane = true
-		change_state("Insane")
+		
+		
 
 	else:
 		insane = false
 
-	if insanity == 99:
-		play_sound("MaxStart")
-		spawn_particle_effect_relative(Insanity_Effect, hurtbox_pos_relative_float())
+	if insane:
+		if not opponent.current_state().state_name == "Grabbed":			
+			change_state("Insane")
+			Pressure_Left = 0;
 
 	var time_in_insane = 0
 
@@ -248,10 +254,9 @@ func tick():
 		time_in_insane += 1
 		
 		if time_in_insane == 100:
-			pass
+			change_state("Wait")
+			insanity = 0
 
-		if time_in_insane == 200:
-			pass
 
 		if time_in_insane == 300:
 			pass
@@ -277,29 +282,44 @@ func _on_hit_something(obj,hitbox):
 	if not obj.is_in_group("Fighter") and obj.id == id:
 		
 		
-		var final_di_y =  0
+		#var final_di_y =  0
 
-		if current_di.y > 0:
-			final_di_y = 0
-		else:
-			final_di_y = current_di.y
+		##	final_di_y = 0
+		###final_di_y = current_di.y
 
-		var test = Vector2(0,0) + Vector2(current_di.x, final_di_y)
+		var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
 		
 		var dir = fixed.normalized_vec(str(test.x), str(test.y))
 
-		var pos = obj.get_pos()
+		var pos = obj.get_center_position_float()
 
-		var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), pos.x, pos.y, true, {"dir": dir},false)
-		skull.set_facing(get_facing_int())
+		var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), pos.x, pos.y, true, {"dir": dir})
+		#skull.set_facing(get_facing_int())
+		
+		var speed = fixed.mul("15", "1")
+		
+		print(speed)
+		
+		print(current_di.x)
+		
 		if get_facing_int() == 1:
 			
-			 var force = fixed.normalized_vec_times(str(hitbox.x),str(hitbox.y+25),fixed.mul(hitbox.knockback, "1"))
+			 #var di_force = x_to_dir(current_di.x, current_di.y, 5)
+			 var force = fixed.normalized_vec_times(str(hitbox.x + (100 + current_di.x)),str((hitbox.y+current_di.y-25)  ),speed)
+			 
 			 skull.apply_force(force.x,force.y)
+
+			 
 		
 		if get_facing_int() == -1:
-			 var force = fixed.normalized_vec_times(str(-hitbox.x),str(-(hitbox.y+25)),fixed.mul(hitbox.knockback, "1"))
+			 #var di_force = xy_to_dir(current_di.x, current_di.y, 5)
+			 var force = fixed.normalized_vec_times(str(-hitbox.x+(-100+current_di.x)),str((hitbox.y+current_di.y-25)),speed)
+			 
 			 skull.apply_force(force.x,force.y)
+			 
+			 
+			
+			
 func getOpponentName():
 	var name = find_parent("Main").match_data.selected_characters[opponent.id]["name"]
 	var filter = name.rfind("__") 

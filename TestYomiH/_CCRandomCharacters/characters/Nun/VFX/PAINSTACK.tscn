@@ -5,6 +5,7 @@
 [ext_resource path="res://characters/stickman/sprites/idle.png" type="Texture" id=3]
 [ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
 
+
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
 shader = ExtResource( 4 )

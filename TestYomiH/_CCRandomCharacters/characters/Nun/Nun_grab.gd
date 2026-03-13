@@ -1,5 +1,7 @@
 extends ThrowState
 
+#Making this a cashout tool, lose pressure to lose pressure
+
 func _enter():
 	host.start_invulnerability()
 
@@ -14,7 +16,7 @@ func _frame_13():
 
 func _frame_19():
 
-	host.Pressure_Left += 1.0
+	host.Pressure_Left -= 3.0
 	host.opponent.hitlag_ticks = 2
 	host.hitlag_ticks = 2
 

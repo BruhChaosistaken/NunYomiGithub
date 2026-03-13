@@ -5,7 +5,7 @@ func register(codex):
 	codex.set_summary(""" Precise rushdown, prioritizing managing her pressure to not obtain INSANITY. While having decent damage and tools to win the game.
 	""")
 
-	codex.moveset["OVERLOAD"].desc = "30%/0.3 more dmg dealt, and 20%/0.2 more damage received, Buffs certain moves, and Allows to [rainbow freq=0.5 sat=10 val=20]Exceed[/rainbow] the pressure limit"
+	codex.moveset["Awaken"].desc = "30%/0.3 more dmg dealt, and 20%/0.2 more damage received, Buffs certain moves, and Allows to [rainbow freq=0.5 sat=10 val=20]Exceed[/rainbow] the pressure limit"
 	codex.moveset["Eliminate"].desc = "In Awakening hits f9 - 10."
 	codex.moveset["Descend"].desc = "Hitbox spawn depends on when she hits the ground, In awakening hits OTG."
 	codex.moveset["Affix"].desc = "Swap Places with a Skull of your choosing, doing so puts Nun into a counter stance and retaliates any attack that comes in contact with her."

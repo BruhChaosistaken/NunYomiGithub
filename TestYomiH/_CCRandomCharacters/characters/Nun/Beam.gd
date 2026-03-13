@@ -1,7 +1,5 @@
 extends BaseProjectile
 
-onready var FrontBeam = $"%FrontBeamSprite"
-
 func on_got_blocked():
 	.on_got_blocked()
 

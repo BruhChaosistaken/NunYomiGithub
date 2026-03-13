@@ -7,6 +7,7 @@ func _enter():
 
 	game_time = Global.current_game.time
 
+#alt intro checks for sounds
 func _frame_24():
 	if anim_name == "MAX INTRO":
 
@@ -22,10 +23,33 @@ func _frame_24():
 		if host.supers_available < 1 or not host.infinite_resources:
 			host.supers_available = 1
 			host.Pressure_Left = 5
+		
+	
 
 func _frame_79():
 	if anim_name == "MAX INTRO":
 		host.play_sound("Movement")
+
+func _frame_6():
+	if anim_name == "intro2":
+		host.play_sound("Movement")
+		
+func _frame_70():
+	if anim_name == "intro2":
+		host.play_sound("shing")
+func _frame_76():
+	if anim_name == "intro2":
+		host.play_sound("GRAHHH")
+func _frame_80():
+	if anim_name == "intro2":
+		host.play_sound("Slash")
+func _frame_82():
+	if anim_name == "intro2":
+		host.play_sound("Sting")
+		
+func _frame_84():
+	if anim_name == "intro2":
+		host.play_sound("Death")
 
 func _frame_0():
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/4b50e402-6f1f-47bd-8c39-00e8f6b30ce5.png" type="Texture" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/5ab4d21e-111a-47d6-8f22-2525e3e303d8.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Slash.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_JJ_plasma_blast_sm01.wav" type="AudioStream" id=11]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Fight FX/014_electric_ml.wav" type="AudioStream" id=12]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Supers/SinReleaseFrontBeam.png" type="Texture" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -145,102 +144,6 @@ particles_anim_h_frames = 2
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 13 )
-region = Rect2( 576, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 13 )
-region = Rect2( 768, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 13 )
-region = Rect2( 960, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 13 )
-region = Rect2( 1152, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 13 )
-region = Rect2( 1344, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 13 )
-region = Rect2( 1536, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 13 )
-region = Rect2( 1728, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 13 )
-region = Rect2( 1920, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 13 )
-region = Rect2( 2112, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 13 )
-region = Rect2( 2304, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 13 )
-region = Rect2( 2496, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 13 )
-region = Rect2( 2688, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 13 )
-region = Rect2( 2880, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 13 )
-region = Rect2( 3072, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 13 )
-region = Rect2( 3264, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 13 )
-region = Rect2( 3456, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 13 )
-region = Rect2( 3648, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 13 )
-region = Rect2( 3840, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 13 )
-region = Rect2( 4032, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 13 )
-region = Rect2( 4224, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 13 )
-region = Rect2( 4416, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 13 )
-region = Rect2( 4608, 0, 192, 192 )
-
-[sub_resource type="SpriteFrames" id=53]
-animations = [ {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
-"loop": true,
-"name": "default2",
-"speed": 5.0
-} ]
-
 [node name="Beam" instance=ExtResource( 6 )]
 position = Vector2( 90, -18 )
 script = ExtResource( 8 )
@@ -258,7 +161,6 @@ position = Vector2( 1959, 0 )
 scale = Vector2( 20.4063, 1 )
 frames = SubResource( 26 )
 animation = "Default"
-frame = 5
 
 [node name="Electricity" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
 unique_name_in_owner = true
@@ -312,14 +214,6 @@ scale_amount_random = 0.5
 color_ramp = ExtResource( 5 )
 anim_speed = 1.0
 anim_speed_random = 1.0
-
-[node name="FrontBeamSprite" type="AnimatedSprite" parent="Flip" index="2"]
-unique_name_in_owner = true
-position = Vector2( -90, 0 )
-scale = Vector2( 0.9375, 1 )
-frames = SubResource( 53 )
-animation = "default2"
-frame = 13
 
 [node name="CollisionBox" parent="." index="2"]
 width = 0

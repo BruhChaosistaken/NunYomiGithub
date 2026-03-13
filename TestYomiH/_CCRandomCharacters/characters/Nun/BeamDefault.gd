@@ -2,19 +2,10 @@ extends DefaultFireball
 
 onready var h = $Hitbox
 
-
-onready var Beam = $Sprite
-
 func _tick():
 	var creator_pos = host.creator.get_pos()
 	host.set_pos(str(creator_pos.x + 90 * host.get_facing_int()), str(creator_pos.y - 18))
-
-	host.FrontBeam.set_material(host.creator.sprite.get_material())
-
-	host.FrontBeam.frame = current_tick / 2
-
 	if current_tick > lifetime:
-		host.FrontBeam.hide()
 		host.disable()
 		terminate_hitboxes()
 

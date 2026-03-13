@@ -97,6 +97,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.656442 ), -0.510201, 0.
 [node name="SKULL2" instance=ExtResource( 5 )]
 material = SubResource( 1 )
 script = ExtResource( 12 )
+gravity = "2"
 max_fall_speed = "15"
 extra_state_variables = ""
 damages_own_team = true

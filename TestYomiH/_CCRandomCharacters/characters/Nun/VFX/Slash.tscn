@@ -9,6 +9,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Glow_Hard_01.png" type="Texture" id=7]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Impact06.png" type="Texture" id=8]
 
+
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 4 )

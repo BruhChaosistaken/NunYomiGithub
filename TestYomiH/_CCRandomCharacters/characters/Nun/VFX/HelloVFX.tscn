@@ -9,6 +9,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Gradients/White-Red.tres" type="Gradient" id=7]
 [ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=8]
 
+
 [sub_resource type="ShaderMaterial" id=10]
 resource_local_to_scene = true
 shader = ExtResource( 8 )

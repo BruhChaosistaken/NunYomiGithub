@@ -5,6 +5,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/865fef28-0f75-4099-adbe-79bf03c3feb7.png" type="Texture" id=3]
 [ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
 
+
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 4 )

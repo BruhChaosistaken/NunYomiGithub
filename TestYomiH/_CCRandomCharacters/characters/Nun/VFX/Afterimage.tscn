@@ -7,6 +7,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/3c24d7ac-d634-4e34-a381-89ed37a63151.png" type="Texture" id=5]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/865fef28-0f75-4099-adbe-79bf03c3feb7.png" type="Texture" id=6]
 
+
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 3 )

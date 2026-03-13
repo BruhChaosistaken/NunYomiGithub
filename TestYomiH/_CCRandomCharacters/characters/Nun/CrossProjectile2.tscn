@@ -112,16 +112,9 @@ script = ExtResource( 10 )
 sprite_animation = "default"
 anim_length = 10
 particle_scene = ExtResource( 13 )
-move_speed = "6.0"
-homing = true
-homing_turn_speed = "1.0"
-homing_accel = "0.5"
-max_homing_speed = "5"
+move_x = 4
 lifetime = 99999
-relative_data_dir = false
 fizzle_on_ground = false
-bounce_on_ground = true
-num_bounces = 2
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
 z_index = 1000

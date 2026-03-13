@@ -30,6 +30,7 @@
 [ext_resource path="res://characters/stickman/sprites/stickman7.png" type="Texture" id=43]
 [ext_resource path="res://characters/stickman/sprites/stickman5.png" type="Texture" id=44]
 
+
 [sub_resource type="AtlasTexture" id=682]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 192, 192 )

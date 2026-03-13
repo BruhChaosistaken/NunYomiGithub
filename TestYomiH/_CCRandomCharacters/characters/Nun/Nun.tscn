@@ -1,4 +1,4 @@
-[gd_scene load_steps=1260 format=2]
+[gd_scene load_steps=1262 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/NunJudgement.tres" type="SpriteFrames" id=2]
@@ -63,7 +63,6 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/wall slam.png" type="Texture" id=61]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Catholic Dash.png" type="Texture" id=62]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/Low Cut.png" type="Texture" id=63]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/HelloUIData.tscn" type="PackedScene" id=64]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/HELLO2.gd" type="Script" id=65]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/HelloVFX.tscn" type="PackedScene" id=66]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/hit_grip.wav" type="AudioStream" id=67]
@@ -326,7 +325,9 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Low Cut.gd" type="Script" id=324]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Insane.gd" type="Script" id=325]
 [ext_resource path="res://ui/ActionSelector/ActionUIData/DashForwardActionUIData.tscn" type="PackedScene" id=326]
-[ext_resource path="res://characters/states/AirDash.gd" type="Script" id=327]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=327]
+[ext_resource path="res://sound/common/dash1.wav" type="AudioStream" id=328]
+[ext_resource path="res://characters/mutant/states/AirDashForward.gd" type="Script" id=329]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/skull_UI.tscn" type="PackedScene" id=330]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Stabreplacement.PNG" type="Texture" id=331]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/RiseV2.PNG" type="Texture" id=332]
@@ -339,6 +340,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Pressurecombo.png" type="Texture" id=339]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/fixedpapercuts.png" type="Texture" id=340]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/arealpapercuts.png" type="Texture" id=341]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Rush.gd" type="Script" id=342]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/pressurerush.gd" type="Script" id=343]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/papercuts.gd" type="Script" id=344]
 
@@ -4688,8 +4690,8 @@ extra_color_2 = Color( 1, 0.588235, 0.588235, 1 )
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 3 )
 frames = SubResource( 965 )
-animation = "redwave"
-frame = 1
+animation = "stalk uproar"
+frame = 6
 offset = Vector2( 0, -14 )
 
 [node name="STACK" parent="Flip/Particles" index="0" instance=ExtResource( 143 )]
@@ -4919,6 +4921,15 @@ script = ExtResource( 273 )
 stream = ExtResource( 307 )
 volume_db = -2.0
 script = ExtResource( 273 )
+
+[node name="Slash" type="AudioStreamPlayer" parent="Sounds" index="53"]
+stream = ExtResource( 117 )
+
+[node name="Sting" type="AudioStreamPlayer" parent="Sounds" index="54"]
+stream = ExtResource( 85 )
+
+[node name="Death" type="AudioStreamPlayer" parent="Sounds" index="55"]
+stream = ExtResource( 110 )
 
 [node name="Start" parent="StateMachine" index="0"]
 script = ExtResource( 210 )
@@ -5272,6 +5283,36 @@ start_tick = 7
 active_ticks = 3
 
 [node name="Rush" type="Node2D" parent="StateMachine" index="53"]
+script = ExtResource( 342 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "SlicenDice"
+anim_length = 28
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "9"
+force_tick = 3
+enter_force_dir_x = "1"
+enter_force_speed = "1"
+type = 1
+button_texture = ExtResource( 154 )
+air_type = 2
+self_hit_cancellable = false
+interrupt_from_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+interrupt_into_string = "Grounded
+
+Aerial
+"
+hit_cancel_into_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+allowed_stances_string = "Slasher"
+change_stance_to = "Slasher"
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Rush" index="0"]
 z_index = 1000
@@ -5537,7 +5578,7 @@ plus_frames = 2
 hit_height = 0
 hit_particle = ExtResource( 93 )
 replace_hit_particle = true
-hit_sound = ExtResource( 108 )
+hit_sound = ExtResource( 117 )
 dir_y = "0"
 knockback = "3"
 block_pushback_modifier = "0.5"
@@ -5565,7 +5606,6 @@ timed_spawn_particle_tick = 9
 enter_sfx = ExtResource( 24 )
 title = "Rise"
 type = 1
-data_ui_scene = ExtResource( 314 )
 button_texture = ExtResource( 148 )
 self_hit_cancellable = false
 self_interruptable = false
@@ -5694,7 +5734,6 @@ force_dir_x = "1"
 force_speed = "-3"
 force_tick = 7
 type = 1
-data_ui_scene = ExtResource( 314 )
 button_texture = ExtResource( 146 )
 self_hit_cancellable = false
 self_interruptable = false
@@ -5887,25 +5926,25 @@ SubResource( 78 ): {
 "x": -65,
 "y": -2
 },
-SubResource( 81 ): {
-"x": -62,
-"y": -4
-},
-SubResource( 79 ): {
+SubResource( 82 ): {
 "x": -64,
-"y": -4
+"y": -2
 },
 SubResource( 77 ): {
 "x": -68,
 "y": -3
 },
-SubResource( 82 ): {
+SubResource( 79 ): {
 "x": -64,
-"y": -2
+"y": -4
 },
 SubResource( 80 ): {
 "x": -64,
 "y": -5
+},
+SubResource( 81 ): {
+"x": -62,
+"y": -4
 }
 }
 release_throw_pos_x = 50
@@ -6267,12 +6306,8 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 141 ): {
-"x": 34,
-"y": -8
-},
-SubResource( 142 ): {
-"x": 30,
+SubResource( 148 ): {
+"x": 27,
 "y": -8
 },
 SubResource( 143 ): {
@@ -6281,6 +6316,14 @@ SubResource( 143 ): {
 },
 SubResource( 144 ): {
 "x": 31,
+"y": -8
+},
+SubResource( 141 ): {
+"x": 34,
+"y": -8
+},
+SubResource( 142 ): {
+"x": 30,
 "y": -8
 },
 SubResource( 145 ): {
@@ -6294,10 +6337,6 @@ SubResource( 146 ): {
 SubResource( 147 ): {
 "x": 29,
 "y": -6
-},
-SubResource( 148 ): {
-"x": 27,
-"y": -8
 },
 SubResource( 149 ): {
 "x": 25,
@@ -6441,11 +6480,10 @@ release_frame = 16
 start_throw_pos_x = 30
 start_throw_pos_y = -10
 release_throw_pos_x = 30
-knockback = "6.0"
-dir_y = "0.0"
+knockback = "5.0"
+dir_y = "1.0"
 knockdown_extends_hitstun = true
-damage = 30
-damage_in_combo = 10
+damage = 100
 wall_slam = true
 release_sfx = ExtResource( 117 )
 release_sfx_volume = -5.0
@@ -6607,9 +6645,13 @@ script = ExtResource( 60 )
 apply_forces = true
 apply_fric = true
 apply_grav = true
+reset_x_momentum = true
 sprite_animation = "hello"
 anim_length = 18
 ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "10"
+force_tick = 3
 particle_scene = ExtResource( 30 )
 spawn_particle_on_enter = true
 enter_sfx = ExtResource( 32 )
@@ -6622,7 +6664,6 @@ null: {
 }
 title = "HELLO"
 type = 3
-data_ui_scene = ExtResource( 64 )
 button_texture = ExtResource( 165 )
 throw_techable = true
 self_hit_cancellable = false
@@ -6649,7 +6690,6 @@ hitlag_ticks = 10
 scale_combo = false
 combo_scaling_amount = 0
 hits_vs_aerial = false
-guard_break = true
 hit_sound = ExtResource( 67 )
 knockback = "1.0"
 start_tick = 8
@@ -7683,9 +7723,10 @@ dir_y = "-0.1"
 knockback = "9"
 block_pushback_modifier = "1.5"
 grounded_hit_state = "HurtAerial"
+air_ground_bounce = true
 wall_slam = true
 start_tick = 7
-active_ticks = 1
+active_ticks = 2
 
 [node name="STALK BACKSTAB" type="Node2D" parent="StateMachine" index="100"]
 script = ExtResource( 234 )
@@ -7758,18 +7799,6 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
-SubResource( 661 ): {
-"x": 27,
-"y": 0
-},
-SubResource( 667 ): {
-"x": 27,
-"y": -1
-},
 SubResource( 659 ): {
 "x": 26,
 "y": 0
@@ -7778,21 +7807,33 @@ SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 665 ): {
+SubResource( 661 ): {
+"x": 27,
+"y": 0
+},
+SubResource( 662 ): {
 "x": 24,
-"y": -1
+"y": -2
 },
 SubResource( 663 ): {
 "x": 24,
 "y": -2
 },
-SubResource( 666 ): {
+SubResource( 667 ): {
+"x": 27,
+"y": -1
+},
+SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
-SubResource( 662 ): {
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
+SubResource( 666 ): {
 "x": 24,
-"y": -2
+"y": -1
 }
 }
 show_in_menu = false
@@ -7820,7 +7861,6 @@ force_dir_x = "1.0"
 force_speed = "-3"
 force_tick = 15
 enter_force_dir_x = "1.0"
-enter_force_dir_y = "-0.3"
 enter_force_speed = "10"
 particle_scene = ExtResource( 241 )
 particle_position = Vector2( 0, -18 )
@@ -7834,7 +7874,11 @@ button_texture = ExtResource( 191 )
 burst_cancellable = false
 reversible = false
 can_feint_if_possible = false
-interrupt_from_string = "Grounded"
+interrupt_from_string = "Sprint"
+interrupt_into_string = "Grounded
+"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
 no_collision_start_frame = 3
 no_collision_end_frame = 22
 super_level_ = 2
@@ -7851,7 +7895,7 @@ hit_sound = ExtResource( 80 )
 knockback = "0.0"
 grounded_hit_state = "Knockdown"
 aerial_hit_state = "Knockdown"
-start_tick = 12
+start_tick = 7
 active_ticks = 6
 throw_state = "STALK DECIMATE 2"
 
@@ -7867,7 +7911,6 @@ enter_sfx = ExtResource( 232 )
 enter_sfx_volume = -5.0
 sfx = ExtResource( 132 )
 sfx_tick = 7
-force_same_direction_as_previous_state = true
 type = 3
 release_opponent_on_exit = true
 apply_pushback = false
@@ -7938,7 +7981,6 @@ particle_position = Vector2( 0, -18 )
 spawn_particle_on_enter = true
 title = "KNOCK KNOCK"
 type = 1
-data_ui_scene = ExtResource( 314 )
 button_texture = ExtResource( 260 )
 usable_from_whiff_cancel_if_possible = false
 self_hit_cancellable = false
@@ -8254,7 +8296,6 @@ width = 19
 height = 15
 damage = 50
 hitstun_ticks = 20
-hits_projectiles = false
 hit_height = 2
 screenshake_amount = 1
 bump_on_whiff = true
@@ -8453,13 +8494,15 @@ sfx = ExtResource( 290 )
 sfx_tick = 34
 sfx_volume = -8.0
 title = "Sin Release"
+show_in_menu = false
 type = 3
 self_hit_cancellable = false
 self_interruptable = false
 can_feint_if_possible = false
+selectable = false
 interrupt_from_string = "Grounded"
 interrupt_into_string = "Grounded"
-allowed_stances_string = "All"
+allowed_stances_string = "judge"
 apply_pushback = false
 super_level_ = 2
 super_freeze_ticks_ = 4
@@ -8656,12 +8699,40 @@ start_tick = 11
 active_ticks = 2
 
 [node name="AirDashForward" type="Node2D" parent="StateMachine" index="122"]
-script = ExtResource( 327 )
+script = ExtResource( 329 )
 __meta__ = {
 "_editor_description_": ""
 }
-interrupt_from_string = "Air"
-interrupt_into_string = "Air"
+reset_momentum = true
+sprite_animation = "DashForward"
+anim_length = 15
+particle_scene = ExtResource( 112 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 328 )
+enter_sfx_volume = -10.0
+title = "Air Dash"
+data_ui_scene = ExtResource( 326 )
+button_texture = ExtResource( 327 )
+flip_with_facing = true
+air_type = 1
+uses_air_movement = true
+iasa_at = 10
+interruptible_on_opponent_turn = true
+hold_restart = "AirDashForward"
+reversible = false
+interrupt_from_string = "AerialMovement
+Aerial
+Dash
+Jump"
+interrupt_into_string = "Grounded
+Aerial
+ForwardDashAttack
+Sprint"
+allowed_stances_string = "All"
+change_stance_to = "Normal"
+beats_backdash = true
+dash_speed = 12
+air = true
 
 [node name="HurtboxState" type="Node2D" parent="StateMachine/AirDashForward" index="0"]
 z_index = 999
