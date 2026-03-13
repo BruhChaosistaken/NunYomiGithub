@@ -9,7 +9,6 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Dot_01.png" type="Texture" id=7]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/4b50e402-6f1f-47bd-8c39-00e8f6b30ce5.png" type="Texture" id=8]
 
-
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 5 )
@@ -58,7 +57,10 @@ scale = Vector2( 6, -0.5 )
 amount = 1
 lifetime = 0.4
 texture = ExtResource( 6 )
+spread = 0.0
 gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+scale_amount_random = 1.0
 scale_amount_curve = SubResource( 3 )
 color_ramp = ExtResource( 3 )
 anim_speed = 1.0

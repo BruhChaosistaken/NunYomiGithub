@@ -13,8 +13,7 @@ func _enter():
 	
 	STALK = data
 	if STALK == true:
-		fallback_state = "STALK"
-		host.stance = "Stalk"
+		host.stance = "Slasher"
 
 	else:
 		fallback_state = "Wait"
@@ -34,8 +33,8 @@ func _frame_9():
 func _frame_13():
 	host.play_sound("shing")
 
-func on_got_blocked():
-	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-		host.terrify_opponent(host.get_center_position_float())
+#func on_got_blocked():
+#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
+#		host.terrify_opponent(host.get_center_position_float())
 
 

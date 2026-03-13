@@ -33,6 +33,6 @@ func _on_hit_something(obj,hitbox):
 	._on_hit_something(obj, hitbox)
 	host.spawn_particle_effect(particle_scene,host.opponent.get_center_position_float())
 
-func on_got_blocked():
-	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-		host.terrify_opponent()
+#func on_got_blocked():
+#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
+#		host.terrify_opponent()

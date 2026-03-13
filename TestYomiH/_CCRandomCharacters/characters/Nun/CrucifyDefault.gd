@@ -3,7 +3,7 @@ extends DefaultFireball
 
 const ATTACH_DISTANCE = "16"
 
-
+const Spawn_Particle = preload("res://_CCRandomCharacters/characters/Nun/VFX/Afterimage.tscn")
 
 
 var attach_frames = 0
@@ -12,6 +12,9 @@ var explode_ticks = 10
 func _frame_0():
 	attach_frames = 0
 	host.play_sound("Spawn")
+
+	host.spawn_particle_effect(Spawn_Particle,host.creator.opponent.get_center_position_float())
+
 func _tick():
 	if host.attached:
 		host.set_facing(host.creator.opponent.get_facing_int())

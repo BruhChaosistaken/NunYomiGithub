@@ -114,6 +114,7 @@ color_ramp = SubResource( 7 )
 
 [node name="Woosh" type="AudioStreamPlayer" parent="Sounds" index="0"]
 stream = ExtResource( 8 )
+volume_db = -15.0
 
 [node name="CollisionBox" parent="." index="2"]
 width = 12

@@ -5,11 +5,11 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/CrucifyDefault.gd" type="Script" id=3]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SSCRUCIFYprojectile.gd" type="Script" id=4]
 [ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
-[ext_resource path="res://sound/common/slash2.wav" type="AudioStream" id=6]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/act_cmn01#165.wav" type="AudioStream" id=6]
 [ext_resource path="res://characters/stickman/projectiles/StickyBombExplode.gd" type="Script" id=7]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/ModeChange.wav" type="AudioStream" id=8]
-[ext_resource path="res://sound/common/explosion4.wav" type="AudioStream" id=9]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/SUFFER1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/CARVE INSERT.wav" type="AudioStream" id=9]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Slash.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
@@ -75,12 +75,14 @@ has_projectile_parry_window = false
 deletes_other_projectiles = false
 
 [node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 1.2, 1 )
 frames = SubResource( 10 )
 animation = "Explode"
+frame = 3
 
 [node name="Spawn" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 stream = ExtResource( 8 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="Default" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
@@ -88,8 +90,6 @@ fallback_state = "dormant"
 sprite_animation = "dormant"
 anim_length = 16
 ticks_per_frame = 4
-particle_scene = ExtResource( 10 )
-spawn_particle_on_enter = true
 move_x = 0
 num_hits = 2
 lifetime = 20
@@ -105,42 +105,50 @@ endless = true
 [node name="Hitbox" type="Node2D" parent="StateMachine/Explode" index="0"]
 z_index = 1000
 script = ExtResource( 5 )
-width = 16
-height = 16
-damage = 80
+y = -13
+width = 30
+height = 30
+damage = 70
+chip_damage_modifier = "2.0"
 hitstun_ticks = 24
-hitlag_ticks = 1
-victim_hitlag = 10
-damage_proration = 1
-whiff_sound = ExtResource( 9 )
-hit_sound = ExtResource( 6 )
-dir_x = "-1.0"
-knockback = "9.0"
-launch_reversible = true
+damage_proration = -1
+di_modifier = "0.8"
+sdi_modifier = "0.5"
+hit_particle = ExtResource( 10 )
+replace_hit_particle = true
+hit_sound = ExtResource( 9 )
+hit_bass_sound = ExtResource( 6 )
+bass_on_whiff = true
+dir_x = "0.5"
+knockback = "4"
 grounded_hit_state = "HurtAerial"
-start_tick = 2
-active_ticks = 2
+start_tick = 3
 
 [node name="BigExplode" type="Node2D" parent="StateMachine" index="2"]
 script = ExtResource( 7 )
 sprite_animation = "Explode"
 anim_length = 7
+ticks_per_frame = 2
 endless = true
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/BigExplode" index="0"]
 z_index = 1000
 script = ExtResource( 5 )
-width = 16
-height = 16
-damage = 100
+y = -13
+width = 30
+height = 30
+damage = 70
+chip_damage_modifier = "2.0"
 hitstun_ticks = 24
-hitlag_ticks = 1
-victim_hitlag = 10
-whiff_sound = ExtResource( 9 )
-hit_sound = ExtResource( 6 )
-dir_x = "-1.0"
-knockback = "11.0"
-launch_reversible = true
+damage_proration = -1
+di_modifier = "0.8"
+sdi_modifier = "0.5"
+hit_particle = ExtResource( 10 )
+replace_hit_particle = true
+hit_sound = ExtResource( 9 )
+hit_bass_sound = ExtResource( 6 )
+bass_on_whiff = true
+dir_x = "0.5"
+knockback = "4"
 grounded_hit_state = "HurtAerial"
-start_tick = 1
-active_ticks = 2
+start_tick = 3

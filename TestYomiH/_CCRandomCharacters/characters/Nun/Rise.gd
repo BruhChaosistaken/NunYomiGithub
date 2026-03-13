@@ -28,6 +28,6 @@ func _tick():
 	if current_tick >= 9 and current_tick < 13:
 		host.create_speed_after_image_from_style(1)
 
-func on_got_blocked():
-	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-		host.terrify_opponent()
+#func on_got_blocked():
+#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
+#		host.terrify_opponent()

@@ -36,6 +36,6 @@ func _tick():
 	if current_tick >= 9 and current_tick < 12:
 		host.set_vel(host.opponent.get_vel().x, "0")
 
-func on_got_blocked():
-	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-		host.terrify_opponent()
+#func on_got_blocked():
+#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
+#		host.terrify_opponent()

@@ -20,8 +20,8 @@ func _enter():
 func is_usable():
 	return .is_usable() and host.current_state().state_name == "Descend Crash"
 
-func on_got_blocked():
-	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-		host.terrify_opponent(host.get_center_position_float())
+#func on_got_blocked():
+#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
+#		host.terrify_opponent(host.get_center_position_float())
 
 

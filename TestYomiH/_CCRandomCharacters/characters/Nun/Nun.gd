@@ -274,52 +274,61 @@ func on_got_blocked():
 #		"bg1":preload("res://sound/music/bg1.mp3")
 #	}
 # Nun hits a her own projectile, spawns skull code
+
+onready var SKULL = null
+onready var SKULL2 = null
+
 func _on_hit_something(obj,hitbox):
 	._on_hit_something(obj,hitbox)
 	
 	Pressure_Left += 0.1
 	
-	if not obj.is_in_group("Fighter") and obj.id == id:
-		
-		
-		#var final_di_y =  0
+#	if not obj.is_in_group("Fighter") and obj.id == id:
 
-		##	final_di_y = 0
-		###final_di_y = current_di.y
+	if obj.is_in_group("Skull"):
+		if SKULL:
 
-		var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
-		
-		var dir = fixed.normalized_vec(str(test.x), str(test.y))
+			var SkullPosX = objs_map[SKULL].get_pos().x
+			var SkullPosY = objs_map[SKULL].get_pos().y
+	#
+	#
+	#		#var final_di_y =  0
+	#
+	#		##	final_di_y = 0
+	#		###final_di_y = current_di.y
+	#
+			var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
 
-		var pos = obj.get_center_position_float()
+			var dir = fixed.normalized_vec(str(test.x), str(test.y))
 
-		var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), pos.x, pos.y, true, {"dir": dir})
-		#skull.set_facing(get_facing_int())
-		
-		var speed = fixed.mul("15", "1")
-		
-		print(speed)
-		
-		print(current_di.x)
-		
-		if get_facing_int() == 1:
-			
-			 #var di_force = x_to_dir(current_di.x, current_di.y, 5)
-			 var force = fixed.normalized_vec_times(str(hitbox.x + (100 + current_di.x)),str((hitbox.y+current_di.y-25)  ),speed)
-			 
-			 skull.apply_force(force.x,force.y)
+			var pos = obj.get_center_position_float()
 
-			 
-		
-		if get_facing_int() == -1:
-			 #var di_force = xy_to_dir(current_di.x, current_di.y, 5)
-			 var force = fixed.normalized_vec_times(str(-hitbox.x+(-100+current_di.x)),str((hitbox.y+current_di.y-25)),speed)
-			 
-			 skull.apply_force(force.x,force.y)
-			 
-			 
-			
-			
+			var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), SkullPosX, SkullPosY, true, {"dir": dir})
+			#skull.set_facing(get_facing_int())
+
+			var speed = fixed.mul("15", "1")
+
+			print(speed)
+
+			print(current_di.x)
+
+			if get_facing_int() == 1:
+
+				 #var di_force = x_to_dir(current_di.x, current_di.y, 5)
+				 var force = fixed.normalized_vec_times(str(hitbox.x + (100 + current_di.x)),str((hitbox.y+current_di.y-25)  ),speed)
+
+				 skull.apply_force(force.x,force.y)
+
+
+
+			if get_facing_int() == -1:
+				 #var di_force = xy_to_dir(current_di.x, current_di.y, 5)
+				 var force = fixed.normalized_vec_times(str(-hitbox.x+(-100+current_di.x)),str((hitbox.y+current_di.y-25)),speed)
+
+				 skull.apply_force(force.x,force.y)
+
+
+
 func getOpponentName():
 	var name = find_parent("Main").match_data.selected_characters[opponent.id]["name"]
 	var filter = name.rfind("__") 
@@ -395,8 +404,7 @@ func process_extra(extra):
 	else: alleviate = false
 	
 
-onready var SKULL = null
-onready var SKULL2 = null
+
 
 func terrify(player):
 		var local_pos = opponent.get_center_position_float() - player
