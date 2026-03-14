@@ -5842,6 +5842,7 @@ enter_force_dir_x = "1"
 enter_force_speed = "-3"
 particle_scene = ExtResource( 112 )
 type = 3
+data_ui_scene = ExtResource( 314 )
 button_texture = ExtResource( 150 )
 air_type = 2
 self_hit_cancellable = false
@@ -5902,48 +5903,28 @@ null: {
 "x": -77,
 "y": -2
 },
-<<<<<<< HEAD
 SubResource( 77 ): {
 "x": -68,
 "y": -3
 },
-=======
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 SubResource( 78 ): {
 "x": -65,
 "y": -2
 },
-<<<<<<< HEAD
 SubResource( 82 ): {
 "x": -64,
 "y": -2
 },
-=======
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 SubResource( 80 ): {
 "x": -64,
 "y": -5
 },
-<<<<<<< HEAD
 SubResource( 81 ): {
 "x": -62,
 "y": -4
-=======
-SubResource( 82 ): {
-"x": -64,
-"y": -2
-},
-SubResource( 77 ): {
-"x": -68,
-"y": -3
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 },
 SubResource( 79 ): {
 "x": -64,
-"y": -4
-},
-SubResource( 81 ): {
-"x": -62,
 "y": -4
 }
 }
@@ -6306,23 +6287,9 @@ null: {
 "x": 30,
 "y": -8
 },
-<<<<<<< HEAD
 SubResource( 148 ): {
 "x": 27,
 "y": -8
-=======
-SubResource( 141 ): {
-"x": 34,
-"y": -8
-},
-SubResource( 142 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 143 ): {
-"x": 30,
-"y": -7
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 },
 SubResource( 144 ): {
 "x": 31,
@@ -6332,7 +6299,6 @@ SubResource( 145 ): {
 "x": 29,
 "y": -8
 },
-<<<<<<< HEAD
 SubResource( 142 ): {
 "x": 30,
 "y": -8
@@ -6356,23 +6322,6 @@ SubResource( 149 ): {
 SubResource( 143 ): {
 "x": 30,
 "y": -7
-=======
-SubResource( 146 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
-SubResource( 148 ): {
-"x": 27,
-"y": -8
-},
-SubResource( 149 ): {
-"x": 25,
-"y": -8
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 }
 }
 show_in_menu = false
@@ -7832,36 +7781,14 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
-<<<<<<< HEAD
-=======
-SubResource( 661 ): {
-"x": 27,
-"y": 0
-},
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
-SubResource( 666 ): {
-"x": 24,
-"y": -1
-},
-SubResource( 659 ): {
-"x": 26,
-"y": 0
-},
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
-<<<<<<< HEAD
 SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
-=======
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 SubResource( 662 ): {
 "x": 24,
 "y": -2
@@ -7870,13 +7797,16 @@ SubResource( 663 ): {
 "x": 24,
 "y": -2
 },
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
 SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
 SubResource( 667 ): {
 "x": 27,
-<<<<<<< HEAD
 "y": -1
 },
 SubResource( 659 ): {
@@ -7885,8 +7815,6 @@ SubResource( 659 ): {
 },
 SubResource( 666 ): {
 "x": 24,
-=======
->>>>>>> 209afee72f8de55eeace33aa3bb7884d9e3ab02b
 "y": -1
 }
 }
@@ -8322,7 +8250,7 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 sprite_animation = "Vomit"
-anim_length = 14
+anim_length = 20
 ticks_per_frame = 2
 force_dir_x = "1.0"
 force_speed = "4.0"
