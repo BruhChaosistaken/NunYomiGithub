@@ -417,9 +417,11 @@ func spook(player):
 		var local_pos = opponent.get_center_position_float() - player
 		print(local_pos)
 		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 60, -10, true, {"dir": dir})
-
-
+		var obj = spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 35, -10, true, {"dir": dir})
+		var force = xy_to_dir(dir.x, "-80", "10.5")
+		obj.set_grounded(false)
+		obj.apply_force(force.x, force.y)
+		
 func terrify_opponent(player):
 		var local_pos = opponent.get_center_position_float() - player
 		print(local_pos)
