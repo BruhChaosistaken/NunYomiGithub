@@ -282,35 +282,34 @@ func _on_hit_something(obj,hitbox):
 	._on_hit_something(obj,hitbox)
 	
 	Pressure_Left += 0.1
-	
-#	if not obj.is_in_group("Fighter") and obj.id == id:
 
 	if obj.is_in_group("Skull"):
-		if SKULL:
 
-			var SkullPosX = objs_map[SKULL].get_pos().x
-			var SkullPosY = objs_map[SKULL].get_pos().y
-	#
+		var SkullPosX = objs_map[SKULL].get_hurtbox_center_float().x
+		var SkullPosY = objs_map[SKULL].get_hurtbox_center_float().y
+
+		print(objs_map[SKULL].position)
+		print(position)
+
+		if SKULL:
+			SUFFER_ACTIVE -= 1
+	
 	#
 	#		#var final_di_y =  0
 	#
 	#		##	final_di_y = 0
 	#		###final_di_y = current_di.y
-	#
+	
 			var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
-
 			var dir = fixed.normalized_vec(str(test.x), str(test.y))
 
 			var pos = obj.get_center_position_float()
 
-			var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), SkullPosX, SkullPosY, true, {"dir": dir})
+			var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), SkullPosX - position.x, SkullPosY - position.y, false)
+
 			#skull.set_facing(get_facing_int())
 
 			var speed = fixed.mul("15", "1")
-
-			print(speed)
-
-			print(current_di.x)
 
 			if get_facing_int() == 1:
 

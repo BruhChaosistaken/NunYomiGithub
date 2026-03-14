@@ -3,6 +3,7 @@ extends CharacterState
 const Cross = preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn")
 # C.C NAME UR DAMN NODES IN A WAY THAT KEASE SENSE
 
+# No :3
 
 func _frame_11():
 

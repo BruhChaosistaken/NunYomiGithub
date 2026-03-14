@@ -28,7 +28,6 @@ func fizzle():
 func tick():
 	.tick()
 
-	
 	if current_tick == 1:
 		creator.SSCROSSACTIVE = true
 		creator.SSCROSS = obj_name

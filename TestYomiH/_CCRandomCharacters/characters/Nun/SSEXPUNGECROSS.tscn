@@ -122,7 +122,8 @@ projectile_immune = true
 [node name="Sprite" parent="Flip" index="0"]
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 18 )
-animation = "cross"
+animation = "cross explode"
+frame = 2
 offset = Vector2( 1, -4 )
 
 [node name="Deez" parent="Flip/Sprite" index="0" instance=ExtResource( 9 )]
@@ -149,7 +150,6 @@ particle_scene = ExtResource( 8 )
 spawn_particle_on_enter = true
 move_x = 0
 num_hits = 2
-lifetime = 69
 fizzle_on_ground = false
 fizzle_on_walls = false
 
@@ -194,7 +194,8 @@ width = 50
 height = 50
 damage = 100
 hitstun_ticks = 20
-hitlag_ticks = 10
+hitlag_ticks = 1
+victim_hitlag = 10
 plus_frames = 1
 hit_particle = ExtResource( 8 )
 replace_hit_particle = true
@@ -210,5 +211,5 @@ grounded_hit_state = "HurtAerial"
 hard_knockdown = true
 ground_bounce = false
 wall_slam = true
-start_tick = 12
+start_tick = 4
 active_ticks = 3

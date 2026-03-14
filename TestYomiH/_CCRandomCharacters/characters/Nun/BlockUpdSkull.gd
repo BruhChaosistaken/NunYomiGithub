@@ -10,6 +10,3 @@ func fizzle():
 
 	host.creator.SUFFER_ACTIVE -= 1
 	spawn_particle_relative(particle_scene)
-	print(host.creator.SUFFER_ACTIVE)
-
-

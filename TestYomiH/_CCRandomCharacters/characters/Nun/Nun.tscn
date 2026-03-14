@@ -5903,25 +5903,25 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 80 ): {
-"x": -64,
-"y": -5
-},
-SubResource( 82 ): {
-"x": -64,
-"y": -2
-},
-SubResource( 81 ): {
-"x": -62,
-"y": -4
+SubResource( 77 ): {
+"x": -68,
+"y": -3
 },
 SubResource( 78 ): {
 "x": -65,
 "y": -2
 },
-SubResource( 77 ): {
-"x": -68,
-"y": -3
+SubResource( 82 ): {
+"x": -64,
+"y": -2
+},
+SubResource( 80 ): {
+"x": -64,
+"y": -5
+},
+SubResource( 81 ): {
+"x": -62,
+"y": -4
 },
 SubResource( 79 ): {
 "x": -64,
@@ -6287,16 +6287,8 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 142 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 146 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 149 ): {
-"x": 25,
+SubResource( 148 ): {
+"x": 27,
 "y": -8
 },
 SubResource( 144 ): {
@@ -6307,21 +6299,29 @@ SubResource( 145 ): {
 "x": 29,
 "y": -8
 },
+SubResource( 142 ): {
+"x": 30,
+"y": -8
+},
+SubResource( 147 ): {
+"x": 29,
+"y": -6
+},
+SubResource( 146 ): {
+"x": 30,
+"y": -8
+},
 SubResource( 141 ): {
 "x": 34,
 "y": -8
 },
-SubResource( 148 ): {
-"x": 27,
+SubResource( 149 ): {
+"x": 25,
 "y": -8
 },
 SubResource( 143 ): {
 "x": 30,
 "y": -7
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
 }
 }
 show_in_menu = false
@@ -7781,17 +7781,13 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
-SubResource( 659 ): {
-"x": 26,
-"y": 0
-},
 SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 667 ): {
+SubResource( 661 ): {
 "x": 27,
-"y": -1
+"y": 0
 },
 SubResource( 662 ): {
 "x": 24,
@@ -7809,8 +7805,12 @@ SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
-SubResource( 661 ): {
+SubResource( 667 ): {
 "x": 27,
+"y": -1
+},
+SubResource( 659 ): {
+"x": 26,
 "y": 0
 },
 SubResource( 666 ): {
@@ -8626,6 +8626,8 @@ apply_fric = true
 apply_grav = true
 sprite_animation = "pain"
 anim_length = 8
+sprite_anim_length = 7
+ticks_per_frame = 2
 particle_scene = ExtResource( 313 )
 sfx = ExtResource( 70 )
 sfx_tick = 6
@@ -8649,6 +8651,8 @@ ticks_per_frame = 2
 type = 1
 button_texture = ExtResource( 269 )
 air_type = 1
+land_cancel = true
+min_land_cancel_frame = 14
 interrupt_from_string = "Aerial
 AerialAttack"
 interrupt_into_string = "Aerial

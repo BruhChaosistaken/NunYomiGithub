@@ -16,7 +16,7 @@ func tick():
 
 			if objs.is_in_group("Fighter"):
 				var overlaps = hurtbox.overlaps(objs.hurtbox)
-				if overlaps and startup >= 10 and not di_x == 0 and not di_y == 0:
+				if overlaps and startup >= 10 and not di_y == 0 or overlaps and startup >= 10 and not di_x == 0:
 					play_sound("Woosh")
 					#placeholder for now
 					spawn_particle_effect_relative(preload("res://_CCRandomCharacters/characters/Nun/VFX/BluntLight.tscn"), Vector2(0,0))
