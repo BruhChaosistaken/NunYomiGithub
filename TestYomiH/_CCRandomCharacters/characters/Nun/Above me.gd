@@ -4,12 +4,7 @@ var STALK = false
 
 export var UC = 2.0
 
-func _enter():
 
-	STALK = data
-	if STALK == true:
-		fallback_state = "STALK"
-		host.stance = "Stalk"
 
 func _tick():
 

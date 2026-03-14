@@ -4,10 +4,10 @@ const SPEED = "10.5"
 
 
 func _frame_11():
-	var local_pos = host.hurtbox_pos_relative_float()
+	var local_pos =  host.opponent.get_center_position_float()-host.hurtbox_pos_relative_float()
 
-	var dir = host.fixed.normalized_vec(str(0), str(0))
-	var obj = host.spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), local_pos.x, local_pos.y-32, true, {"dir": dir})
+	var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
+	var obj = host.spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 0, -20, true, {"dir": dir})
 	
 	host.spawn_particle_effect_relative(particle_scene, host.hurtbox_pos_relative_float(), Vector2.RIGHT * host.get_facing_int())
 
