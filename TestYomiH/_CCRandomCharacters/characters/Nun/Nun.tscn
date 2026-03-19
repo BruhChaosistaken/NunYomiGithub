@@ -1,4 +1,4 @@
-[gd_scene load_steps=1262 format=2]
+[gd_scene load_steps=1263 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/NunJudgement.tres" type="SpriteFrames" id=2]
@@ -63,6 +63,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/wall slam.png" type="Texture" id=61]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Catholic Dash.png" type="Texture" id=62]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/Low Cut.png" type="Texture" id=63]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/NoName.gd" type="Script" id=64]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/HELLO2.gd" type="Script" id=65]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/HelloVFX.tscn" type="PackedScene" id=66]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/hit_grip.wav" type="AudioStream" id=67]
@@ -304,7 +305,6 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Lobotomy.gd" type="Script" id=303]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Intimidate.gd" type="Script" id=304]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/intimidate.png" type="Texture" id=305]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/ActionUIDataintimidate.tscn" type="PackedScene" id=306]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Timestop/TimestopSFXREMADESHORT.wav" type="AudioStream" id=307]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/SPECIALINTRO.png" type="Texture" id=308]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Cross/Special peeps.png" type="Texture" id=309]
@@ -343,6 +343,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Rush.gd" type="Script" id=342]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/pressurerush.gd" type="Script" id=343]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/papercuts.gd" type="Script" id=344]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/ActionUIFolder/SpinningSkullsUIdata.tscn" type="PackedScene" id=345]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -5208,8 +5209,14 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 sprite_animation = "insanity"
-anim_length = 30
+anim_length = 60
 ticks_per_frame = 2
+particle_scene = ExtResource( 140 )
+state_screenshake_tick = 0
+state_screenshake_dir = Vector2( 2, 0 )
+state_screenshake_length = 1.0
+enter_sfx = ExtResource( 307 )
+enter_sfx_volume = -5.0
 title = "insane"
 show_in_menu = false
 self_hit_cancellable = false
@@ -5292,7 +5299,7 @@ sprite_animation = "SlicenDice"
 anim_length = 28
 ticks_per_frame = 2
 force_dir_x = "1"
-force_speed = "9"
+force_speed = "10"
 force_tick = 3
 enter_force_dir_x = "1"
 enter_force_speed = "1"
@@ -5367,7 +5374,7 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 sprite_animation = "papercuts"
-anim_length = 20
+anim_length = 22
 ticks_per_frame = 2
 force_dir_x = "1"
 force_speed = "5"
@@ -5408,7 +5415,7 @@ dir_y = "0"
 knockback = "3"
 block_pushback_modifier = "0.5"
 start_tick = 9
-active_ticks = 20
+active_ticks = 19
 looping = true
 
 [node name="Hitbox2" type="Node2D" parent="StateMachine/Papercuts" index="1"]
@@ -5423,6 +5430,7 @@ hitstun_ticks = 23
 hitlag_ticks = 8
 plus_frames = 2
 hit_height = 0
+group = 1
 hit_particle = ExtResource( 93 )
 replace_hit_particle = true
 hit_sound = ExtResource( 108 )
@@ -5431,7 +5439,6 @@ knockback = "3"
 block_pushback_modifier = "0.5"
 start_tick = 27
 active_ticks = 2
-loop_inactive_ticks = 1
 
 [node name="AirPapercuts" type="Node2D" parent="StateMachine" index="55"]
 script = ExtResource( 344 )
@@ -5908,8 +5915,12 @@ SubResource( 77 ): {
 "x": -68,
 "y": -3
 },
-SubResource( 78 ): {
-"x": -65,
+SubResource( 81 ): {
+"x": -62,
+"y": -4
+},
+SubResource( 82 ): {
+"x": -64,
 "y": -2
 },
 SubResource( 79 ): {
@@ -5920,12 +5931,8 @@ SubResource( 80 ): {
 "x": -64,
 "y": -5
 },
-SubResource( 81 ): {
-"x": -62,
-"y": -4
-},
-SubResource( 82 ): {
-"x": -64,
+SubResource( 78 ): {
+"x": -65,
 "y": -2
 }
 }
@@ -6288,17 +6295,13 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 146 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 148 ): {
-"x": 27,
-"y": -8
-},
 SubResource( 143 ): {
 "x": 30,
 "y": -7
+},
+SubResource( 144 ): {
+"x": 31,
+"y": -8
 },
 SubResource( 142 ): {
 "x": 30,
@@ -6308,20 +6311,24 @@ SubResource( 141 ): {
 "x": 34,
 "y": -8
 },
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
 SubResource( 145 ): {
 "x": 29,
 "y": -8
 },
-SubResource( 149 ): {
-"x": 25,
+SubResource( 146 ): {
+"x": 30,
 "y": -8
 },
-SubResource( 144 ): {
-"x": 31,
+SubResource( 148 ): {
+"x": 27,
+"y": -8
+},
+SubResource( 147 ): {
+"x": 29,
+"y": -6
+},
+SubResource( 149 ): {
+"x": 25,
 "y": -8
 }
 }
@@ -7002,6 +7009,7 @@ sfx_volume = -10.0
 earliest_hitbox = 11
 title = "Spinning Skulls"
 type = 3
+data_ui_scene = ExtResource( 345 )
 button_texture = ExtResource( 145 )
 air_type = 2
 land_cancel = true
@@ -7810,12 +7818,12 @@ SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
-SubResource( 666 ): {
-"x": 24,
-"y": -1
-},
 SubResource( 667 ): {
 "x": 27,
+"y": -1
+},
+SubResource( 666 ): {
+"x": 24,
 "y": -1
 }
 }
@@ -8634,7 +8642,6 @@ sfx = ExtResource( 70 )
 sfx_tick = 6
 sfx_volume = -5.0
 type = 2
-data_ui_scene = ExtResource( 306 )
 button_texture = ExtResource( 310 )
 interrupt_from_string = "Grounded
 Aerial"
@@ -8732,3 +8739,9 @@ width = 17
 height = 10
 start_tick = 0
 endless = true
+
+[node name="NoName" type="Node2D" parent="StateMachine" index="123"]
+script = ExtResource( 64 )
+interrupt_from_string = "Grounded
+GroundedSpecial"
+interrupt_into_string = "Grounded"

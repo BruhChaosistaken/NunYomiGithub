@@ -7,8 +7,8 @@
 
 [node name="CheckButton" type="CheckButton" parent="." index="0"]
 unique_name_in_owner = true
-margin_right = 52.0
+margin_right = 36.0
 margin_bottom = 12.0
-hint_tooltip = "Go into stalk stance"
-text = "STALK"
+hint_tooltip = "On Next interruptable frame with to Slasher Stance"
+text = "S.S"
 script = ExtResource( 2 )

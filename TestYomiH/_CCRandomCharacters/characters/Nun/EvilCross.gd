@@ -14,7 +14,7 @@ func tick():
 	for objs in objs_map.values():
 		if is_instance_valid(objs):
 
-			if objs.is_in_group("Fighter"):
+			if objs.is_in_group("Fighter") and objs == self.creator:
 				var overlaps = hurtbox.overlaps(objs.hurtbox)
 				if overlaps and startup >= 10 and not di_y == 0 or overlaps and startup >= 10 and not di_x == 0:
 					play_sound("Woosh")

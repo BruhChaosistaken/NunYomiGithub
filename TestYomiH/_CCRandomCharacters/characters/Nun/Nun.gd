@@ -423,14 +423,11 @@ func spook(player):
 		
 func terrify_opponent(player):
 		var local_pos = opponent.get_center_position_float() - player
-		print(local_pos)
+
 		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
 		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), -40, -40, true, {"dir": dir})
 		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 0, -80, true, {"dir": dir})
 
-func traumatize():
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/EvilCross.tscn"), -40, -40)
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/EvilCross.tscn"), 40, -40)
 
 #func ACTIVE_SKULL_1():
 #	if is_instance_valid(obj_from_name(SKULL)):
@@ -445,13 +442,6 @@ func SWAP1():
 	if is_instance_valid(obj_from_name(SKULL)):
 		objs_map[SKULL].set_pos(get_pos().x, get_pos().y)
 		set_pos(objs_map[SKULL].get_pos().x, objs_map[SKULL].get_pos().y)
-		print("hi")
-
-func SWAP2():
-
-	if is_instance_valid(obj_from_name(SKULL2)):
-		objs_map[SKULL2].set_pos(get_pos().x, get_pos().y)
-		set_pos(objs_map[SKULL2].get_pos().x, objs_map[SKULL2].get_pos().y)
 		print("hi")
 
 func _ready():

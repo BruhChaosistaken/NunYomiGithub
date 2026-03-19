@@ -19,8 +19,7 @@ func _enter():
 
 	STALK = data
 	if STALK == true:
-		fallback_state = "STALK"
-		host.stance = "Stalk"
+		host.stance = "Slasher"
 
 	else:
 		fallback_state = "Wait"
