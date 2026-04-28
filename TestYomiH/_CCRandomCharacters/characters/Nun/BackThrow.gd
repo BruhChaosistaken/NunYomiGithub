@@ -3,7 +3,7 @@ extends ThrowState
 func _enter():
 	# gonna call this a cashout option
 	# keeps skd oki but stacks on more pressure to make continuing more risky
-	damage = damage + (10*host.Pressure_Left) 
+	damage = damage + (10 * host.Pressure_Left) 
 
 func _release():
 	._release()

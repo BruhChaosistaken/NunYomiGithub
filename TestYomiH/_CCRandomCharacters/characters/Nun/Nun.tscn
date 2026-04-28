@@ -5211,6 +5211,8 @@ apply_grav = true
 sprite_animation = "insanity"
 anim_length = 60
 ticks_per_frame = 2
+loop_animation = true
+endless = true
 particle_scene = ExtResource( 140 )
 state_screenshake_tick = 0
 state_screenshake_dir = Vector2( 2, 0 )
@@ -5911,18 +5913,6 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 77 ): {
-"x": -68,
-"y": -3
-},
-SubResource( 81 ): {
-"x": -62,
-"y": -4
-},
-SubResource( 82 ): {
-"x": -64,
-"y": -2
-},
 SubResource( 79 ): {
 "x": -64,
 "y": -4
@@ -5931,9 +5921,21 @@ SubResource( 80 ): {
 "x": -64,
 "y": -5
 },
+SubResource( 77 ): {
+"x": -68,
+"y": -3
+},
+SubResource( 82 ): {
+"x": -64,
+"y": -2
+},
 SubResource( 78 ): {
 "x": -65,
 "y": -2
+},
+SubResource( 81 ): {
+"x": -62,
+"y": -4
 }
 }
 release_throw_pos_x = 50
@@ -6295,21 +6297,33 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 143 ): {
-"x": 30,
-"y": -7
-},
-SubResource( 144 ): {
-"x": 31,
+SubResource( 141 ): {
+"x": 34,
 "y": -8
 },
 SubResource( 142 ): {
 "x": 30,
 "y": -8
 },
-SubResource( 141 ): {
-"x": 34,
+SubResource( 144 ): {
+"x": 31,
 "y": -8
+},
+SubResource( 148 ): {
+"x": 27,
+"y": -8
+},
+SubResource( 149 ): {
+"x": 25,
+"y": -8
+},
+SubResource( 143 ): {
+"x": 30,
+"y": -7
+},
+SubResource( 147 ): {
+"x": 29,
+"y": -6
 },
 SubResource( 145 ): {
 "x": 29,
@@ -6317,18 +6331,6 @@ SubResource( 145 ): {
 },
 SubResource( 146 ): {
 "x": 30,
-"y": -8
-},
-SubResource( 148 ): {
-"x": 27,
-"y": -8
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
-SubResource( 149 ): {
-"x": 25,
 "y": -8
 }
 }
@@ -6781,9 +6783,11 @@ force_tick = 3
 particle_scene = ExtResource( 195 )
 timed_particle_scene = ExtResource( 75 )
 enter_sfx = ExtResource( 85 )
+show_in_menu = false
 self_interruptable = false
 reversible = false
 instant_cancellable = false
+selectable = false
 interrupt_from_string = "Aerial
 AerialAttack
 Grounded
@@ -7790,6 +7794,10 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
+SubResource( 665 ): {
+"x": 24,
+"y": -1
+},
 SubResource( 659 ): {
 "x": 26,
 "y": 0
@@ -7813,10 +7821,6 @@ SubResource( 663 ): {
 SubResource( 664 ): {
 "x": 22,
 "y": 0
-},
-SubResource( 665 ): {
-"x": 24,
-"y": -1
 },
 SubResource( 667 ): {
 "x": 27,

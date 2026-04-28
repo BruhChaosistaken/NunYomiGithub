@@ -1,7 +1,7 @@
 extends Fighter
 
 var specialman = false
-var charname =  "Messiah"
+var charname =  "Lumine"
 
 var Timestopped = false
 var TS_Cooldown = 0
@@ -45,9 +45,6 @@ onready var damage_buff_stacks = 0
 onready var enemy_last_hp = null
 # ignore damage buff option, for like projectiles or anything u want
 onready var ignore_damage_buff = false
-
-
-
 
 #for the sticky bomba
 
@@ -263,8 +260,6 @@ func tick():
 
 #	print(specialman)
 
-
-
 func on_got_blocked():
 	.on_got_blocked()
 
@@ -276,7 +271,6 @@ func on_got_blocked():
 # Nun hits a her own projectile, spawns skull code
 
 onready var SKULL = null
-onready var SKULL2 = null
 
 func _on_hit_something(obj,hitbox):
 	._on_hit_something(obj,hitbox)
@@ -340,7 +334,7 @@ func getOpponentName():
 
 var Names = [
 	"ShadowRose",
-	"Messiah",
+	"Lumine",
 	"Glidedguy",
 	"Jade",
 	"Yupia",

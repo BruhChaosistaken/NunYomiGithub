@@ -2,10 +2,10 @@ extends Node
 
 func register(codex):
 	codex.set_subtitle("The Nun")
-	codex.set_summary(""" Precise rushdown, prioritizing managing her pressure to not obtain INSANITY. While having decent damage and tools to win the game.
+	codex.set_summary(""" Precise rushdown, prioritizing managing her [color=#ff2d2d][url=tab:Pressure]PRESSURE[/url][/color] to not obtain [color=blue][url=tab:Insanity]INSANITY[/url][/color]. While having decent damage and tools to win the game.
 	""")
 
-	codex.moveset["Awaken"].desc = "30%/0.3 more dmg dealt, and 20%/0.2 more damage received, Buffs certain moves, and Allows to [rainbow freq=0.5 sat=10 val=20]Exceed[/rainbow] the pressure limit"
+#	codex.moveset["Awaken"].desc = "30%/0.3 more dmg dealt, and 20%/0.2 more damage received, Buffs certain moves, and Allows to [rainbow freq=0.5 sat=10 val=20]Exceed[/rainbow] the pressure limit"
 	codex.moveset["Eliminate"].desc = "In Awakening hits f9 - 10."
 	codex.moveset["Descend"].desc = "Hitbox spawn depends on when she hits the ground, In awakening hits OTG."
 	codex.moveset["Affix"].desc = "Swap Places with a Skull of your choosing, doing so puts Nun into a counter stance and retaliates any attack that comes in contact with her."
@@ -26,9 +26,9 @@ func register(codex):
 
 	codex.add_custom_text_tab("Pressure", """
 [img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon13.png[/img] [color=#ff2d2d] - PRESSURE[/color]
-	Pressure is what Nun prioritizes each match, and as she earns more and more as the match goes on
-she becomes more powerful and more of a threat, having the opponent take note and keep watch of certain moves,
-even if they are slight differences in moves.
+Pressure is what Nun prioritizes each match, and as she earns more and more as the match goes on
+she becomes more powerful and more of a threat, But having to manage this resource is important
+Because if used carelessly Nun enters the INSANITY state.
 
 	These changes are accessed automatically upon reaching its threshold, and which harnesses the true power of certain moves.
 These moves have certain thresholds to be upgraded in which is shown below:
@@ -58,6 +58,17 @@ These moves have certain thresholds to be upgraded in which is shown below:
 [center]Above 80%/0.8:[/center]
 
 	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons18.png[/img] - Gains invul on max delay, specifically frame 10 - 13
+
+
+""")
+
+	codex.add_custom_text_tab("Insanity", """
+
+[center] [color=blue] - INSANITY - [/color] [/center]
+Insanity is a state in where you get punished for spamming tools that build pressure, needing you to keep a balance between the resources to not be at a disadvantage.
+
+Once Pressure has reached its max the [b]WHITE BAR[/b] below Nuns pressure gauge fiils up and fills up very fast, giving you a short grace period to expel pressure to not get INSANITY instantly, [b] Letting the "Insanity Bar" fill up to max stuns Nun for a considerable amount of time and there is nothing you can do about it. [/b]
+
 
 
 """)
