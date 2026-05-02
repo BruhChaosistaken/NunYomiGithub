@@ -4,9 +4,12 @@ onready var SKULL = preload("res://_CCRandomCharacters/characters/Nun/SKULL.tscn
 
 var STALK
 
-var UC = 4.0
+export var UC: float = 4.0
 
 func _enter():
+
+	if host.alleviate:
+		host.change_state("STALK BACKSTAB")
 
 	if host.awakened == true:
 		current_tick = 2

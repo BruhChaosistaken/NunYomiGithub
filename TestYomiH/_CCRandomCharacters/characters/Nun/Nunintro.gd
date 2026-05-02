@@ -8,6 +8,7 @@ func _enter():
 	game_time = Global.current_game.time
 
 #alt intro checks for sounds
+
 func _frame_24():
 	if anim_name == "MAX INTRO":
 
@@ -19,12 +20,6 @@ func _frame_24():
 
 		print("hello")
 		host.spawn_particle_effect_relative(particle_scene, Vector2(0,-18))
-		host.awakened = true
-		if host.supers_available < 1 or not host.infinite_resources:
-			host.supers_available = 1
-			host.Pressure_Left = 5
-		
-	
 
 func _frame_79():
 	if anim_name == "MAX INTRO":
@@ -97,6 +92,3 @@ func _tick():
 	if current_tick == 1 and anim_name == "MAX INTRO":
 		host.play_sound("MaxStart")
 		host.play_sound("MaxStart2")
-
-	if current_tick < 24 and anim_name == "MAX INTRO":
-		host.Pressure_Left += 0.166666

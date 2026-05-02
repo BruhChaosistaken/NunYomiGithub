@@ -10,9 +10,6 @@ func _enter():
 	x = host.get_pos().x
 	y = host.get_pos().y
 
-
-
-	
 func _tick():
 
 	if host.Pressure_Left > 5 and current_tick == 60 or host.opponent.hp <= 0 and current_tick == 60:

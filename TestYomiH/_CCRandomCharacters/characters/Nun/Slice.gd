@@ -4,7 +4,7 @@ onready var SKULL = preload("res://_CCRandomCharacters/characters/Nun/SKULL.tscn
 
 var STALK
 
-var UC = 1.1
+export var UC: float = 1.1
 
 
 

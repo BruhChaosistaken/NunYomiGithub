@@ -9,8 +9,6 @@ onready var m_b = main.get_node("UILayer/OptionsContainer/VBoxContainer/Contents
 
 var STALK
 
-
-
 func _enter():
 
 	var di_force = xy_to_dir(host.current_di.x * host.get_facing_int(), host.current_di.y, di_amount)
@@ -33,8 +31,8 @@ func _frame_0():
 
 # on frame 20, arbitrary number
 func _frame_13():
-	# add 3 stacks
-	host.damage_buff_stacks += INF
+#	# add 3 stacks
+#	host.damage_buff_stacks += INF
 
 	host.play_sound("AwakSpice2")
 
@@ -49,12 +47,16 @@ func _frame_13():
 		m_b.pressed = true
 		m_b.disabled = false
 
-	
+
+	host.awakened = true
+	host.awakentimer += 200
+
 func _exit():
 	host.release_camera_focus()
-	host.awakened = true
-	host.awakentimer += 100
+
 func is_usable():
-	return .is_usable() and host.damage_buff_stacks >= 0 and host.awakened == false
+	return .is_usable() and host.awakened == false
+
+#// Re-add and host.damage_buff_stacks >= 0 if the damage buff is returning
 
 

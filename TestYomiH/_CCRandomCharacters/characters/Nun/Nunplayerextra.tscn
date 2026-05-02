@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Nunplayerextra.gd" type="Script" id=1]
 [ext_resource path="res://characters/stickman/sprites/actionicons/release_momentum.png" type="Texture" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon13.png" type="Texture" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon1.png" type="Texture" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/IcoonUpgrade.png" type="Texture" id=6]
 
 [node name="PlayerExtra" instance=ExtResource( 4 )]
 script = ExtResource( 1 )
@@ -47,7 +48,7 @@ size_flags_horizontal = 15
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Alleviate"
-icon = ExtResource( 5 )
+icon = ExtResource( 6 )
 clip_text = true
 align = 2
 icon_align = 2

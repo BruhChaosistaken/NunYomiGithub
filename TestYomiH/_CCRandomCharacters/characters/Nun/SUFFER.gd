@@ -1,6 +1,6 @@
 extends CharacterState
 
-const SPEED = "10.5"
+const SPEED = "15.0"
 
 
 func _frame_11():
@@ -14,7 +14,7 @@ func _frame_11():
 	var force = xy_to_dir(data.x, data.y, SPEED)
 	obj.set_grounded(false)
 	obj.apply_force(force.x, force.y)
-	print(force.x + force.y)
+	print(force.x , force.y)
 	
 	host.Pressure_Left += 2.5
 

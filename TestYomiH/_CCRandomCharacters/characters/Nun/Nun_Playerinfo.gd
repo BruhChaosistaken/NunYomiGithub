@@ -8,7 +8,6 @@ onready var MAX = $"%Maximum"
 onready var Intensity = $"%Intensity"
 onready var Pressure_Label = $"%Label"
 
-
 func set_fighter(fighter):
 	.set_fighter(fighter)
 	if player_id == 2:
@@ -37,12 +36,12 @@ func _process(delta):
 		if pressure_bar.value == 1:
 			Pressure_Label.text = " Pressure MAX "
 
-		elif pressure_bar.value > 1:
-			Pressure_Label.text = " Pressure OVERLOAD "
-			pressure_bar.texture_over = preload("res://_CCRandomCharacters/characters/Nun/Pressure Bar/Pressure Bar OVERLOAD.png")
-			pressure_bar.material = preload("res://_CCRandomCharacters/characters/Nun/Shader/Rainbow.material")
-
-		if fighter.awakened == true:
-			pressure_bar.allow_greater = true
-		else:
-			pressure_bar.allow_greater = false
+#		elif pressure_bar.value > 1:
+#			Pressure_Label.text = " Pressure OVERLOAD "
+#			pressure_bar.texture_over = preload("res://_CCRandomCharacters/characters/Nun/Pressure Bar/Pressure Bar OVERLOAD.png")
+#			pressure_bar.material = preload("res://_CCRandomCharacters/characters/Nun/Shader/Rainbow.material")
+#
+#		if fighter.awakened == true:
+#			pressure_bar.allow_greater = true
+#		else:
+#			pressure_bar.allow_greater = false

@@ -4,7 +4,7 @@ const charge = preload("res://_CCRandomCharacters/characters/Nun/VFX/chargeeffex
 
 export var DESCEND_SPEED = "1.0"
 
-export var UC = 0.1
+export var UC: float = 0
 
 var alleviate = false
 
@@ -50,14 +50,7 @@ func _tick():
 	host.create_speed_after_image_from_style(1)
 
 	if current_tick >= falltime:
-
-#		host.set_vel(fixed.mul(host.get_vel().x, "0"), DESCEND_SPEED)
-
 		host.apply_force(0, 15)
-
-	#if host.is_grounded() and current_tick >= 4:
-	#	return "Landing"
-	# why was this here?
 
 	if host.is_grounded() and current_tick > 7 and host.alleviate:
 		host.change_state("DescendCrash") 

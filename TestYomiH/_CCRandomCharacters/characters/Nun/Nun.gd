@@ -35,90 +35,84 @@ var dcheck = 0
 onready var speen = $"%speen"
 onready var Claw =  $"%Claw"
 onready var Halo =  $"%Halo"
+onready var Overload_Label = $"%OverloadTimer"
 
 const Glass_Shatter = preload("res://_CCRandomCharacters/characters/Nun/VFX/TimeStopGlassShatter.tscn")
 const Insanity_Effect = preload("res://_CCRandomCharacters/characters/Nun/VFX/Insanity.tscn")
 
-# amount of buffed hits
-onready var damage_buff_stacks = 0
-# previous hp amount, for checking the difference
-onready var enemy_last_hp = null
-# ignore damage buff option, for like projectiles or anything u want
-onready var ignore_damage_buff = false
+## amount of buffed hits
+#onready var damage_buff_stacks = 0
+## previous hp amount, for checking the difference
+#onready var enemy_last_hp = null
+## ignore damage buff option, for like projectiles or anything u want
+#onready var ignore_damage_buff = false
 
 #for the sticky bomba
 
-
-
-# function to check if damage was taken and if we should apply extra damage or not
-func apply_damage_buff():
-	# check if last_hp is updated
-	if enemy_last_hp == null:
-		# set last hp to current hp
-		enemy_last_hp = opponent.hp
-	# check if current hp is less than previously
-	if opponent.hp < enemy_last_hp:
-		# check if I have any stacks 
-		if damage_buff_stacks > 0:
-			#check if damage does not come from projectile
-			if !ignore_damage_buff:
-				# calculate the diff, aka the damage taken, 
-				var hp_diff = enemy_last_hp - opponent.hp
-				#multiply with 0.2 which is 20%
-				hp_diff *= 0.3
-				# apply damage to enemy
-				opponent.take_damage(hp_diff)
-				# remove one stack
-				damage_buff_stacks -= 1
-			else:
-				#ignore damage and enable to take damage for next time taking damage
-				ignore_damage_buff = false
-		# update last hp for next tick
-		enemy_last_hp = opponent.hp
+## function to check if damage was taken and if we should apply extra damage or not
+#func apply_damage_buff():
+#	# check if last_hp is updated
+#	if enemy_last_hp == null:
+#		# set last hp to current hp
+#		enemy_last_hp = opponent.hp
+#	# check if current hp is less than previously
+#	if opponent.hp < enemy_last_hp:
+#		# check if I have any stacks 
+#		if damage_buff_stacks > 0:
+#			#check if damage does not come from projectile
+#			if !ignore_damage_buff:
+#				# calculate the diff, aka the damage taken, 
+#				var hp_diff = enemy_last_hp - opponent.hp
+#				#multiply with 0.2 which is 20%
+#				hp_diff *= 0.3
+#				# apply damage to enemy
+#				opponent.take_damage(hp_diff)
+#				# remove one stack
+#				damage_buff_stacks -= 1
+#			else:
+#				#ignore damage and enable to take damage for next time taking damage
+#				ignore_damage_buff = false
+#		# update last hp for next tick
+#		enemy_last_hp = opponent.hp
 
 func init(pos = null):
 	.init(pos)
 
 	spriteframes = sprite.frames
 
-#	if infinite_resources:
-#		Pressure_Left = Pressure_Amount
-
 func tick():
 	.tick()
-	# execute function every tick, since we check for hp difference
-	apply_damage_buff()
 
-	if damage_buff_stacks > 10 and (Global.current_game.real_tick / 1) % 4 == 0:
+#	apply_damage_buff()
+
+#// Overload Stuff
+
+	if awakened and (Global.current_game.real_tick / 1) % 4 == 0:
 
 		create_speed_after_image_from_style(1)
 
-	if damage_buff_stacks > 10:
-		damage_taken_modifier = "1.2"
-
 	if awakened == true:
-		Pressure_Left = Pressure_Amount+1
+		Pressure_Left = Pressure_Amount
 		$"%STACK10".start_emitting()
-	else:
-		$"%STACK10".stop_emitting()
 
-		$"%Corruption".stop_emitting()
-		
-		if Pressure_Left > Pressure_Amount:
-			Pressure_Left = Pressure_Amount
-
-# and damage_buff_stacks <= 10:      <---- used if i return the Pain Super
-
-	if damage_buff_stacks > 0:
 		$"%STACK".start_emitting()
 
 		damage_taken_modifier = "1.2"
 
-	if damage_buff_stacks <= 0:
+	else:
+		awakened = false
+		$"%STACK10".stop_emitting()
+
+		$"%Corruption".stop_emitting()
+
 		$"%STACK".stop_emitting()
 
 		damage_taken_modifier = "1.0"
-		awakened = false
+
+
+#//
+
+#// Timestop thing
 
 	if Corruption_ticks > 0:
 
@@ -177,6 +171,10 @@ func tick():
 	if opponent.get("usingTS") == true and Corruption_ticks > 0:
 		Corruption_ticks = 1
 
+#//
+
+#// Skin stuff
+
 	if Judgement == true:
 		sprite.frames = preload("res://_CCRandomCharacters/characters/Nun/NunJudgement.tres")
 		stance = "judge"
@@ -185,12 +183,18 @@ func tick():
 		sprite.frames = spriteframes
 		$"%BG".hide()
 
+#//
+
+#// Pressure Gain Conditions
+
+	if was_moving_backward():
+		Pressure_Left -= 0.02
 
 	if opponent.was_moving_backward():
-		Pressure_Left += 0.05
+		Pressure_Left += 0.01
 
 	if was_moving_forward():
-		Pressure_Left += 0.025
+		Pressure_Left += 0.01
 
 	if Pressure_Left >= 5:
 		$"%Pressure".start_emitting()
@@ -198,76 +202,85 @@ func tick():
 		$"%Pressure".stop_emitting()
 
 	if opponent.on_the_ground == true or opponent.current_state().name == "Getup":
-		Pressure_Left += 0.020
+		Pressure_Left += 0.01
 
 	if opponent.current_state().name == "DefensiveBurst":
 		Pressure_Left += 0.01
 
-	if stance == "Stalk":
-		Pressure_Left += 0.01
-	
+#//
+
+#// Pressure Bar Stuff
+
 	if Pressure_Left < Pressure_MinAmount:
 		Pressure_Left = Pressure_MinAmount
 
-		
-		
+#//
+
+#// Overload Mechanic
+
+	var offset = 1
+
+	if awakentimer > 0 && is_ghost:
+		Overload_Label.show()
+		Overload_Label.text = "TIMER : " + str(awakentimer)
+	else:
+		Overload_Label.hide()
+
 	if awakentimer > 0:
+
 		awakentimer -= 1 
 		print(awakentimer)
+
 	if awakentimer == 1:
 		print("triggered")
+		
+		insanity = 100 + (offset)
 		awakened = false
+		
 		print(awakened)
+
 		Pressure_Left = 1
 
-#/// return this for insanity mechanic
+#//
 
-	if Pressure_Left >= 10 and insanity <= 100 and awakened == false:
-		insanity += 10
+#// Insanity mechanic
 
-	if Pressure_Left < 10 and insanity > 0:
+	if Pressure_Left >= 10 && insanity <= 100 && awakened == false:
+		insanity += 5
+
+	if Pressure_Left < 10 && insanity > 0:
 		insanity -= 0.5
 
 	if insanity == 99:
-		play_sound("MaxStart")
 		spawn_particle_effect_relative(Insanity_Effect, hurtbox_pos_relative_float())
 
-	if insanity >= 100:
+	elif insanity >= 100:
 		insane = true
-		
-		
 
-	else:
-		insane = false
+		if not opponent.current_state().state_name == "Grabbed":
+			change_state("Insane")
 
 	if insane:
-		if not opponent.current_state().state_name == "Grabbed":			
-			change_state("Insane")
-			Pressure_Left = 0;
+		print(insanity)
+		Pressure_Left = 0
 
-	var time_in_insane = 0
-
-	if insane == true:
-		time_in_insane += 1
-		
-		if time_in_insane == 100:
-			change_state("Wait")
-			insanity = 0
+		if insanity == 1:
+			if current_state().name != "Grabbed" and not current_state() is CharacterHurtState:
+				change_state("Wait")
+				insane = false
 
 
-		if time_in_insane == 300:
-			pass
+#//
 
-#	print(specialman)
+#// Stuff on block
 
 func on_got_blocked():
 	.on_got_blocked()
 
-	Pressure_Left += 0.07 * opponent.blocked_hitbox_plus_frames + 0.30
+	Pressure_Left += 0.10
 
-#	Global.songs = {"Awakened":preload("res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Icefield White Knight II  Under Night In-Birth II [SYS_Celes] Londrekia Theme.mp3"),
-#		"bg1":preload("res://sound/music/bg1.mp3")
-#	}
+#//
+
 # Nun hits a her own projectile, spawns skull code
 
 onready var SKULL = null
@@ -287,13 +300,7 @@ func _on_hit_something(obj,hitbox):
 
 		if SKULL:
 			SUFFER_ACTIVE -= 1
-	
-	#
-	#		#var final_di_y =  0
-	#
-	#		##	final_di_y = 0
-	#		###final_di_y = current_di.y
-	
+
 			var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
 			var dir = fixed.normalized_vec(str(test.x), str(test.y))
 
@@ -395,16 +402,6 @@ func process_extra(extra):
 			
 	if extra["alleviate"]: alleviate = true
 	else: alleviate = false
-	
-
-
-
-func terrify(player):
-		var local_pos = opponent.get_center_position_float() - player
-
-		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), -40, -40, true, {"dir": dir})
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 40, -40, true, {"dir": dir})
 
 func spook(player):
 		var local_pos = opponent.get_center_position_float() - player
@@ -414,13 +411,13 @@ func spook(player):
 		var force = xy_to_dir(dir.x, "-80", "10.5")
 		obj.set_grounded(false)
 		obj.apply_force(force.x, force.y)
-		
-func terrify_opponent(player):
-		var local_pos = opponent.get_center_position_float() - player
 
-		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), -40, -40, true, {"dir": dir})
-		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 0, -80, true, {"dir": dir})
+#func terrify_opponent(player):
+#		var local_pos = opponent.get_center_position_float() - player
+#
+#		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
+#		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), -40, -40, true, {"dir": dir})
+#		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 0, -80, true, {"dir": dir})
 
 
 #func ACTIVE_SKULL_1():
@@ -433,9 +430,28 @@ func terrify_opponent(player):
 
 
 func SWAP1():
+
+	var SPEED = "12"
+	var dir = xy_to_dir(current_di.x, current_di.y, SPEED)
+
 	if is_instance_valid(obj_from_name(SKULL)):
-		objs_map[SKULL].set_pos(get_pos().x, get_pos().y)
-		set_pos(objs_map[SKULL].get_pos().x, objs_map[SKULL].get_pos().y)
+		var SkullProj = objs_map[SKULL]
+		var SkullVel = objs_map[SKULL].get_vel()
+
+		Pressure_Left += 0.5
+
+		SkullProj.set_pos(get_pos().x, get_pos().y)
+		
+		set_pos(SkullProj.get_pos().x, SkullProj.get_pos().y)
+		
+		set_vel(SkullVel.x, SkullVel.y)
+		SkullProj.set_vel(get_vel().x, get_vel().y)
+
+		if not current_di.x == 0 && not current_di.y == 0:
+			SkullProj.apply_force(dir.x, dir.y)
+
+			Pressure_Left += 1.0
+
 		print("hi")
 
 func _ready():

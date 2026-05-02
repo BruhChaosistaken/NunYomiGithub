@@ -1,6 +1,6 @@
 extends CharacterState
 
-export var UC = 2.0
+export var UC: float = 2.0
 
 var STALK = false
 
