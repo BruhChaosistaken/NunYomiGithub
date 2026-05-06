@@ -39,41 +39,16 @@ onready var Overload_Label = $"%OverloadTimer"
 
 const Glass_Shatter = preload("res://_CCRandomCharacters/characters/Nun/VFX/TimeStopGlassShatter.tscn")
 const Insanity_Effect = preload("res://_CCRandomCharacters/characters/Nun/VFX/Insanity.tscn")
+const Upgrade_Effect = preload("res://_CCRandomCharacters/characters/Nun/VFX/Circle.tscn")
 
-## amount of buffed hits
-#onready var damage_buff_stacks = 0
-## previous hp amount, for checking the difference
-#onready var enemy_last_hp = null
-## ignore damage buff option, for like projectiles or anything u want
-#onready var ignore_damage_buff = false
+#// Pressure Gain Params (What moves in Normals wont descrease pressure in neutral).
 
-#for the sticky bomba
+var PressureParams = [
+	"Low Kick",
+	"Insane",
+]
 
-## function to check if damage was taken and if we should apply extra damage or not
-#func apply_damage_buff():
-#	# check if last_hp is updated
-#	if enemy_last_hp == null:
-#		# set last hp to current hp
-#		enemy_last_hp = opponent.hp
-#	# check if current hp is less than previously
-#	if opponent.hp < enemy_last_hp:
-#		# check if I have any stacks 
-#		if damage_buff_stacks > 0:
-#			#check if damage does not come from projectile
-#			if !ignore_damage_buff:
-#				# calculate the diff, aka the damage taken, 
-#				var hp_diff = enemy_last_hp - opponent.hp
-#				#multiply with 0.2 which is 20%
-#				hp_diff *= 0.3
-#				# apply damage to enemy
-#				opponent.take_damage(hp_diff)
-#				# remove one stack
-#				damage_buff_stacks -= 1
-#			else:
-#				#ignore damage and enable to take damage for next time taking damage
-#				ignore_damage_buff = false
-#		# update last hp for next tick
-#		enemy_last_hp = opponent.hp
+#//
 
 func init(pos = null):
 	.init(pos)
@@ -82,8 +57,6 @@ func init(pos = null):
 
 func tick():
 	.tick()
-
-#	apply_damage_buff()
 
 #// Overload Stuff
 
@@ -188,13 +161,13 @@ func tick():
 #// Pressure Gain Conditions
 
 	if was_moving_backward():
-		Pressure_Left -= 0.02
+		Pressure_Left -= 0.05
 
 	if opponent.was_moving_backward():
-		Pressure_Left += 0.01
+		Pressure_Left += 0.02
 
 	if was_moving_forward():
-		Pressure_Left += 0.01
+		Pressure_Left += 0.1
 
 	if Pressure_Left >= 5:
 		$"%Pressure".start_emitting()
@@ -202,11 +175,10 @@ func tick():
 		$"%Pressure".stop_emitting()
 
 	if opponent.on_the_ground == true or opponent.current_state().name == "Getup":
-		Pressure_Left += 0.01
+		Pressure_Left += 0.1
 
 	if opponent.current_state().name == "DefensiveBurst":
-		Pressure_Left += 0.01
-
+		Pressure_Left += 0.1
 #//
 
 #// Pressure Bar Stuff
@@ -231,7 +203,10 @@ func tick():
 		awakentimer -= 1 
 		print(awakentimer)
 
-	if awakentimer == 1:
+	if current_state().name == "STALK DECIMATE 2":
+		awakentimer += 1
+
+	if awakentimer == 1 and awakened == true:
 		print("triggered")
 		
 		insanity = 100 + (offset)
@@ -239,25 +214,23 @@ func tick():
 		
 		print(awakened)
 
-		Pressure_Left = 1
-
 #//
 
 #// Insanity mechanic
 
 	if Pressure_Left >= 10 && insanity <= 100 && awakened == false:
-		insanity += 5
+		insanity += clamp(8, 0, insanity_Amount - insanity)
 
 	if Pressure_Left < 10 && insanity > 0:
-		insanity -= 0.5
+		insanity -= clamp(0.5, 0, (insanity))
 
-	if insanity == 99:
+	if insanity == 99 and not opponent.current_state() is ThrowState:
 		spawn_particle_effect_relative(Insanity_Effect, hurtbox_pos_relative_float())
 
 	elif insanity >= 100:
 		insane = true
 
-		if not opponent.current_state().state_name == "Grabbed":
+		if not current_state() is ThrowState:
 			change_state("Insane")
 
 	if insane:
@@ -265,7 +238,7 @@ func tick():
 		Pressure_Left = 0
 
 		if insanity == 1:
-			if current_state().name != "Grabbed" and not current_state() is CharacterHurtState:
+			if not opponent.current_state() is ThrowState and not current_state() is CharacterHurtState and not current_state() is ThrowState:
 				change_state("Wait")
 				insane = false
 
@@ -277,7 +250,7 @@ func tick():
 func on_got_blocked():
 	.on_got_blocked()
 
-	Pressure_Left += 0.10
+	Pressure_Left += 0.07 * opponent.blocked_hitbox_plus_frames + 0.30
 
 #//
 
@@ -287,8 +260,9 @@ onready var SKULL = null
 
 func _on_hit_something(obj,hitbox):
 	._on_hit_something(obj,hitbox)
-	
-	Pressure_Left += 0.1
+
+	if insane == false:
+		Pressure_Left += 0.1
 
 	if obj.is_in_group("Skull"):
 
@@ -452,8 +426,6 @@ func SWAP1():
 
 			Pressure_Left += 1.0
 
-		print("hi")
-
 func _ready():
 
 	speen.set_material(sprite.get_material())
@@ -466,3 +438,20 @@ func _ready():
 		if username == Network.pid_to_username(id) :
 			specialman = true
 
+func on_state_started(state):
+	.on_state_started(state)
+
+	if state.get("UC"):
+		print("UC Detected from state started")
+
+		var UpgradeCost = state.get("UC")
+
+		if alleviate == true:
+			print("Used Upgrade")
+			
+			Pressure_Left -= UpgradeCost
+			spawn_particle_effect_relative(Upgrade_Effect, Vector2(0,-16))
+			play_sound("UpgradeSound")
+
+	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
+		Pressure_Left -= clamp(0.5, 0, Pressure_Left)

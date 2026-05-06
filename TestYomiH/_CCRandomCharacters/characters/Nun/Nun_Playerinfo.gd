@@ -36,6 +36,8 @@ func _process(delta):
 		if pressure_bar.value == 1:
 			Pressure_Label.text = " Pressure MAX "
 
+		if fighter.insane == true and fighter.current_state().name != "Insane":
+			Pressure_Label.text = "EXHAUSTED"
 #		elif pressure_bar.value > 1:
 #			Pressure_Label.text = " Pressure OVERLOAD "
 #			pressure_bar.texture_over = preload("res://_CCRandomCharacters/characters/Nun/Pressure Bar/Pressure Bar OVERLOAD.png")

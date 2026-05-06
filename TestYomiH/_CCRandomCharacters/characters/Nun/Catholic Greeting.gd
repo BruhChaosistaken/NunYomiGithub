@@ -17,5 +17,5 @@ func _tick():
 	if current_tick >= 4 and current_tick < 10 and current_tick % 2 == 0:
 		host.spawn_particle_effect_relative(particle_scene, host.hurtbox_pos_relative_float(), Vector2.RIGHT * host.get_facing_int())
 
-	if current_tick > 9:
+	if current_tick > 3 and current_tick > 9:
 		host.set_vel(fixed.div(str(host.get_vel().x), "2"), "0")

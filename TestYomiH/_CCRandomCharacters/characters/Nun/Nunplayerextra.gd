@@ -34,8 +34,6 @@ func show_options():
 		Detonate.show()
 	if fighter.crucified:
 		Crucify.show()
-#	if fighter.awakened != false:
-#		Alleviate.show()
 
 func get_extra():
 	var extra = {
@@ -61,9 +59,10 @@ func update_selected_move(move_state):
 		if "UC" in move_state:
 			print("UC dectected")
 			Alleviate.show()
-			if move_state.get("UC") > fighter.Pressure_Left:
-				Alleviate.disabled = true
-				Alleviate.pressed = false
+			Alleviate.disabled = true
+			if move_state.get("UC") <= fighter.Pressure_Left:
+				Alleviate.disabled = false
+
 		else:
 			Alleviate.hide()
 			Alleviate.disabled = true

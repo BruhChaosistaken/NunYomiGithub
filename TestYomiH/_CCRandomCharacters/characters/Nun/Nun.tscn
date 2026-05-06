@@ -1,4 +1,4 @@
-[gd_scene load_steps=1264 format=2]
+[gd_scene load_steps=1261 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/NunJudgement.tres" type="SpriteFrames" id=2]
@@ -27,7 +27,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/Low Kick.png" type="Texture" id=25]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons16.png" type="Texture" id=26]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Specials/Descend.png" type="Texture" id=27]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/London Greeting.png" type="Texture" id=28]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/CathGreet3.PNG" type="Texture" id=28]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/FEAR.gd" type="Script" id=29]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/FEARdust.tscn" type="PackedScene" id=30]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_whoosh_hi_short01.wav" type="AudioStream" id=31]
@@ -326,13 +326,11 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Low Cut.gd" type="Script" id=324]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Insane.gd" type="Script" id=325]
 [ext_resource path="res://ui/ActionSelector/ActionUIData/DashForwardActionUIData.tscn" type="PackedScene" id=326]
-[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=327]
-[ext_resource path="res://sound/common/dash1.wav" type="AudioStream" id=328]
-[ext_resource path="res://characters/mutant/states/AirDashForward.gd" type="Script" id=329]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/NunAirDash.gd" type="Script" id=327]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/ActionUIFolder/SKULL_UI.tscn" type="PackedScene" id=330]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Stabreplacement.PNG" type="Texture" id=331]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/RiseV2.PNG" type="Texture" id=332]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Activate.PNG" type="Texture" id=333]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Specials/Snap.PNG" type="Texture" id=333]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/UppercutV2.PNG" type="Texture" id=334]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/FIXEDMIKU.png" type="Texture" id=335]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/fixedfrustration.png" type="Texture" id=336]
@@ -1204,31 +1202,31 @@ region = Rect2( 576, 384, 192, 192 )
 atlas = ExtResource( 215 )
 region = Rect2( 0, 576, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1075]
+[sub_resource type="AtlasTexture" id=1203]
 atlas = ExtResource( 333 )
 region = Rect2( 0, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1076]
+[sub_resource type="AtlasTexture" id=1204]
 atlas = ExtResource( 333 )
 region = Rect2( 192, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1077]
+[sub_resource type="AtlasTexture" id=1205]
 atlas = ExtResource( 333 )
 region = Rect2( 384, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1078]
+[sub_resource type="AtlasTexture" id=1206]
 atlas = ExtResource( 333 )
 region = Rect2( 0, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1079]
+[sub_resource type="AtlasTexture" id=1207]
 atlas = ExtResource( 333 )
 region = Rect2( 192, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1080]
+[sub_resource type="AtlasTexture" id=1208]
 atlas = ExtResource( 333 )
 region = Rect2( 384, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1081]
+[sub_resource type="AtlasTexture" id=1209]
 atlas = ExtResource( 333 )
 region = Rect2( 0, 384, 192, 192 )
 
@@ -2156,49 +2154,53 @@ region = Rect2( 1920, 0, 192, 192 )
 atlas = ExtResource( 137 )
 region = Rect2( 2112, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=801]
+[sub_resource type="AtlasTexture" id=1217]
 atlas = ExtResource( 28 )
 region = Rect2( 0, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=802]
+[sub_resource type="AtlasTexture" id=1218]
 atlas = ExtResource( 28 )
 region = Rect2( 192, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=803]
+[sub_resource type="AtlasTexture" id=1219]
 atlas = ExtResource( 28 )
 region = Rect2( 384, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=804]
+[sub_resource type="AtlasTexture" id=1220]
 atlas = ExtResource( 28 )
 region = Rect2( 576, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=805]
+[sub_resource type="AtlasTexture" id=1221]
 atlas = ExtResource( 28 )
 region = Rect2( 768, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=806]
+[sub_resource type="AtlasTexture" id=1222]
 atlas = ExtResource( 28 )
 region = Rect2( 960, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=807]
+[sub_resource type="AtlasTexture" id=1223]
 atlas = ExtResource( 28 )
 region = Rect2( 1152, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=808]
+[sub_resource type="AtlasTexture" id=1224]
 atlas = ExtResource( 28 )
 region = Rect2( 1344, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=809]
+[sub_resource type="AtlasTexture" id=1225]
 atlas = ExtResource( 28 )
 region = Rect2( 1536, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=810]
+[sub_resource type="AtlasTexture" id=1226]
 atlas = ExtResource( 28 )
 region = Rect2( 1728, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=811]
+[sub_resource type="AtlasTexture" id=1227]
 atlas = ExtResource( 28 )
 region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1228]
+atlas = ExtResource( 28 )
+region = Rect2( 2112, 0, 192, 192 )
 
 [sub_resource type="AtlasTexture" id=343]
 atlas = ExtResource( 131 )
@@ -3312,10 +3314,6 @@ region = Rect2( 576, 0, 192, 192 )
 atlas = ExtResource( 311 )
 region = Rect2( 768, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=958]
-atlas = ExtResource( 311 )
-region = Rect2( 960, 0, 192, 192 )
-
 [sub_resource type="AtlasTexture" id=959]
 atlas = ExtResource( 311 )
 region = Rect2( 1152, 0, 192, 192 )
@@ -3476,37 +3474,33 @@ region = Rect2( 1344, 0, 192, 192 )
 atlas = ExtResource( 120 )
 region = Rect2( 1536, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1058]
+[sub_resource type="AtlasTexture" id=1210]
+atlas = ExtResource( 331 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1211]
 atlas = ExtResource( 331 )
 region = Rect2( 192, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1059]
+[sub_resource type="AtlasTexture" id=1212]
 atlas = ExtResource( 331 )
 region = Rect2( 384, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1060]
+[sub_resource type="AtlasTexture" id=1213]
 atlas = ExtResource( 331 )
 region = Rect2( 0, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1061]
+[sub_resource type="AtlasTexture" id=1214]
 atlas = ExtResource( 331 )
 region = Rect2( 192, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1062]
+[sub_resource type="AtlasTexture" id=1215]
 atlas = ExtResource( 331 )
 region = Rect2( 384, 192, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=1063]
+[sub_resource type="AtlasTexture" id=1216]
 atlas = ExtResource( 331 )
 region = Rect2( 0, 384, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=1064]
-atlas = ExtResource( 331 )
-region = Rect2( 192, 384, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=1065]
-atlas = ExtResource( 331 )
-region = Rect2( 384, 384, 192, 192 )
 
 [sub_resource type="AtlasTexture" id=644]
 atlas = ExtResource( 235 )
@@ -4004,12 +3998,12 @@ animations = [ {
 "name": "RollForward",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1169 ), SubResource( 1171 ), SubResource( 1172 ), SubResource( 1173 ), SubResource( 1174 ), SubResource( 1175 ), SubResource( 1177 ), SubResource( 1178 ), SubResource( 1179 ), SubResource( 1180 ), SubResource( 1181 ) ],
+"frames": [ null, SubResource( 1169 ), SubResource( 1171 ), SubResource( 1172 ), SubResource( 1173 ), SubResource( 1174 ), SubResource( 1175 ), SubResource( 1177 ), SubResource( 1178 ), SubResource( 1179 ), SubResource( 1180 ), SubResource( 1181 ) ],
 "loop": true,
 "name": "SlicenDice",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1075 ), SubResource( 1076 ), SubResource( 1077 ), SubResource( 1078 ), SubResource( 1079 ), SubResource( 1080 ), SubResource( 1081 ) ],
+"frames": [ SubResource( 1203 ), SubResource( 1204 ), SubResource( 1205 ), SubResource( 1206 ), SubResource( 1207 ), SubResource( 1208 ), SubResource( 1209 ) ],
 "loop": true,
 "name": "Summon",
 "speed": 5.0
@@ -4134,7 +4128,7 @@ animations = [ {
 "name": "eliminate followup",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 801 ), SubResource( 802 ), SubResource( 803 ), SubResource( 804 ), SubResource( 805 ), SubResource( 806 ), SubResource( 807 ), SubResource( 808 ), SubResource( 809 ), SubResource( 810 ), SubResource( 811 ) ],
+"frames": [ SubResource( 1217 ), SubResource( 1218 ), SubResource( 1219 ), SubResource( 1220 ), SubResource( 1221 ), SubResource( 1222 ), SubResource( 1223 ), SubResource( 1224 ), SubResource( 1225 ), SubResource( 1226 ), SubResource( 1227 ), SubResource( 1228 ) ],
 "loop": true,
 "name": "greeting",
 "speed": 5.0
@@ -4229,7 +4223,7 @@ animations = [ {
 "name": "redwave",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 953 ), SubResource( 955 ), SubResource( 955 ), SubResource( 956 ), SubResource( 957 ), SubResource( 958 ), SubResource( 959 ), SubResource( 960 ), SubResource( 961 ), SubResource( 962 ), SubResource( 963 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ) ],
+"frames": [ SubResource( 953 ), SubResource( 955 ), SubResource( 955 ), SubResource( 956 ), SubResource( 957 ), SubResource( 959 ), SubResource( 960 ), SubResource( 961 ), SubResource( 962 ), SubResource( 963 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ), SubResource( 964 ) ],
 "loop": true,
 "name": "rise",
 "speed": 5.0
@@ -4254,7 +4248,7 @@ animations = [ {
 "name": "stab",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1058 ), SubResource( 1059 ), SubResource( 1060 ), SubResource( 1061 ), SubResource( 1062 ), SubResource( 1063 ), SubResource( 1064 ), SubResource( 1065 ) ],
+"frames": [ SubResource( 1210 ), SubResource( 1211 ), SubResource( 1212 ), SubResource( 1213 ), SubResource( 1214 ), SubResource( 1215 ), SubResource( 1216 ) ],
 "loop": true,
 "name": "stabreplacement",
 "speed": 5.01
@@ -4693,9 +4687,9 @@ extra_color_2 = Color( 1, 0.588235, 0.588235, 1 )
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 3 )
 frames = SubResource( 965 )
-animation = "PressureSlicenDice"
-frame = 3
-offset = Vector2( 0, -14 )
+animation = "rise"
+frame = 5
+offset = Vector2( 0, -15 )
 
 [node name="STACK" parent="Flip/Particles" index="0" instance=ExtResource( 143 )]
 unique_name_in_owner = true
@@ -4933,6 +4927,11 @@ stream = ExtResource( 85 )
 
 [node name="Death" type="AudioStreamPlayer" parent="Sounds" index="55"]
 stream = ExtResource( 110 )
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="Sounds" index="56"]
+stream = ExtResource( 239 )
+volume_db = -15.0
+script = ExtResource( 273 )
 
 [node name="Start" parent="StateMachine" index="0"]
 script = ExtResource( 210 )
@@ -5213,14 +5212,14 @@ sprite_animation = "Grabbed"
 anim_length = 60
 ticks_per_frame = 2
 endless = true
-particle_scene = ExtResource( 140 )
 state_screenshake_tick = 0
-state_screenshake_dir = Vector2( 2, 0 )
+state_screenshake_dir = Vector2( 1, 0 )
 state_screenshake_length = 1.0
 enter_sfx = ExtResource( 307 )
 enter_sfx_volume = -5.0
 title = "insane"
 show_in_menu = false
+type = 4
 self_hit_cancellable = false
 self_interruptable = false
 can_feint_if_possible = false
@@ -5276,7 +5275,7 @@ z_index = 1000
 script = ExtResource( 82 )
 x = 26
 y = -13
-width = 28
+width = 31
 height = 10
 damage = 80
 hitstun_ticks = 23
@@ -5300,11 +5299,6 @@ apply_grav = true
 sprite_animation = "SlicenDice"
 anim_length = 28
 ticks_per_frame = 2
-force_dir_x = "1"
-force_speed = "10"
-force_tick = 3
-enter_force_dir_x = "1"
-enter_force_speed = "1"
 type = 1
 button_texture = ExtResource( 154 )
 air_type = 2
@@ -5314,7 +5308,6 @@ GroundedAttack
 Aerial
 AerialAttack"
 interrupt_into_string = "Grounded
-
 Aerial
 "
 hit_cancel_into_string = "Grounded
@@ -5323,6 +5316,7 @@ Aerial
 AerialAttack"
 allowed_stances_string = "Slasher"
 change_stance_to = "Slasher"
+apply_pushback = false
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Rush" index="0"]
 z_index = 1000
@@ -5331,10 +5325,9 @@ x = 26
 y = -16
 width = 22
 height = 16
-damage = 80
-hitstun_ticks = 23
-hitlag_ticks = 8
-cancellable = false
+damage = 50
+hitstun_ticks = 20
+sdi_modifier = "0.2"
 block_cancel_allowed = false
 plus_frames = 2
 hit_height = 0
@@ -5344,9 +5337,12 @@ hit_sound = ExtResource( 108 )
 dir_y = "0"
 knockback = "3"
 block_pushback_modifier = "0.5"
+pushback_x = "0.3"
 start_tick = 6
 active_ticks = 6
 looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 4
 
 [node name="Hitbox2" type="Node2D" parent="StateMachine/Rush" index="1"]
 z_index = 1000
@@ -5355,20 +5351,21 @@ x = 28
 y = -10
 width = 27
 height = 10
-damage = 80
+damage = 55
 hitstun_ticks = 23
-hitlag_ticks = 8
+hitlag_ticks = 6
+sdi_modifier = "0.4"
 plus_frames = 3
 hit_height = 0
+group = 1
 hit_particle = ExtResource( 93 )
 replace_hit_particle = true
 hit_sound = ExtResource( 108 )
 dir_y = "0"
 knockback = "3"
 block_pushback_modifier = "0.5"
-start_tick = 16
+start_tick = 17
 active_ticks = 2
-loop_inactive_ticks = 1
 
 [node name="Papercuts" type="Node2D" parent="StateMachine" index="54"]
 script = ExtResource( 344 )
@@ -5394,6 +5391,7 @@ hit_cancel_into_string = "Grounded
 GroundedAttack"
 allowed_stances_string = "Slasher"
 change_stance_to = "Normal"
+apply_pushback = false
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Papercuts" index="0"]
 z_index = 1000
@@ -5403,19 +5401,22 @@ y = -14
 width = 17
 height = 10
 damage = 35
-hitstun_ticks = 23
+hitstun_ticks = 19
 hitlag_ticks = 2
 cancellable = false
-sdi_modifier = "0.5"
+di_modifier = "0.5"
+sdi_modifier = "0.2"
 block_cancel_allowed = false
 plus_frames = 2
 hit_height = 0
 hit_particle = ExtResource( 93 )
 replace_hit_particle = true
 hit_sound = ExtResource( 108 )
+dir_x = "0.5"
 dir_y = "0"
-knockback = "3"
+knockback = "1"
 block_pushback_modifier = "0.5"
+pushback_x = "0.2"
 start_tick = 9
 active_ticks = 19
 looping = true
@@ -5451,9 +5452,11 @@ sprite_animation = "Arealpaper"
 anim_length = 20
 ticks_per_frame = 2
 force_dir_x = "1"
+force_dir_y = "-0.2"
 force_speed = "5"
 force_tick = 3
 enter_force_dir_x = "1"
+enter_force_dir_y = "-0.1"
 enter_force_speed = "2"
 title = "Papercuts"
 type = 1
@@ -5479,8 +5482,12 @@ width = 17
 height = 14
 damage = 35
 hitstun_ticks = 23
-hitlag_ticks = 2
+victim_hitlag = 3
 cancellable = false
+di_modifier = "0.8"
+sdi_modifier = "0.5"
+meter_gain_modifier = "0.2"
+ignore_armor = true
 block_cancel_allowed = false
 plus_frames = 1
 hit_particle = ExtResource( 93 )
@@ -5489,7 +5496,7 @@ hit_sound = ExtResource( 108 )
 dir_y = "0"
 knockback = "3"
 start_tick = 5
-active_ticks = 6
+active_ticks = 17
 looping = true
 
 [node name="Pressurerush" type="Node2D" parent="StateMachine" index="56"]
@@ -5515,7 +5522,6 @@ GroundedAttack
 Aerial
 AerialAttack"
 interrupt_into_string = "Grounded
-
 Aerial
 "
 hit_cancel_into_string = "Grounded
@@ -5583,7 +5589,7 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 apply_forces_no_limit = true
-sprite_animation = "Risev2"
+sprite_animation = "rise"
 anim_length = 24
 ticks_per_frame = 2
 force_dir_x = "1"
@@ -5711,7 +5717,7 @@ knockback = "11.5"
 block_pushback_modifier = "0.5"
 disable_collision = false
 start_tick = 5
-active_ticks = 4
+active_ticks = 6
 
 [node name="Above me" type="Node2D" parent="StateMachine" index="59"]
 script = ExtResource( 102 )
@@ -5913,10 +5919,6 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 79 ): {
-"x": -64,
-"y": -4
-},
 SubResource( 81 ): {
 "x": -62,
 "y": -4
@@ -5928,6 +5930,10 @@ SubResource( 77 ): {
 SubResource( 78 ): {
 "x": -65,
 "y": -2
+},
+SubResource( 79 ): {
+"x": -64,
+"y": -4
 },
 SubResource( 80 ): {
 "x": -64,
@@ -6297,6 +6303,10 @@ null: {
 "x": 30,
 "y": -8
 },
+SubResource( 145 ): {
+"x": 29,
+"y": -8
+},
 SubResource( 146 ): {
 "x": 30,
 "y": -8
@@ -6305,32 +6315,28 @@ SubResource( 148 ): {
 "x": 27,
 "y": -8
 },
+SubResource( 147 ): {
+"x": 29,
+"y": -6
+},
 SubResource( 149 ): {
 "x": 25,
+"y": -8
+},
+SubResource( 141 ): {
+"x": 34,
 "y": -8
 },
 SubResource( 143 ): {
 "x": 30,
 "y": -7
 },
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
-SubResource( 141 ): {
-"x": 34,
-"y": -8
-},
-SubResource( 144 ): {
-"x": 31,
-"y": -8
-},
 SubResource( 142 ): {
 "x": 30,
 "y": -8
 },
-SubResource( 145 ): {
-"x": 29,
+SubResource( 144 ): {
+"x": 31,
 "y": -8
 }
 }
@@ -7587,7 +7593,7 @@ damage_proration = 1
 di_modifier = "0.8"
 sdi_modifier = "0.6"
 can_clash = false
-plus_frames = -1
+plus_frames = -2
 hit_height = 2
 hit_particle = ExtResource( 57 )
 replace_hit_particle = true
@@ -7614,7 +7620,7 @@ damage_proration = 1
 di_modifier = "0.6"
 sdi_modifier = "0.6"
 can_clash = false
-plus_frames = 1
+plus_frames = -1
 hit_height = 2
 hit_particle = ExtResource( 57 )
 replace_hit_particle = true
@@ -7679,7 +7685,6 @@ particle_position = Vector2( 0, -18 )
 spawn_particle_on_enter = true
 timed_particle_scene = ExtResource( 30 )
 timed_particle_position = Vector2( 0, -18 )
-enter_sfx = ExtResource( 239 )
 title = "STALK SLASH"
 type = 2
 data_ui_scene = ExtResource( 271 )
@@ -7716,7 +7721,7 @@ whiff_sound = ExtResource( 118 )
 hit_sound = ExtResource( 236 )
 hit_bass_sound = ExtResource( 240 )
 dir_y = "-0.1"
-knockback = "9"
+knockback = "15"
 block_pushback_modifier = "1.5"
 grounded_hit_state = "HurtAerial"
 air_ground_bounce = true
@@ -7795,39 +7800,39 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
+SubResource( 663 ): {
+"x": 24,
+"y": -2
+},
+SubResource( 662 ): {
+"x": 24,
+"y": -2
+},
 SubResource( 659 ): {
 "x": 26,
+"y": 0
+},
+SubResource( 660 ): {
+"x": 27,
 "y": 0
 },
 SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 662 ): {
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
+SubResource( 666 ): {
 "x": 24,
-"y": -2
+"y": -1
 },
 SubResource( 667 ): {
 "x": 27,
 "y": -1
 },
-SubResource( 660 ): {
-"x": 27,
-"y": 0
-},
-SubResource( 663 ): {
-"x": 24,
-"y": -2
-},
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
 SubResource( 665 ): {
-"x": 24,
-"y": -1
-},
-SubResource( 666 ): {
 "x": 24,
 "y": -1
 }
@@ -8395,7 +8400,7 @@ script = ExtResource( 282 )
 apply_forces = true
 apply_fric = true
 apply_grav = true
-sprite_animation = "Expunge"
+sprite_animation = "Summon"
 anim_length = 14
 ticks_per_frame = 2
 enter_sfx = ExtResource( 173 )
@@ -8703,38 +8708,25 @@ start_tick = 11
 active_ticks = 2
 
 [node name="AirDashForward" type="Node2D" parent="StateMachine" index="122"]
-script = ExtResource( 329 )
+script = ExtResource( 327 )
 __meta__ = {
 "_editor_description_": ""
 }
 reset_momentum = true
 sprite_animation = "DashForward"
 anim_length = 15
-particle_scene = ExtResource( 112 )
-spawn_particle_on_enter = true
-enter_sfx = ExtResource( 328 )
-enter_sfx_volume = -10.0
-title = "Air Dash"
+title = "Pursue"
 data_ui_scene = ExtResource( 326 )
-button_texture = ExtResource( 327 )
-flip_with_facing = true
+button_texture = ExtResource( 15 )
 air_type = 1
 uses_air_movement = true
 iasa_at = 10
 interruptible_on_opponent_turn = true
 hold_restart = "AirDashForward"
 reversible = false
-interrupt_from_string = "AerialMovement
-Aerial
-Dash
-Jump"
-interrupt_into_string = "Grounded
-Aerial
-ForwardDashAttack
-Sprint"
-allowed_stances_string = "All"
-change_stance_to = "Normal"
-beats_backdash = true
+interrupt_from_string = "Aerial
+AerialMovement"
+interrupt_into_string = "Aerial"
 dash_speed = 12
 air = true
 
@@ -8752,6 +8744,29 @@ script = ExtResource( 64 )
 interrupt_from_string = "Grounded
 GroundedSpecial"
 interrupt_into_string = "Grounded"
+
+[node name="Fake Out" type="Node2D" parent="StateMachine" index="124"]
+script = ExtResource( 83 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_momentum = true
+anim_length = 14
+force_dir_x = "1.0"
+force_dir_y = "1.0"
+force_speed = "7"
+force_tick = 6
+enter_force_dir_x = "-1.0"
+enter_force_dir_y = "-1.0"
+enter_force_speed = "6"
+interruptible_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "Sprint
+Aerial"
+interrupt_into_string = "Aerial
+FakeOut"
+interrupt_exceptions_string = "Dash"
 
 [node name="OverloadTimer" type="Label" parent="." index="15"]
 unique_name_in_owner = true

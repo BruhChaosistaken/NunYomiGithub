@@ -5,6 +5,10 @@ const EvilCross = preload("res://_CCRandomCharacters/characters/Nun/EvilCross.ts
 
 # No :3
 
+func _enter():
+	if host.alleviate == false:
+		host.Pressure_Left += 0.5
+
 func traumatize():
 
 	host.spawn_object(EvilCross, data.Proj1.x * host.get_facing_int() - 40, data.Proj1.y - 40)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Nunplayerextra.gd" type="Script" id=1]
-[ext_resource path="res://characters/stickman/sprites/actionicons/release_momentum.png" type="Texture" id=2]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon15.png" type="Texture" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon1.png" type="Texture" id=5]

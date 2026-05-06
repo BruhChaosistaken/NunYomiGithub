@@ -11,6 +11,10 @@ var alleviate = false
 var falltime = 9
 
 func _enter():
+
+	if host.alleviate == false:
+		host.Pressure_Left += 0.5
+
 	if host.alleviate:
 
 		alleviate = true

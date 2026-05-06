@@ -6,6 +6,9 @@ func _enter():
 #	if data.x == 3:
 #		beats_backdash = true
 
+	if host.alleviate == false:
+		host.Pressure_Left += 0.5
+
 	if host.combo_count > 0:
 		hitbox.grounded_hit_state = "HurtAerial"
 		hitbox.knockdown = true

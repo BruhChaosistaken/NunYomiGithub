@@ -44,6 +44,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.34109, 0.0, 0, 0 
 material = SubResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+visible = false
 frames = SubResource( 2 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2"]

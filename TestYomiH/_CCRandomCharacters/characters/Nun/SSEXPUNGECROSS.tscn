@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Specials/EXPUNGE/project/SScross.gd" type="Script" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Specials/EXPUNGE/project/SScrossdefaultstate.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/AwakenBass.wav" type="AudioStream" id=14]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/se_common_elec_ll_damage.wav" type="AudioStream" id=15]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/CrystalBrake.wav" type="AudioStream" id=16]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Carve1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Provoke.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
@@ -53,34 +55,6 @@ region = Rect2( 1536, 0, 192, 192 )
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 5 )
-region = Rect2( 384, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 5 )
-region = Rect2( 576, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 5 )
-region = Rect2( 768, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 5 )
-region = Rect2( 960, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 5 )
-region = Rect2( 1152, 0, 192, 192 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 5 )
-region = Rect2( 1344, 0, 192, 192 )
-
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
@@ -88,7 +62,7 @@ animations = [ {
 "name": "cross",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 20 ), null, null, null, null, null ],
 "loop": true,
 "name": "cross explode",
 "speed": 5.0
@@ -124,7 +98,7 @@ scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 18 )
 animation = "cross explode"
 frame = 2
-offset = Vector2( 1, -4 )
+offset = Vector2( 1, -2 )
 
 [node name="Deez" parent="Flip/Sprite" index="0" instance=ExtResource( 9 )]
 unique_name_in_owner = true
@@ -176,11 +150,15 @@ sprite_animation = "cross explode"
 anim_length = 20
 ticks_per_frame = 2
 endless = true
+particle_scene = ExtResource( 17 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 18 )
+timed_spawn_particle_tick = 12
 enter_sfx = ExtResource( 14 )
 move_x = 0
 clash = false
 num_hits = 2
-lifetime = 20
+lifetime = 40
 fizzle_on_ground = false
 fizzle_on_walls = false
 fizzle_on_hit_opponent = true
@@ -194,10 +172,9 @@ width = 50
 height = 50
 damage = 100
 hitstun_ticks = 20
-hitlag_ticks = 1
+hitlag_ticks = 0
 victim_hitlag = 10
 plus_frames = 1
-hit_particle = ExtResource( 8 )
 replace_hit_particle = true
 bump_on_whiff = true
 whiff_sound = ExtResource( 16 )
@@ -211,5 +188,5 @@ grounded_hit_state = "HurtAerial"
 hard_knockdown = true
 ground_bounce = false
 wall_slam = true
-start_tick = 4
-active_ticks = 3
+start_tick = 12
+active_ticks = 4

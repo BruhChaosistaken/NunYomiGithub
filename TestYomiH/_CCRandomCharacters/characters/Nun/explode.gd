@@ -1,5 +1,7 @@
 extends DefaultFireball
 
+onready var ExplodeHitox = $Hitbox
+
 func _frame_0():
 	$"%Deez".stop_emitting()
 	var pos1 = host.get_pos().x
@@ -24,3 +26,6 @@ func _on_hit_something(obj, hitbox):
 	._on_hit_something(obj, hitbox)
 
 	host.creator.state_interruptable = true
+
+	if obj == host.creator and obj.is_in_group("Fighter"):
+		ExplodeHitox.hitstun_ticks = 10

@@ -1,7 +1,7 @@
 extends CharacterState
 
 var STALK = false
-export var UC: float = 1.25
+export var UC: float = 2
 func _enter():
 
 	if host.alleviate and host.is_grounded():

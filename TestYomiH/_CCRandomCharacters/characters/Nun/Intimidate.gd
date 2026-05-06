@@ -15,6 +15,6 @@ func _tick():
 
 	host.set_vel(fixed.mul("2", str(host.get_facing_int())), "0")
 
-	host.Pressure_Left -= 0.01
+	host.Pressure_Left += 0.02
 
 	idle_anim += 1

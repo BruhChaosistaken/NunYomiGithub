@@ -1,6 +1,6 @@
 extends CharacterState
 
-export var UC: float = 1.1
+export var UC: float = 4
 var pressureframe = 10
 # Declare member variables here. Examples:
 # var a = 2
