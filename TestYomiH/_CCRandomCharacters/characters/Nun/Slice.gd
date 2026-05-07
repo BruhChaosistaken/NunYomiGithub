@@ -1,13 +1,6 @@
 extends CharacterState
 
-onready var SKULL = preload("res://_CCRandomCharacters/characters/Nun/SKULL.tscn")
-
-var STALK
-
 export var UC: float = 3
-
-
-
 
 #
 #func on_got_blocked():

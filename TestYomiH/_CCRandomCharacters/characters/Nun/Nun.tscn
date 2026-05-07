@@ -4576,42 +4576,21 @@ script/source = "extends CharacterState
 
 onready var Crash = get_node(\"Hitbox\")
 
-onready var SKULL = preload(\"res://_CCRandomCharacters/characters/Nun/SKULL.tscn\")
-
 func _enter():
 	
 	print(host.current_state().state_name)
 	
 	if _previous_state_name() == \"Heavenly Descent\":
 		Crash.plus_frames = 2
+	else:
+		Crash.plus_frames = 0
 
 	if state_name == \"DescendCrash\":
 		host.play_sound(\"DeathImminent\")
 
 
-		Crash.damage_proration = -2
-		Crash.sdi_modifier  = \"1.0\"
-		Crash.ground_bounce = true
-		Crash.block_punishable = false
-	elif state_name == \"DescendDP\":
-		Crash.damage_proration = 1
-		Crash.sdi_modifier  = \"1.0\"
-		Crash.ground_bounce = false
-		Crash.block_punishable = true
-		Crash.plus_frames = 0
-		
-		
-
-	
-
 func is_usable():
 	return .is_usable() and host.current_state().state_name == \"Descend Crash\"
-
-#func on_got_blocked():
-#	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
-#		host.terrify_opponent(host.get_center_position_float())
-#
-
 "
 
 [sub_resource type="AnimatedTexture" id=355]
@@ -5919,17 +5898,13 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 81 ): {
-"x": -62,
-"y": -4
+SubResource( 78 ): {
+"x": -65,
+"y": -2
 },
 SubResource( 77 ): {
 "x": -68,
 "y": -3
-},
-SubResource( 78 ): {
-"x": -65,
-"y": -2
 },
 SubResource( 79 ): {
 "x": -64,
@@ -5938,6 +5913,10 @@ SubResource( 79 ): {
 SubResource( 80 ): {
 "x": -64,
 "y": -5
+},
+SubResource( 81 ): {
+"x": -62,
+"y": -4
 },
 SubResource( 82 ): {
 "x": -64,
@@ -6303,24 +6282,16 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 145 ): {
-"x": 29,
+SubResource( 142 ): {
+"x": 30,
+"y": -8
+},
+SubResource( 144 ): {
+"x": 31,
 "y": -8
 },
 SubResource( 146 ): {
 "x": 30,
-"y": -8
-},
-SubResource( 148 ): {
-"x": 27,
-"y": -8
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
-SubResource( 149 ): {
-"x": 25,
 "y": -8
 },
 SubResource( 141 ): {
@@ -6331,13 +6302,21 @@ SubResource( 143 ): {
 "x": 30,
 "y": -7
 },
-SubResource( 142 ): {
-"x": 30,
+SubResource( 145 ): {
+"x": 29,
 "y": -8
 },
-SubResource( 144 ): {
-"x": 31,
+SubResource( 149 ): {
+"x": 25,
 "y": -8
+},
+SubResource( 148 ): {
+"x": 27,
+"y": -8
+},
+SubResource( 147 ): {
+"x": 29,
+"y": -6
 }
 }
 show_in_menu = false
@@ -6539,8 +6518,9 @@ apply_grav = true
 sprite_animation = "speen"
 anim_length = 32
 ticks_per_frame = 2
-enter_force_dir_y = "-1"
-enter_force_speed = "5"
+force_dir_y = "-1"
+force_speed = "5"
+force_tick = 3
 enter_sfx = ExtResource( 24 )
 title = "SAW"
 type = 2
@@ -7800,23 +7780,19 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
-SubResource( 663 ): {
-"x": 24,
-"y": -2
-},
 SubResource( 662 ): {
 "x": 24,
 "y": -2
 },
-SubResource( 659 ): {
-"x": 26,
-"y": 0
+SubResource( 666 ): {
+"x": 24,
+"y": -1
 },
-SubResource( 660 ): {
+SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 661 ): {
+SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
@@ -7824,16 +7800,20 @@ SubResource( 664 ): {
 "x": 22,
 "y": 0
 },
-SubResource( 666 ): {
+SubResource( 659 ): {
+"x": 26,
+"y": 0
+},
+SubResource( 663 ): {
+"x": 24,
+"y": -2
+},
+SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
 SubResource( 667 ): {
 "x": 27,
-"y": -1
-},
-SubResource( 665 ): {
-"x": 24,
 "y": -1
 }
 }
@@ -8739,34 +8719,11 @@ height = 10
 start_tick = 0
 endless = true
 
-[node name="NoName" type="Node2D" parent="StateMachine" index="123"]
+[node name="Debug" type="Node2D" parent="StateMachine" index="123"]
 script = ExtResource( 64 )
 interrupt_from_string = "Grounded
 GroundedSpecial"
 interrupt_into_string = "Grounded"
-
-[node name="Fake Out" type="Node2D" parent="StateMachine" index="124"]
-script = ExtResource( 83 )
-apply_forces = true
-apply_fric = true
-apply_grav = true
-reset_momentum = true
-anim_length = 14
-force_dir_x = "1.0"
-force_dir_y = "1.0"
-force_speed = "7"
-force_tick = 6
-enter_force_dir_x = "-1.0"
-enter_force_dir_y = "-1.0"
-enter_force_speed = "6"
-interruptible_on_opponent_turn = true
-self_hit_cancellable = false
-self_interruptable = false
-interrupt_from_string = "Sprint
-Aerial"
-interrupt_into_string = "Aerial
-FakeOut"
-interrupt_exceptions_string = "Dash"
 
 [node name="OverloadTimer" type="Label" parent="." index="15"]
 unique_name_in_owner = true

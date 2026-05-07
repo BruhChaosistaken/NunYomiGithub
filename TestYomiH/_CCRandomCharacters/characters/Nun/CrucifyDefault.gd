@@ -16,6 +16,10 @@ func _frame_0():
 	host.spawn_particle_effect(Spawn_Particle,host.creator.opponent.get_center_position_float())
 
 func _tick():
+
+	if host.creator.current_state().name == "STALK DECIMATE 2":
+		lifetime += 1
+
 	if host.attached:
 		host.set_facing(host.creator.opponent.get_facing_int())
 		var pos = host.creator.opponent.get_hurtbox_center()
@@ -32,7 +36,7 @@ func _tick():
 		if attach_frames > 2:
 			if not opp.invulnerable and not opp.projectile_invulnerable:
 				host.attached = true
-	if current_tick > 120:
+	if current_tick > lifetime:
 		host.change_state("BigExplode")
 	elif host.detonating:
 		explode_ticks -= 1

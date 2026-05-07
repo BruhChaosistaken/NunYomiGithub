@@ -92,7 +92,7 @@ anim_length = 16
 ticks_per_frame = 4
 move_x = 0
 num_hits = 2
-lifetime = 20
+lifetime = 120
 fizzle_on_ground = false
 fizzle_on_walls = false
 

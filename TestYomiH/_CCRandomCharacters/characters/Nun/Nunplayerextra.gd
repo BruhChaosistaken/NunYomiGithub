@@ -50,11 +50,6 @@ func update_selected_move(move_state):
 		if move_state.name == "":
 			pass
 
-	if fighter.Pressure_Left <= 0:
-		Alleviate.disabled = true
-	else:
-		Alleviate.disabled = false
-	
 	if move_state:
 		if "UC" in move_state:
 			print("UC dectected")
@@ -62,13 +57,14 @@ func update_selected_move(move_state):
 			Alleviate.disabled = true
 			if move_state.get("UC") <= fighter.Pressure_Left:
 				Alleviate.disabled = false
+			else:
+				Alleviate.pressed = false
+				Alleviate.disabled = true
 
 		else:
 			Alleviate.hide()
 			Alleviate.disabled = true
-
-
-
+			Alleviate.pressed = false
 
 func reset():
 

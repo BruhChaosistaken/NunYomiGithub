@@ -190,7 +190,7 @@ func tick():
 
 #// Overload Mechanic
 
-	var offset = 1
+	var offset = 0.5
 
 	if awakentimer > 0 && is_ghost:
 		Overload_Label.show()
@@ -201,10 +201,13 @@ func tick():
 	if awakentimer > 0:
 
 		awakentimer -= 1 
-		print(awakentimer)
+#		print(awakentimer)
 
-	if current_state().name == "STALK DECIMATE 2":
-		awakentimer += 1
+	if awakened == true:
+		if current_state().name == "STALK DECIMATE 2":
+			awakentimer += 1
+		if hitlag_ticks > 0:
+			awakentimer += 1
 
 	if awakentimer == 1 and awakened == true:
 		print("triggered")
@@ -212,7 +215,7 @@ func tick():
 		insanity = 100 + (offset)
 		awakened = false
 		
-		print(awakened)
+#		print(awakened)
 
 #//
 
@@ -234,7 +237,7 @@ func tick():
 			change_state("Insane")
 
 	if insane:
-		print(insanity)
+#		print(insanity)
 		Pressure_Left = 0
 
 		if insanity == 1:
@@ -446,12 +449,18 @@ func on_state_started(state):
 
 		var UpgradeCost = state.get("UC")
 
-		if alleviate == true:
+		if alleviate == true and Pressure_Left < 5:
 			print("Used Upgrade")
 			
 			Pressure_Left -= UpgradeCost
 			spawn_particle_effect_relative(Upgrade_Effect, Vector2(0,-16))
 			play_sound("UpgradeSound")
+		if alleviate == true and Pressure_Left >= 5:
+			print("Upgrade Discount!")
+
+			Pressure_Left -= UpgradeCost / 2
+			spawn_particle_effect_relative(Upgrade_Effect, Vector2(0,-16))
+			play_sound("UpgradeSound")
 
 	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
-		Pressure_Left -= clamp(0.5, 0, Pressure_Left)
+		Pressure_Left -= clamp(0.1, 0, Pressure_Left)
