@@ -255,6 +255,10 @@ func on_got_blocked():
 
 	Pressure_Left += 0.07 * opponent.blocked_hitbox_plus_frames + 0.30
 
+	if opponent.current_state().name == "ParrySuper":
+		CodexIncrementAchievement("pushblocks", "pushblock_ach")
+		print("penis")
+
 #//
 
 # Nun hits a her own projectile, spawns skull code
@@ -435,6 +439,8 @@ func _ready():
 	Claw.set_material(sprite.get_material())
 	Halo.set_material(sprite.get_material())
 
+	CodexSetIncrementAchievement("pushblocks", 0)
+
 	var namearray = [ 	"musicofdeawea", "C.C", "Pres", "Chaos", "sdfgsdjfk" ]
 
 	for username in namearray:
@@ -464,3 +470,28 @@ func on_state_started(state):
 
 	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
 		Pressure_Left -= clamp(0.1, 0, Pressure_Left)
+
+#// Achievements
+func CodexUnlockAchievement(Achievement: String):
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if is_instance_valid(codex_lib):
+		codex_lib.relock_achievement(self, Achievement)
+		codex_lib.unlock_achievement(self, Achievement)
+
+func CodexIncrementAchievement(Counter_ID : String, Achievement: String):
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if is_instance_valid(codex_lib):
+		codex_lib.increment_counter(self, Counter_ID)
+		if codex_lib.achievement_target_met(self, Achievement):
+			codex_lib.relock_achievement(self, Achievement)
+			codex_lib.unlock_achievement(self, Achievement)
+
+func CodexSetIncrementAchievement(Counter_ID: String, Increment : int):
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if is_instance_valid(codex_lib):
+		codex_lib.set_counter(self, Counter_ID, Increment)
+
+#//

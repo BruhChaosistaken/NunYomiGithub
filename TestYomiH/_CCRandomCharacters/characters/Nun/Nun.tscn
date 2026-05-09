@@ -4740,8 +4740,7 @@ texture = ExtResource( 254 )
 
 [node name="STOP" type="Sprite" parent="Flip" index="6"]
 unique_name_in_owner = true
-visible = false
-modulate = Color( 1, 0.176471, 0.176471, 0 )
+modulate = Color( 0.858824, 0, 0, 0 )
 material = SubResource( 731 )
 position = Vector2( -1, -10 )
 z_index = 10
@@ -5906,10 +5905,6 @@ SubResource( 77 ): {
 "x": -68,
 "y": -3
 },
-SubResource( 79 ): {
-"x": -64,
-"y": -4
-},
 SubResource( 80 ): {
 "x": -64,
 "y": -5
@@ -5921,6 +5916,10 @@ SubResource( 81 ): {
 SubResource( 82 ): {
 "x": -64,
 "y": -2
+},
+SubResource( 79 ): {
+"x": -64,
+"y": -4
 }
 }
 release_throw_pos_x = 50
@@ -6282,41 +6281,41 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 142 ): {
-"x": 30,
-"y": -8
-},
-SubResource( 144 ): {
-"x": 31,
-"y": -8
-},
-SubResource( 146 ): {
-"x": 30,
+SubResource( 149 ): {
+"x": 25,
 "y": -8
 },
 SubResource( 141 ): {
 "x": 34,
 "y": -8
 },
+SubResource( 142 ): {
+"x": 30,
+"y": -8
+},
 SubResource( 143 ): {
 "x": 30,
 "y": -7
+},
+SubResource( 144 ): {
+"x": 31,
+"y": -8
 },
 SubResource( 145 ): {
 "x": 29,
 "y": -8
 },
-SubResource( 149 ): {
-"x": 25,
-"y": -8
-},
-SubResource( 148 ): {
-"x": 27,
+SubResource( 146 ): {
+"x": 30,
 "y": -8
 },
 SubResource( 147 ): {
 "x": 29,
 "y": -6
+},
+SubResource( 148 ): {
+"x": 27,
+"y": -8
 }
 }
 show_in_menu = false
@@ -7784,8 +7783,16 @@ SubResource( 662 ): {
 "x": 24,
 "y": -2
 },
-SubResource( 666 ): {
-"x": 24,
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
+SubResource( 659 ): {
+"x": 26,
+"y": 0
+},
+SubResource( 667 ): {
+"x": 27,
 "y": -1
 },
 SubResource( 661 ): {
@@ -7796,14 +7803,6 @@ SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
-SubResource( 659 ): {
-"x": 26,
-"y": 0
-},
 SubResource( 663 ): {
 "x": 24,
 "y": -2
@@ -7812,8 +7811,8 @@ SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
-SubResource( 667 ): {
-"x": 27,
+SubResource( 666 ): {
+"x": 24,
 "y": -1
 }
 }

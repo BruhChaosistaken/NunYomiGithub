@@ -5,6 +5,8 @@ var y = 0
 
 var Overflow_Loop = 3
 
+onready var FirstHitbox = $Hitbox
+
 func _enter():
 
 	host.grab_camera_focus()
@@ -15,6 +17,8 @@ func _enter():
 
 func _tick():
 
+	var debounce = false
+
 	if host.awakened == false and host.Pressure_Left > 5 and current_tick == 60 or host.opponent.hp <= 0 and current_tick == 60 or host.awakened == true and Overflow_Loop > 0 and current_tick == 60:
 
 		if host.awakened == true:
@@ -22,13 +26,18 @@ func _tick():
 			Overflow_Loop -= 1
 			print(Overflow_Loop)
 
+		if host.opponent.hp <= 0 and debounce == false:
+			FirstHitbox.damage = 0
+			host.CodexUnlockAchievement("decimate_finisher_ach")
+			debounce = true
+
 		host.play_sound("DeathImminent")
 		host.play_sound("death2")
 		host.change_state("STALK DECIMATE 2")
 		host.spawn_particle_effect(particle_scene,host.get_center_position_float())
 
-		if host.awakened == false:
-			host.Pressure_Left -= clamp( 1 , 0, round(host.Pressure_Left - (host.Pressure_Amount/2.5)) )
+		if host.awakened == false and host.opponent.hp >= 0:
+			host.Pressure_Left -= 1
 			$"%STOP".modulate.a += 0.1
 			host.create_speed_after_image_from_style(1)
 
@@ -65,9 +74,7 @@ func _exit():
 	if host.awakened == true and Overflow_Loop == 3:
 		Spawn_CrucifyProj(0, -16)
 
-
-
 	host.release_camera_focus()
 	if _previous_state().name == "STALK DECIMATE 2" and current_tick > 60:
-		$"%STOP".modulate.a = 0
+		$"%STOP".modulate.a += 0.2
 
