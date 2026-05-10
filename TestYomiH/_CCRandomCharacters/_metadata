@@ -1,0 +1,13 @@
+{
+	"name": "Nun",
+	"friendly_name": "C.C Nun",
+	"description": "Lumine the Executor.",
+	"author": "C.C, Hoss",
+	"version": "v2.0",
+	"link": "",
+	"id": "00001",
+	"requires": ["char_loader"],
+	"overwrites": false,
+	"client_side": false,
+	"priority": 0,
+}
