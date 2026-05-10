@@ -55,8 +55,23 @@ func init(pos = null):
 
 	spriteframes = sprite.frames
 
+	CodexSetIncrementAchievement("pushblocks", 0)
+
+
+var shikadebounce = false
+
 func tick():
 	.tick()
+
+	var game = Global.current_game
+
+	if is_instance_valid(game):
+		if game.game_finished == true and ( opponent.get("charname") == "Shika" or getOpponentName() in Names ) :
+			if shikadebounce == false:
+				if opponent.hp <= 0 and not ( game.spectating ):
+					CodexIncrementAchievement("shikas_defeated", "beat_5_shikas_ach")
+					print("That enemy is dead lol")
+					shikadebounce = true
 
 #// Overload Stuff
 
@@ -439,8 +454,6 @@ func _ready():
 	Claw.set_material(sprite.get_material())
 	Halo.set_material(sprite.get_material())
 
-	CodexSetIncrementAchievement("pushblocks", 0)
-
 	var namearray = [ 	"musicofdeawea", "C.C", "Pres", "Chaos", "sdfgsdjfk" ]
 
 	for username in namearray:
@@ -471,13 +484,20 @@ func on_state_started(state):
 	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
 		Pressure_Left -= clamp(0.1, 0, Pressure_Left)
 
-#// Achievements
+#// Achievements Functions
+
 func CodexUnlockAchievement(Achievement: String):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
 
 	if is_instance_valid(codex_lib):
 		codex_lib.relock_achievement(self, Achievement)
 		codex_lib.unlock_achievement(self, Achievement)
+
+func CodexRelockAchievement(Achievement: String):
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if is_instance_valid(codex_lib):
+		codex_lib.relock_achievement(self, Achievement)
 
 func CodexIncrementAchievement(Counter_ID : String, Achievement: String):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")

@@ -26,10 +26,10 @@ func _tick():
 			Overflow_Loop -= 1
 			print(Overflow_Loop)
 
-		if host.opponent.hp <= 0 and debounce == false:
-			FirstHitbox.damage = 0
-			host.CodexUnlockAchievement("decimate_finisher_ach")
-			debounce = true
+		if host.opponent.hp <= 0:
+				if debounce == false and not ( Global.current_game.spectating or Global.current_game.singleplayer ):
+					host.CodexUnlockAchievement("decimate_finisher_ach")
+					debounce = true
 
 		host.play_sound("DeathImminent")
 		host.play_sound("death2")

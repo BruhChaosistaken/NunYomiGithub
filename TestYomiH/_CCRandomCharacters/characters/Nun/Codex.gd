@@ -79,9 +79,9 @@ After Nun has taken the INSANITY stun, Nun is set to an [color=#27F598] EXHAUSTE
 """)
 
 func setup_achievements(list):
-	list.set_title("beat_5_shika_ach", "Severed Connections")
-	list.set_desc("beat_5_shika_ach", "Beat Shika 5 times.")
-	list.assign_counter("beat_5_shika_ach", "Shikas_Deafeated", 5)
+	list.set_title("beat_5_shikas_ach", "Severed Connections")
+	list.set_desc("beat_5_shikas_ach", "Beat Shika 5 times.")
+	list.assign_counter("beat_5_shikas_ach", "shikas_defeated", 5)
 
 	list.set_title("beat_50_char_ach", "Repentance")
 	list.set_desc("beat_50_char_ach", "Defeat 50 DIFFERENT modded / base characters.")
@@ -90,26 +90,25 @@ func setup_achievements(list):
 	list.set_title("decimate_finisher_ach", "Bloody Hands.")
 	list.set_desc("decimate_finisher_ach", "Finish a Player with Decimate")
 
+	list.set_title("Executor_ach", "Grim Reaper")
+	list.set_desc("Executor_ach", "Win 75 Multiplayer Matches, This Rewards the Executor Skin")
+	list.assign_counter("Executor_ach", "Wins", 75)
+
 	list.set_title("Greaper_ach", "Grim Reaper")
-	list.set_desc("Greaper_ach", "Win 150 times")
+	list.set_desc("Greaper_ach", "Win 150 Multiplayer Matches, This Rewards the Grim Reaper Skin")
 	list.assign_counter("Greaper_ach", "Wins", 150)
 
 	list.set_title("insanity_ach", "Brain Damage.")
-	list.set_desc("insanity_ach", "With Nun, get stunned from Insanity 32 times in total.")
-	list.assign_counter("insanity_ach", "Insanity_Total", 32)
+	list.set_desc("insanity_ach", "With Nun, get stunned from Insanity 20 times in total.")
+	list.assign_counter("insanity_ach", "Insanity_Total", 20)
 
 	list.set_title("insanitydeath_ach", "Full Counter.")
-	list.set_desc("insanitydeath_ach", "With Nun, Win a match while in Insanity stun.")
+	list.set_desc("insanitydeath_ach", "In a Match, Win while in Insanity stun.")
 
 	list.set_title("pushblock_ach", "Scaredy Cat")
-	list.set_desc("pushblock_ach", "With Nun, Have an Opponent use Pushblock against you 3 times in one match.")
+	list.set_desc("pushblock_ach", "In a Single Match, Have an Opponent use Pushblock against you 3 times OR hit them 3 times in Pushblock.")
 	list.assign_counter("pushblock_ach", "pushblocks", 3)
 
 	list.set_title("secret_ach", "You Still Remember.")
 	list.set_desc("secret_ach", "The day where it all changed.")
 	list.mark_secret("secret_ach")
-
-	list.set_title("test_cheivo", "Achievement 1")
-	list.set_desc("test_cheivo", "Description Here")
-	list.set_icon("test_cheivo", "res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon8.png")
-	list.set_locked_icon("test_cheivo", "res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon1.png")

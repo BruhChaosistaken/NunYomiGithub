@@ -5897,17 +5897,9 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 78 ): {
-"x": -65,
-"y": -2
-},
 SubResource( 77 ): {
 "x": -68,
 "y": -3
-},
-SubResource( 80 ): {
-"x": -64,
-"y": -5
 },
 SubResource( 81 ): {
 "x": -62,
@@ -5917,9 +5909,17 @@ SubResource( 82 ): {
 "x": -64,
 "y": -2
 },
+SubResource( 78 ): {
+"x": -65,
+"y": -2
+},
 SubResource( 79 ): {
 "x": -64,
 "y": -4
+},
+SubResource( 80 ): {
+"x": -64,
+"y": -5
 }
 }
 release_throw_pos_x = 50
@@ -6281,12 +6281,16 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 149 ): {
-"x": 25,
+SubResource( 145 ): {
+"x": 29,
 "y": -8
 },
 SubResource( 141 ): {
 "x": 34,
+"y": -8
+},
+SubResource( 149 ): {
+"x": 25,
 "y": -8
 },
 SubResource( 142 ): {
@@ -6299,10 +6303,6 @@ SubResource( 143 ): {
 },
 SubResource( 144 ): {
 "x": 31,
-"y": -8
-},
-SubResource( 145 ): {
-"x": 29,
 "y": -8
 },
 SubResource( 146 ): {
@@ -7779,6 +7779,14 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
+SubResource( 659 ): {
+"x": 26,
+"y": 0
+},
+SubResource( 661 ): {
+"x": 27,
+"y": 0
+},
 SubResource( 662 ): {
 "x": 24,
 "y": -2
@@ -7787,33 +7795,25 @@ SubResource( 664 ): {
 "x": 22,
 "y": 0
 },
-SubResource( 659 ): {
-"x": 26,
-"y": 0
-},
-SubResource( 667 ): {
-"x": 27,
+SubResource( 665 ): {
+"x": 24,
 "y": -1
-},
-SubResource( 661 ): {
-"x": 27,
-"y": 0
 },
 SubResource( 660 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 663 ): {
-"x": 24,
-"y": -2
-},
-SubResource( 665 ): {
-"x": 24,
-"y": -1
-},
 SubResource( 666 ): {
 "x": 24,
 "y": -1
+},
+SubResource( 667 ): {
+"x": 27,
+"y": -1
+},
+SubResource( 663 ): {
+"x": 24,
+"y": -2
 }
 }
 show_in_menu = false
