@@ -28,7 +28,7 @@ func _tick():
 
 		if host.opponent.hp <= 0:
 				if debounce == false and not ( Global.current_game.spectating or Global.current_game.singleplayer ):
-					host.CodexUnlockAchievement("decimate_finisher_ach")
+					host.CodexUnlockAchievement("decimate_finisher_ach", true)
 					debounce = true
 
 		host.play_sound("DeathImminent")

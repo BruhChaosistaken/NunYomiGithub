@@ -1,4 +1,4 @@
-extends SuperMove
+extends CharacterState
 
 onready var SKULL = preload("res://_CCRandomCharacters/characters/Nun/SKULL.tscn")
 
@@ -30,8 +30,8 @@ func _tick():
 
 	host.colliding_with_opponent = false
 
-func _frame_9():
-	host.spawn_particle_effect_relative(particle_scene, host.hurtbox_pos_relative_float(), Vector2.RIGHT * host.get_facing_int())
+#func _frame_9():
+#	host.spawn_particle_effect_relative(particle_scene, host.hurtbox_pos_relative_float(), Vector2.RIGHT * host.get_facing_int())
 
 func _frame_13():
 	host.play_sound("shing")
@@ -40,4 +40,5 @@ func _frame_13():
 #	if host.Pressure_Left > 5 and host.SUFFER_ACTIVE == 0:
 #		host.terrify_opponent(host.get_center_position_float())
 
-
+func is_usable():
+	return .is_usable() and host.Pressure_Left >= 2.0

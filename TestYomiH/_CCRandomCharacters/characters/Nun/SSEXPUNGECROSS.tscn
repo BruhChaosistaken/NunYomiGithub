@@ -17,7 +17,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/se_common_elec_ll_damage.wav" type="AudioStream" id=15]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/CrystalBrake.wav" type="AudioStream" id=16]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Carve1.tscn" type="PackedScene" id=17]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Provoke.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/ExplosionVFX.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
@@ -89,8 +89,10 @@ z_index = 5
 script = ExtResource( 1 )
 max_fall_speed = "15"
 extra_state_variables = "detonating"
+damages_own_team = true
 has_projectile_parry_window = false
 can_be_hit_by_melee = true
+free_cancel_on_hit = true
 projectile_immune = true
 
 [node name="Sprite" parent="Flip" index="0"]
@@ -102,7 +104,7 @@ offset = Vector2( 1, -2 )
 
 [node name="Deez" parent="Flip/Sprite" index="0" instance=ExtResource( 9 )]
 unique_name_in_owner = true
-visible = false
+modulate = Color( 1, 1, 1, 0.294118 )
 material = SubResource( 19 )
 position = Vector2( 0, 0 )
 free = true
@@ -124,6 +126,7 @@ particle_scene = ExtResource( 8 )
 spawn_particle_on_enter = true
 move_x = 0
 num_hits = 2
+lifetime = 70
 fizzle_on_ground = false
 fizzle_on_walls = false
 
@@ -134,6 +137,7 @@ y = -8
 width = 14
 height = 24
 damage = 50
+allowed_to_hit_own_team = false
 plus_frames = 2
 screenshake_amount = 1
 hit_particle = ExtResource( 11 )
@@ -142,7 +146,7 @@ hit_sound = ExtResource( 13 )
 hit_bass_sound = ExtResource( 12 )
 knockback = "1"
 start_tick = 5
-active_ticks = 10
+always_on = true
 
 [node name="explode" type="Node2D" parent="StateMachine" index="1"]
 script = ExtResource( 3 )

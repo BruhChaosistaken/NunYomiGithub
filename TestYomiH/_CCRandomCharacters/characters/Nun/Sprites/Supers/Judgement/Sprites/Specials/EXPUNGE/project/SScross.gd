@@ -2,8 +2,6 @@ extends BaseProjectile
 
 var detonating = false
 
-
-
 func on_got_blocked():
 	.on_got_blocked()
 
@@ -35,4 +33,5 @@ func tick():
 func hit_by(hitbox):
 	.hit_by(hitbox)
 
-	detonate()
+	if current_state().name != "explode":
+		detonate()

@@ -48,3 +48,7 @@ volume_db = -15.0
 
 [node name="Default" parent="StateMachine" index="0"]
 sprite_animation = "default"
+move_x = 0
+lifetime = 300
+fizzle_on_ground = false
+fizzle_on_walls = false

@@ -137,7 +137,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Carve1.tscn" type="PackedScene" id=135]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/PAIN.gd" type="Script" id=136]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Eliminate.png" type="Texture" id=137]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Provoke.tscn" type="PackedScene" id=138]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/chargeeffexct.tscn" type="PackedScene" id=138]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_ui_ingame_danger.wav" type="AudioStream" id=139]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/DecimateEffect.tscn" type="PackedScene" id=140]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/ExtendAction.wav" type="AudioStream" id=141]
@@ -5834,14 +5834,11 @@ force_speed = "6"
 force_tick = 7
 enter_force_dir_x = "1"
 enter_force_speed = "-3"
-particle_scene = ExtResource( 112 )
-type = 3
-data_ui_scene = ExtResource( 314 )
+type = 2
 button_texture = ExtResource( 150 )
 air_type = 2
 self_hit_cancellable = false
 self_interruptable = false
-reversible = false
 interrupt_from_string = "Grounded
 GroundedAttack
 Aerial
@@ -5855,8 +5852,6 @@ Aerial
 AerialAttack"
 no_collision_start_frame = 9
 no_collision_end_frame = 13
-supers_used = 1
-super_freeze_ticks = 10
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Eliminate" index="0"]
 z_index = 1000
@@ -5897,9 +5892,21 @@ null: {
 "x": -77,
 "y": -2
 },
+SubResource( 79 ): {
+"x": -64,
+"y": -4
+},
 SubResource( 77 ): {
 "x": -68,
 "y": -3
+},
+SubResource( 78 ): {
+"x": -65,
+"y": -2
+},
+SubResource( 80 ): {
+"x": -64,
+"y": -5
 },
 SubResource( 81 ): {
 "x": -62,
@@ -5908,18 +5915,6 @@ SubResource( 81 ): {
 SubResource( 82 ): {
 "x": -64,
 "y": -2
-},
-SubResource( 78 ): {
-"x": -65,
-"y": -2
-},
-SubResource( 79 ): {
-"x": -64,
-"y": -4
-},
-SubResource( 80 ): {
-"x": -64,
-"y": -5
 }
 }
 release_throw_pos_x = 50
@@ -6281,12 +6276,16 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 145 ): {
-"x": 29,
+SubResource( 143 ): {
+"x": 30,
+"y": -7
+},
+SubResource( 148 ): {
+"x": 27,
 "y": -8
 },
-SubResource( 141 ): {
-"x": 34,
+SubResource( 146 ): {
+"x": 30,
 "y": -8
 },
 SubResource( 149 ): {
@@ -6297,24 +6296,20 @@ SubResource( 142 ): {
 "x": 30,
 "y": -8
 },
-SubResource( 143 ): {
-"x": 30,
-"y": -7
-},
-SubResource( 144 ): {
-"x": 31,
-"y": -8
-},
-SubResource( 146 ): {
-"x": 30,
+SubResource( 141 ): {
+"x": 34,
 "y": -8
 },
 SubResource( 147 ): {
 "x": 29,
 "y": -6
 },
-SubResource( 148 ): {
-"x": 27,
+SubResource( 144 ): {
+"x": 31,
+"y": -8
+},
+SubResource( 145 ): {
+"x": 29,
 "y": -8
 }
 }
@@ -6651,7 +6646,7 @@ breaker"
 interrupt_into_string = "Grounded"
 hit_cancel_into_string = "GroundedAttack
 Grounded"
-super_level_ = 2
+super_level_ = 1
 super_freeze_ticks_ = 4
 super_effect_ = true
 
@@ -7011,8 +7006,7 @@ interrupt_into_string = "Grounded
 Aerial"
 hit_cancel_into_string = "Grounded
 Aerial"
-super_level_ = 2
-supers_used_ = 2
+super_level_ = 1
 super_freeze_ticks_ = 1
 super_effect_ = true
 
@@ -7783,11 +7777,19 @@ SubResource( 659 ): {
 "x": 26,
 "y": 0
 },
+SubResource( 660 ): {
+"x": 27,
+"y": 0
+},
 SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
 SubResource( 662 ): {
+"x": 24,
+"y": -2
+},
+SubResource( 663 ): {
 "x": 24,
 "y": -2
 },
@@ -7799,10 +7801,6 @@ SubResource( 665 ): {
 "x": 24,
 "y": -1
 },
-SubResource( 660 ): {
-"x": 27,
-"y": 0
-},
 SubResource( 666 ): {
 "x": 24,
 "y": -1
@@ -7810,10 +7808,6 @@ SubResource( 666 ): {
 SubResource( 667 ): {
 "x": 27,
 "y": -1
-},
-SubResource( 663 ): {
-"x": 24,
-"y": -2
 }
 }
 show_in_menu = false
@@ -8040,8 +8034,7 @@ interrupt_into_string = "Grounded
 GroudedAttack"
 hit_cancel_into_string = "Grounded"
 change_stance_to = "Normal"
-super_level_ = 2
-supers_used_ = 2
+super_level_ = 1
 super_freeze_ticks_ = 5
 super_effect_ = true
 
@@ -8477,7 +8470,6 @@ sfx = ExtResource( 290 )
 sfx_tick = 34
 sfx_volume = -8.0
 title = "Sin Release"
-show_in_menu = false
 type = 3
 self_hit_cancellable = false
 self_interruptable = false
@@ -8485,7 +8477,6 @@ can_feint_if_possible = false
 selectable = false
 interrupt_from_string = "Grounded"
 interrupt_into_string = "Grounded"
-allowed_stances_string = "judge"
 apply_pushback = false
 super_level_ = 2
 super_freeze_ticks_ = 4

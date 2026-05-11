@@ -12,9 +12,6 @@ func _frame_0():
 
 func _tick():
 
-	if not host.creator.current_state().name == "SSWalk":
-		host.damages_own_team = true
-
 	if current_tick > lifetime:
 		host.disable()
 		terminate_hitboxes()
@@ -25,7 +22,9 @@ func _on_hit_something(obj, hitbox):
 		host.get_fighter().gain_free_cancel()
 	._on_hit_something(obj, hitbox)
 
-	host.creator.state_interruptable = true
-
 	if obj == host.creator and obj.is_in_group("Fighter"):
 		ExplodeHitox.hitstun_ticks = 10
+		ExplodeHitox.hitlag_ticks = 0
+	else:
+		ExplodeHitox.hitstun_ticks = 20
+		ExplodeHitox.hitlag_ticks = 10

@@ -55,8 +55,8 @@ func init(pos = null):
 
 	spriteframes = sprite.frames
 
-	CodexSetIncrementAchievement("pushblocks", 0)
-
+	CodexTrackWins()
+	CodexPushblockAch()
 
 var shikadebounce = false
 
@@ -66,10 +66,10 @@ func tick():
 	var game = Global.current_game
 
 	if is_instance_valid(game):
-		if game.game_finished == true and ( opponent.get("charname") == "Shika" or getOpponentName() in Names ) :
+		if game.game_finished == true and ( opponent.get("charname") == "Shika" or getOpponentName().name == "Shika" ) :
 			if shikadebounce == false:
 				if opponent.hp <= 0 and not ( game.spectating ):
-					CodexIncrementAchievement("shikas_defeated", "beat_5_shikas_ach")
+					CodexIncrementAchievement("shikas_defeated", "beat_5_shikas_ach", true)
 					print("That enemy is dead lol")
 					shikadebounce = true
 
@@ -271,7 +271,7 @@ func on_got_blocked():
 	Pressure_Left += 0.07 * opponent.blocked_hitbox_plus_frames + 0.30
 
 	if opponent.current_state().name == "ParrySuper":
-		CodexIncrementAchievement("pushblocks", "pushblock_ach")
+		CodexIncrementAchievement("pushblocks", "pushblock_ach", true)
 		print("penis")
 
 #//
@@ -299,31 +299,17 @@ func _on_hit_something(obj,hitbox):
 
 			var test = Vector2(0,0) + Vector2(current_di.x, current_di.y)
 			var dir = fixed.normalized_vec(str(test.x), str(test.y))
-
 			var pos = obj.get_center_position_float()
-
 			var skull = spawn_object(preload("res://_CCRandomCharacters/characters/Nun/CrossProjectile.tscn"), SkullPosX - position.x, SkullPosY - position.y, false)
-
-			#skull.set_facing(get_facing_int())
-
 			var speed = fixed.mul("15", "1")
 
 			if get_facing_int() == 1:
-
-				 #var di_force = x_to_dir(current_di.x, current_di.y, 5)
 				 var force = fixed.normalized_vec_times(str(hitbox.x + (100 + current_di.x)),str((hitbox.y+current_di.y-25)  ),speed)
-
 				 skull.apply_force(force.x,force.y)
-
-
 
 			if get_facing_int() == -1:
-				 #var di_force = xy_to_dir(current_di.x, current_di.y, 5)
 				 var force = fixed.normalized_vec_times(str(-hitbox.x+(-100+current_di.x)),str((hitbox.y+current_di.y-25)),speed)
-
 				 skull.apply_force(force.x,force.y)
-
-
 
 func getOpponentName():
 	var name = find_parent("Main").match_data.selected_characters[opponent.id]["name"]
@@ -373,6 +359,8 @@ var Names = [
 	#ESPECIALLY EMINENCE, BRO IS DOWN BAD
 ]
 
+#//
+
 #Judgment / Projectile Shenanigans
 
 var SSCROSSACTIVE = false
@@ -408,23 +396,6 @@ func spook(player):
 		obj.set_grounded(false)
 		obj.apply_force(force.x, force.y)
 
-#func terrify_opponent(player):
-#		var local_pos = opponent.get_center_position_float() - player
-#
-#		var dir = fixed.normalized_vec(str(local_pos.x), str(local_pos.y+20))
-#		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), -40, -40, true, {"dir": dir})
-#		spawn_object(load("res://_CCRandomCharacters/characters/Nun/SKULL.tscn"), 0, -80, true, {"dir": dir})
-
-
-#func ACTIVE_SKULL_1():
-#	if is_instance_valid(obj_from_name(SKULL)):
-#		return obj_from_name(SKULL)
-#
-#func ACTIVE_SKULL_2():
-#	if is_instance_valid(obj_from_name(SKULL2)):
-#		return obj_from_name(SKULL2)
-
-
 func SWAP1():
 
 	var SPEED = "12"
@@ -448,6 +419,10 @@ func SWAP1():
 
 			Pressure_Left += 1.0
 
+#//
+
+#// Halo thing
+
 func _ready():
 
 	speen.set_material(sprite.get_material())
@@ -459,6 +434,10 @@ func _ready():
 	for username in namearray:
 		if username == Network.pid_to_username(id) :
 			specialman = true
+
+#//
+
+#// Upgrade Cost
 
 func on_state_started(state):
 	.on_state_started(state)
@@ -484,14 +463,15 @@ func on_state_started(state):
 	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
 		Pressure_Left -= clamp(0.1, 0, Pressure_Left)
 
+#//
+
 #// Achievements Functions
 
-func CodexUnlockAchievement(Achievement: String):
+func CodexUnlockAchievement(Achievement: String, Multiplayer_Only = false):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
 
 	if is_instance_valid(codex_lib):
-		codex_lib.relock_achievement(self, Achievement)
-		codex_lib.unlock_achievement(self, Achievement)
+		codex_lib.unlock_achievement(self, Achievement, Multiplayer_Only)
 
 func CodexRelockAchievement(Achievement: String):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
@@ -499,19 +479,38 @@ func CodexRelockAchievement(Achievement: String):
 	if is_instance_valid(codex_lib):
 		codex_lib.relock_achievement(self, Achievement)
 
-func CodexIncrementAchievement(Counter_ID : String, Achievement: String):
+func CodexIncrementAchievement(Counter_ID : String, Achievement: String, Multiplayer_Only = false):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
 
 	if is_instance_valid(codex_lib):
 		codex_lib.increment_counter(self, Counter_ID)
 		if codex_lib.achievement_target_met(self, Achievement):
-			codex_lib.relock_achievement(self, Achievement)
-			codex_lib.unlock_achievement(self, Achievement)
+			codex_lib.unlock_achievement(self, Achievement, Multiplayer_Only)
 
-func CodexSetIncrementAchievement(Counter_ID: String, Increment : int):
+func CodexSetIncrementAchievement(Counter_ID: String, Increment : int, Multiplayer_Only = false):
 	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
 
 	if is_instance_valid(codex_lib):
-		codex_lib.set_counter(self, Counter_ID, Increment)
+		codex_lib.set_counter(self, Counter_ID, Increment, Multiplayer_Only)
 
+func CodexPushblockAch():
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if not codex_lib.is_achievement_unlocked(self, "pushblock_ach"):
+		CodexSetIncrementAchievement("pushblocks", 0)
+	else:
+		CodexSetIncrementAchievement("pushblocks", 3)
+
+func CodexTrackWins():
+	var codex_lib = get_node_or_null("/root/CharCodexLibrary")
+
+	if is_instance_valid(codex_lib):
+		var Wins = codex_lib.num_wins(self)
+		codex_lib.set_counter(self, "Wins", Wins)
+		if codex_lib.achievement_target_met(self, "Greaper_ach"):
+			codex_lib.unlock_achievement(self, "Greaper_ach")
+		elif codex_lib.achievement_target_met(self, "Executor_ach"):
+			codex_lib.unlock_achievement(self, "Executor_ach")
+		elif codex_lib.achievement_target_met(self, "First_ach"):
+			codex_lib.unlock_achievement(self, "First_ach")
 #//
