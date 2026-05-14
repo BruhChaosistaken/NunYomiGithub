@@ -34,49 +34,45 @@ func register(codex):
 
 	codex.add_custom_text_tab("Pressure", """
 [center] [color=#ff2d2d]- PRESSURE - [/color] [/center] 
-Pressure is what Nun prioritizes each match, and as she earns more she gains access to more tools, But having to manage this resource is important because if used carelessly Nun enters the [color=#279FF5][url=tab:Insanity]INSANITY[/url][/color] state.
+[color=#7D7D7D]Pressure is what Nun prioritizes each match, and as she earns more she gains access to more tools, But having to manage this resource is important because if used carelessly Nun enters the [color=#279FF5][url=tab:Insanity]INSANITY[/url][/color] state.[/color]
 
 	Some changes are applied automatically after a certain threshold, But some tools are kept under upgrading a move when the option is available:
 
-[center]ANY PERCENT 0%/ 0.0 AND ABOVE:[/center]
+[center][color=#F52787]PRESSURE THRESHOLDS:[/color][/center]
 
 	[img]res://ui/ActionSelector/StateIcons/grab.png[/img] - Throwing behind you deals extra damage in porportion to the amount of pressure you have, in exchange back grab deals less damage.
 
-[center]At 50%/ 0.5:[/center]
-
-	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon16.png[/img] - It is now +10 on block.
-
-[center]Above 50%/0.5:[/center]
-
-	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons28.png[/img] - Will drain pressure down to 50%, spending pressure for each extra stab.
-
 	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon12.png[/img] - The higher your pressure, the more chip damage it does.
 
-	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon13.png[/img] - Spawns 2 skulls behind you.
+	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons28.png[/img] - If Pressure is Above 50% it will drain pressure down to 50%, spending pressure for each extra stab.
 
-[center]DEPLETING PRESSURE[/center]
-Options to deplete Pressure:
+[center][color=#9F27F5]UPGRADE COSTS:[/color][/center]
 
-	Using Normal Attacks.
-	Using Sprint.
-	Using Hustle.
-	Spending Pressure to upgrade attacks.
+	[img]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon13.png[/img] - PlaceHolder.
 
+[center][color=#279FF5]DEPLETING PRESSURE:[/color][/center]
+[table=1,bottom]
+[cell][ol]Using [color=#F5CF27]Normals[/color]. Using Hustle [img=center]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons19.png[/img]. Using the [color=#ff2d2d]Upgrade Toggle[/color] [img=center,center]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/IcoonUpgrade.png[/img]. Moving Backwards. Using Sprint[img=center,center]res://_CCRandomCharacters/characters/Nun/Sprites/Icons/normal/Icons30.png[/img].[/ol][/cell][/table]
+
+[center][color=#D91616]GAINING PRESSURE:[/color][/center]
+[table=1,bottom]
+[cell][ol]Block [color=#27F598]Plus (+) Frames[/color]. The Enemy Being Knocked Down or in the [color=#F5CF27]Getup[/color] State. The Opponent Moving Backwards. If the Opponent Uses [color=#1671D9]Neutral Burst[/color].[/ol][/cell][/table]
 """)
 
 	codex.add_custom_text_tab("Insanity", """
 
 [center] [color=#279FF5] INSANITY [/color] [/center]
-Insanity is a state in where you get punished for spamming tools that build pressure, needing you to keep a balance between the resources to not be at a disadvantage.
+[color=#7D7D7D]Insanity is a state in where you get punished for spamming tools that build pressure -- needing you to keep a balance between the resources to not be at a disadvantage.[/color]
 
-Once Pressure has reached its max the "Insanity bar" below Nuns pressure gauge fiils up (Unless in [url=OVERLOAD]OVERLOAD[/url]), Letting this bar fill up to max stuns Nun until INSANITY is back to 0. If the stun is avoided or the stun is cancelled you enter the [color=#27F598]EXHAUSTED[/color] state.
+Once Pressure has reached its max the "Insanity bar" below Nuns pressure gauge fiils up (Unless in [shake rate=20.0 level=5 connected=1][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]OVERLOAD[/rainbow][/shake]), Letting this bar fill up to max stuns Nun until [color=#279FF5]INSANITY[/color] is back to 0.
+
+If the stun is avoided or the stun is cancelled you enter the [color=#27F598]EXHAUSTED[/color] state.
 
 [center] [color=#27F598] EXHAUSTED [/color] [/center]
 After Nun has taken the INSANITY stun, Nun is set to an [color=#27F598] EXHAUSTED [/color] state being unable to gain pressure from any means -- Once the bar has settled down Nun will be able to accumulate Pressure as normal.
 
-
-
 """)
+
 
 func setup_achievements(list):
 	list.set_title("beat_5_shikas_ach", "Severed-Connections.")
@@ -94,7 +90,7 @@ func setup_achievements(list):
 	list.set_desc("First_ach", "Win your first Multiplayer Match with Nun. You've got a long way to go kid... heh...")
 	list.assign_counter("First_ach", "Wins", 1)
 
-	list.set_title("Executor_ach", "Grim Reaper.")
+	list.set_title("Executor_ach", "Executor.")
 	list.set_desc("Executor_ach", "Win 75 Multiplayer Matches, This Rewards the Executor Skin")
 	list.assign_counter("Executor_ach", "Wins", 75)
 

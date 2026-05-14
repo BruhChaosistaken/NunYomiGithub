@@ -22,7 +22,7 @@ func tick():
 					spawn_particle_effect_relative(preload("res://_CCRandomCharacters/characters/Nun/VFX/BluntLight.tscn"), Vector2(0,0))
 					if objs == self.creator:
 						objs.apply_force(int(di_x) / 10, int(di_y) / 10)
-						creator.Pressure_Left += 2.5
+						creator.Pressure_Left += 2
 						disable()
 			elif objs.is_in_group("Skull"):
 				print("sees skull")

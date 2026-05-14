@@ -190,7 +190,7 @@ func tick():
 		$"%Pressure".stop_emitting()
 
 	if opponent.on_the_ground == true or opponent.current_state().name == "Getup":
-		Pressure_Left += 0.1
+		Pressure_Left += 0.05
 
 	if opponent.current_state().name == "DefensiveBurst":
 		Pressure_Left += 0.1
@@ -268,7 +268,7 @@ func tick():
 func on_got_blocked():
 	.on_got_blocked()
 
-	Pressure_Left += 0.07 * opponent.blocked_hitbox_plus_frames + 0.30
+	Pressure_Left += abs(0.2 * opponent.blocked_hitbox_plus_frames) + 0.05
 
 	if opponent.current_state().name == "ParrySuper":
 		CodexIncrementAchievement("pushblocks", "pushblock_ach", true)

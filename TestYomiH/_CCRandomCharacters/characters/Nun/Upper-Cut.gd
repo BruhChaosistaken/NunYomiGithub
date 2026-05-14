@@ -7,5 +7,8 @@ func _enter():
 	if host.initiative:
 		current_tick = 3
 
-	hit = false
+	if host.alleviate and current_tick < 8:
+		host.start_invulnerability()
+	elif host.alleviate and current_tick > 8:
+		host.end_invulnerability()
 

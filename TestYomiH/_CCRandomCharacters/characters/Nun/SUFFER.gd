@@ -16,7 +16,7 @@ func _frame_11():
 	obj.apply_force(force.x, force.y)
 	print(force.x , force.y)
 	
-	host.Pressure_Left += 2.5
+	host.Pressure_Left += 2
 
 func is_usable():
 	return .is_usable() and host.SUFFER_ACTIVE <= 0

@@ -1,6 +1,6 @@
 extends CharacterState
 
-var Hit_Nudge = false
+var HitRush = false
 
 const nudgeamount = "0.1"
 
@@ -21,16 +21,13 @@ func _tick():
 	if current_tick in [3, 8, 13]:
 		host.apply_force_relative("9", "0")
 
-	if Hit_Nudge and current_tick < 10:
+	if HitRush and current_tick < 10:
 		host.opponent.set_pos(nudgeposx + 40 * host.get_facing_int(), nudgeposy)
 		host.opponent.set_vel(nudgevelx, nudgevely)
 
+func _enter():
 
-
-
-func enter():
-
-	Hit_Nudge = false
+	HitRush = false
 
 	if host.alleviate and host.is_grounded():
 		host.pressure_left -= 2
@@ -38,11 +35,9 @@ func enter():
 		return "Pressurerush"
 
 func _on_hit_something(obj, hitbox):
+	._on_hit_something(obj, hitbox)
 	if obj.is_in_group("Fighter"):
-		Hit_Nudge = true
+		HitRush = true
 
 func on_got_blocked():
-	Hit_Nudge = true
-
-func _exit():
-	Hit_Nudge = false
+	HitRush = true

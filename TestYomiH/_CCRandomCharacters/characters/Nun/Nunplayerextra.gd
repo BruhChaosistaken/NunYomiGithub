@@ -46,9 +46,11 @@ func get_extra():
 func update_selected_move(move_state):
 	.update_selected_move(move_state)
 
-	if move_state is CharacterState:
-		if move_state.name == "":
-			pass
+	if move_state:
+		if not "UC" in move_state:
+			print("UC Not in Move")
+			Alleviate.hide()
+			Alleviate.set_pressed_no_signal(false)
 
 	if move_state:
 		if "UC" in move_state:
@@ -57,14 +59,6 @@ func update_selected_move(move_state):
 			Alleviate.disabled = true
 			if move_state.get("UC") <= fighter.Pressure_Left:
 				Alleviate.disabled = false
-			else:
-				Alleviate.pressed = false
-				Alleviate.disabled = true
-
-		else:
-			Alleviate.hide()
-			Alleviate.disabled = true
-			Alleviate.pressed = false
 
 func reset():
 

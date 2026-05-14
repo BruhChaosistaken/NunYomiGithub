@@ -137,7 +137,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Carve1.tscn" type="PackedScene" id=135]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/PAIN.gd" type="Script" id=136]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Eliminate.png" type="Texture" id=137]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/chargeeffexct.tscn" type="PackedScene" id=138]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Chargeeffexct.tscn" type="PackedScene" id=138]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/sfx_ui_ingame_danger.wav" type="AudioStream" id=139]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/DecimateEffect.tscn" type="PackedScene" id=140]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Better SFX/ExtendAction.wav" type="AudioStream" id=141]
@@ -173,7 +173,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/DIVINE CLAW.gd" type="Script" id=171]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/sfx_ER_magic_whsh_sh03.wav" type="AudioStream" id=172]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/JudReady1.wav" type="AudioStream" id=173]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/reapereffect.tscn" type="PackedScene" id=174]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Reapereffect.tscn" type="PackedScene" id=174]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Hit_Shock.wav" type="AudioStream" id=175]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/014_electric_m.wav" type="AudioStream" id=176]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/JCut.gd" type="Script" id=177]
@@ -299,7 +299,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Fight FX/Swing (7).wav" type="AudioStream" id=297]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SFX/Judgement/Fight FX/Swing (6).wav" type="AudioStream" id=298]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/SSDivinity Claw.gd" type="Script" id=299]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/charge.tscn" type="PackedScene" id=300]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Charge.tscn" type="PackedScene" id=300]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/VFX/Worldcut.tscn" type="PackedScene" id=301]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Normals/Lobotomy.png" type="Texture" id=302]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Lobotomy.gd" type="Script" id=303]
@@ -3853,7 +3853,7 @@ animations = [ {
 "name": "Arealpaper",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1103 ), SubResource( 1104 ), SubResource( 1105 ), SubResource( 1106 ), SubResource( 1107 ), SubResource( 1108 ), SubResource( 1109 ), SubResource( 1110 ), SubResource( 1111 ) ],
+"frames": [ SubResource( 1103 ), SubResource( 1104 ), SubResource( 1105 ), SubResource( 1106 ), SubResource( 1107 ), SubResource( 1108 ), SubResource( 1109 ), SubResource( 1110 ), SubResource( 1111 ), SubResource( 1111 ), SubResource( 1111 ) ],
 "loop": true,
 "name": "Beegslice",
 "speed": 5.0
@@ -4283,7 +4283,7 @@ animations = [ {
 "name": "stalk low",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 636 ), SubResource( 637 ), SubResource( 638 ), SubResource( 639 ), SubResource( 640 ), SubResource( 641 ), SubResource( 642 ), SubResource( 643 ) ],
+"frames": [ SubResource( 636 ), SubResource( 637 ), SubResource( 638 ), SubResource( 638 ), SubResource( 639 ), SubResource( 640 ), SubResource( 641 ), SubResource( 642 ), SubResource( 643 ) ],
 "loop": true,
 "name": "stalk slash",
 "speed": 5.0
@@ -4666,8 +4666,8 @@ extra_color_2 = Color( 1, 0.588235, 0.588235, 1 )
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 3 )
 frames = SubResource( 965 )
-animation = "rise"
-frame = 5
+animation = "SlicenDice"
+frame = 8
 offset = Vector2( 0, -15 )
 
 [node name="STACK" parent="Flip/Particles" index="0" instance=ExtResource( 143 )]
@@ -5275,12 +5275,12 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 sprite_animation = "SlicenDice"
-anim_length = 28
+anim_length = 30
 ticks_per_frame = 2
 type = 1
 button_texture = ExtResource( 154 )
 air_type = 2
-self_hit_cancellable = false
+self_interruptable = false
 interrupt_from_string = "Grounded
 GroundedAttack
 Aerial
@@ -5293,7 +5293,6 @@ GroundedAttack
 Aerial
 AerialAttack"
 allowed_stances_string = "Slasher"
-change_stance_to = "Slasher"
 apply_pushback = false
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Rush" index="0"]
@@ -5305,6 +5304,8 @@ width = 22
 height = 16
 damage = 50
 hitstun_ticks = 20
+cancellable = false
+di_modifier = "0.9"
 sdi_modifier = "0.2"
 block_cancel_allowed = false
 plus_frames = 2
@@ -5313,7 +5314,7 @@ hit_particle = ExtResource( 93 )
 replace_hit_particle = true
 hit_sound = ExtResource( 108 )
 dir_y = "0"
-knockback = "3"
+knockback = "2.5"
 block_pushback_modifier = "0.5"
 pushback_x = "0.3"
 start_tick = 6
@@ -5326,21 +5327,21 @@ loop_inactive_ticks = 4
 z_index = 1000
 script = ExtResource( 82 )
 x = 28
-y = -10
+y = -19
 width = 27
 height = 10
 damage = 55
 hitstun_ticks = 23
-hitlag_ticks = 6
+hitlag_ticks = 12
 sdi_modifier = "0.4"
 plus_frames = 3
 hit_height = 0
 group = 1
-hit_particle = ExtResource( 93 )
+hit_particle = ExtResource( 57 )
 replace_hit_particle = true
-hit_sound = ExtResource( 108 )
+hit_sound = ExtResource( 117 )
 dir_y = "0"
-knockback = "3"
+knockback = "4"
 block_pushback_modifier = "0.5"
 start_tick = 17
 active_ticks = 2
@@ -5429,8 +5430,8 @@ apply_grav = true
 sprite_animation = "Arealpaper"
 anim_length = 20
 ticks_per_frame = 2
-force_dir_x = "1"
-force_dir_y = "-0.2"
+force_dir_x = "0.5"
+force_dir_y = "-0.5"
 force_speed = "5"
 force_tick = 3
 enter_force_dir_x = "1"
@@ -5507,7 +5508,6 @@ GroundedAttack
 Aerial
 AerialAttack"
 allowed_stances_string = "Slasher"
-change_stance_to = "Slasher"
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/Pressurerush" index="0"]
 z_index = 1000
@@ -5517,7 +5517,7 @@ y = -20
 width = 22
 height = 16
 damage = 20
-hitstun_ticks = 23
+hitstun_ticks = 19
 hitlag_ticks = 2
 victim_hitlag = 4
 cancellable = false
@@ -5533,7 +5533,7 @@ replace_hit_particle = true
 hit_sound = ExtResource( 108 )
 dir_y = "0"
 knockback = "3"
-block_pushback_modifier = "4.0"
+block_pushback_modifier = "0.5"
 start_tick = 8
 active_ticks = 20
 looping = true
@@ -5850,6 +5850,7 @@ hit_cancel_into_string = "Grounded
 GroundedAttack
 Aerial
 AerialAttack"
+allowed_stances_string = "All"
 no_collision_start_frame = 9
 no_collision_end_frame = 13
 
@@ -5892,29 +5893,29 @@ null: {
 "x": -77,
 "y": -2
 },
-SubResource( 79 ): {
+SubResource( 82 ): {
 "x": -64,
+"y": -2
+},
+SubResource( 78 ): {
+"x": -65,
+"y": -2
+},
+SubResource( 81 ): {
+"x": -62,
 "y": -4
 },
 SubResource( 77 ): {
 "x": -68,
 "y": -3
 },
-SubResource( 78 ): {
-"x": -65,
-"y": -2
-},
 SubResource( 80 ): {
 "x": -64,
 "y": -5
 },
-SubResource( 81 ): {
-"x": -62,
-"y": -4
-},
-SubResource( 82 ): {
+SubResource( 79 ): {
 "x": -64,
-"y": -2
+"y": -4
 }
 }
 release_throw_pos_x = 50
@@ -6280,36 +6281,36 @@ SubResource( 143 ): {
 "x": 30,
 "y": -7
 },
+SubResource( 147 ): {
+"x": 29,
+"y": -6
+},
 SubResource( 148 ): {
 "x": 27,
 "y": -8
 },
-SubResource( 146 ): {
-"x": 30,
+SubResource( 145 ): {
+"x": 29,
 "y": -8
 },
 SubResource( 149 ): {
 "x": 25,
 "y": -8
 },
-SubResource( 142 ): {
-"x": 30,
-"y": -8
-},
 SubResource( 141 ): {
 "x": 34,
 "y": -8
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
 },
 SubResource( 144 ): {
 "x": 31,
 "y": -8
 },
-SubResource( 145 ): {
-"x": 29,
+SubResource( 146 ): {
+"x": 30,
+"y": -8
+},
+SubResource( 142 ): {
+"x": 30,
 "y": -8
 }
 }
@@ -6514,7 +6515,7 @@ anim_length = 32
 ticks_per_frame = 2
 force_dir_y = "-1"
 force_speed = "5"
-force_tick = 3
+force_tick = 1
 enter_sfx = ExtResource( 24 )
 title = "SAW"
 type = 2
@@ -7648,7 +7649,7 @@ apply_forces_no_limit = true
 apply_custom_limits = true
 custom_max_ground_speed = "15.0"
 sprite_animation = "stalk slash"
-anim_length = 20
+anim_length = 26
 ticks_per_frame = 2
 force_dir_x = "1"
 force_speed = "3"
@@ -7679,13 +7680,10 @@ y = -16
 width = 40
 height = 13
 damage = 80
-chip_damage_modifier = "2"
 hitstun_ticks = 20
-hitlag_ticks = 8
-victim_hitlag = 4
+hitlag_ticks = 12
 damage_proration = 1
 ignore_armor = true
-plus_frames = 2
 hit_height = 0
 screenshake_amount = 6
 hit_particle = ExtResource( 237 )
@@ -7693,8 +7691,7 @@ replace_hit_particle = true
 whiff_sound = ExtResource( 118 )
 hit_sound = ExtResource( 236 )
 hit_bass_sound = ExtResource( 240 )
-dir_y = "-0.1"
-knockback = "15"
+knockback = "6"
 block_pushback_modifier = "1.5"
 grounded_hit_state = "HurtAerial"
 air_ground_bounce = true
@@ -7773,10 +7770,6 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
-SubResource( 659 ): {
-"x": 26,
-"y": 0
-},
 SubResource( 660 ): {
 "x": 27,
 "y": 0
@@ -7785,6 +7778,26 @@ SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
+SubResource( 667 ): {
+"x": 27,
+"y": -1
+},
+SubResource( 659 ): {
+"x": 26,
+"y": 0
+},
+SubResource( 666 ): {
+"x": 24,
+"y": -1
+},
+SubResource( 665 ): {
+"x": 24,
+"y": -1
+},
 SubResource( 662 ): {
 "x": 24,
 "y": -2
@@ -7792,22 +7805,6 @@ SubResource( 662 ): {
 SubResource( 663 ): {
 "x": 24,
 "y": -2
-},
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
-SubResource( 665 ): {
-"x": 24,
-"y": -1
-},
-SubResource( 666 ): {
-"x": 24,
-"y": -1
-},
-SubResource( 667 ): {
-"x": 27,
-"y": -1
 }
 }
 show_in_menu = false
@@ -8696,7 +8693,10 @@ hold_restart = "AirDashForward"
 reversible = false
 interrupt_from_string = "Aerial
 AerialMovement"
-interrupt_into_string = "Aerial"
+interrupt_into_string = "Aerial
+AerialMovement"
+allowed_stances_string = "All
+"
 dash_speed = 12
 air = true
 

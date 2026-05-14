@@ -6,7 +6,7 @@ var TOMB = preload("res://_CCRandomCharacters/characters/Nun/SSEXPUNGECROSS.tscn
 var CRUCIFY = preload("res://_CCRandomCharacters/characters/Nun/SSCRUCIFYprojectile.tscn")
 
 func _enter():
-	host.Pressure_Left += 2.5
+	host.Pressure_Left += 1.7
 
 func _frame_11():
 

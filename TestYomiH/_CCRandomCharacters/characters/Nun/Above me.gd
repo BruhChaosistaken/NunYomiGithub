@@ -1,7 +1,5 @@
 extends CharacterState
 
-var STALK = false
-
 export var UC = 2.0
 
 func _tick():
