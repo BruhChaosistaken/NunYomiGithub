@@ -36,7 +36,7 @@ func _tick():
 
 	if current_tick < 30:
 		interruptible_on_opponent_turn = true
-	elif current_tick >= 30:
+	elif current_tick >= 30 and current_tick < 65:
 		interruptible_on_opponent_turn = false
 
 	if current_tick % 10 == 0 and current_tick < 69:
@@ -48,3 +48,6 @@ func _exit():
 			host.grab_camera_focus()
 	else:
 		host.release_camera_focus()
+
+func is_usable():
+	return .is_usable() and host.Pressure_Left >= 9.0

@@ -8,18 +8,8 @@ export var UC: float = 4.0
 
 func _enter():
 
-	if host.alleviate:
-		host.change_state("STALK BACKSTAB")
-
 	if host.awakened == true:
 		current_tick = 2
-	
-	STALK = data
-	if STALK == true:
-		host.stance = "Slasher"
-
-	else:
-		fallback_state = "Wait"
 
 func _tick():
 

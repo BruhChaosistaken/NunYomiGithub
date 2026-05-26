@@ -1,6 +1,8 @@
 extends BaseProjectile
 
-func on_got_blocked():
-	.on_got_blocked()
+onready var FrontBeam = $"%FrontBeam"
 
-	creator.Pressure_Left += 0.07 * creator.opponent.blocked_hitbox_plus_frames + 0.30
+#func on_got_blocked():
+#	.on_got_blocked()
+#
+#	creator.current_state().anim_length = 80

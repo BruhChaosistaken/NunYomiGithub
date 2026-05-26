@@ -2,26 +2,21 @@ extends "res://characters/states/Idle.gd"
 
 var idle_anim = 0;
 
-#func _enter():
-#	._enter()
+func _frame_0():
 
-#	if host.stance == "Judge":
-#		host.current_state().anim_name = "Judge"
+	if host.insane == true:
+		host.current_state().anim_name = "insanity"
 #
-#func _frame_0():
+	else: host.current_state().anim_name = "Wait"
 #
-#	if host.insane == true:
-#		host.current_state().anim_name = "insanity"
+	if host.previous_state().state_name != "Wait":
+		idle_anim = 0
 #
-#	else: host.current_state().anim_name = "Wait"
+func update_sprite_frame():
+	.update_sprite_frame()
+	host.sprite.frame = int(idle_anim/4)%32
 #
-#	if host.previous_state().state_name != "Wait":
-#		idle_anim = 0
+func _tick():
+	._tick()
 #
-#func update_sprite_frame():
-#	.update_sprite_frame()
-#	host.sprite.frame = int(idle_anim/4)%32
-#
-#func _tick():
-#
-#	idle_anim += 1
+	idle_anim += 1

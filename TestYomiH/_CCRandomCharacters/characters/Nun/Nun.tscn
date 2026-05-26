@@ -1,4 +1,4 @@
-[gd_scene load_steps=1261 format=2]
+[gd_scene load_steps=1353 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/NunJudgement.tres" type="SpriteFrames" id=2]
@@ -327,6 +327,8 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Insane.gd" type="Script" id=325]
 [ext_resource path="res://ui/ActionSelector/ActionUIData/DashForwardActionUIData.tscn" type="PackedScene" id=326]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/NunAirDash.gd" type="Script" id=327]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/TestElim.gd" type="Script" id=328]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Supers/Sin release knife.png" type="Texture" id=329]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/ActionUIFolder/SKULL_UI.tscn" type="PackedScene" id=330]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Stabreplacement.PNG" type="Texture" id=331]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/RiseV2.PNG" type="Texture" id=332]
@@ -343,6 +345,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/pressurerush.gd" type="Script" id=343]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/papercuts.gd" type="Script" id=344]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/ActionUIFolder/SpinningSkullsUIdata.tscn" type="PackedScene" id=345]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Supers/Judgement/Sprites/Supers/Sin release broly.png" type="Texture" id=346]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -3382,6 +3385,358 @@ region = Rect2( 1728, 0, 192, 192 )
 atlas = ExtResource( 46 )
 region = Rect2( 1920, 0, 192, 192 )
 
+[sub_resource type="AtlasTexture" id=1229]
+atlas = ExtResource( 329 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1230]
+atlas = ExtResource( 329 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1231]
+atlas = ExtResource( 329 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1232]
+atlas = ExtResource( 329 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1233]
+atlas = ExtResource( 329 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1234]
+atlas = ExtResource( 329 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1235]
+atlas = ExtResource( 329 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1236]
+atlas = ExtResource( 329 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1237]
+atlas = ExtResource( 329 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1238]
+atlas = ExtResource( 329 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1239]
+atlas = ExtResource( 329 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1240]
+atlas = ExtResource( 329 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1241]
+atlas = ExtResource( 329 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1242]
+atlas = ExtResource( 329 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1243]
+atlas = ExtResource( 329 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1244]
+atlas = ExtResource( 329 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1245]
+atlas = ExtResource( 329 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1246]
+atlas = ExtResource( 329 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1247]
+atlas = ExtResource( 329 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1248]
+atlas = ExtResource( 329 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1249]
+atlas = ExtResource( 329 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1250]
+atlas = ExtResource( 329 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1251]
+atlas = ExtResource( 329 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1252]
+atlas = ExtResource( 329 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1253]
+atlas = ExtResource( 329 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1254]
+atlas = ExtResource( 329 )
+region = Rect2( 4800, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1255]
+atlas = ExtResource( 329 )
+region = Rect2( 4992, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1256]
+atlas = ExtResource( 329 )
+region = Rect2( 5184, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1257]
+atlas = ExtResource( 329 )
+region = Rect2( 5376, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1258]
+atlas = ExtResource( 329 )
+region = Rect2( 5568, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1259]
+atlas = ExtResource( 329 )
+region = Rect2( 5760, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1260]
+atlas = ExtResource( 329 )
+region = Rect2( 5952, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1261]
+atlas = ExtResource( 329 )
+region = Rect2( 6144, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1262]
+atlas = ExtResource( 329 )
+region = Rect2( 6336, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1263]
+atlas = ExtResource( 329 )
+region = Rect2( 6528, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1264]
+atlas = ExtResource( 329 )
+region = Rect2( 6720, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1265]
+atlas = ExtResource( 329 )
+region = Rect2( 6912, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1266]
+atlas = ExtResource( 329 )
+region = Rect2( 7104, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1267]
+atlas = ExtResource( 329 )
+region = Rect2( 7296, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1268]
+atlas = ExtResource( 329 )
+region = Rect2( 7488, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1269]
+atlas = ExtResource( 329 )
+region = Rect2( 7680, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1270]
+atlas = ExtResource( 329 )
+region = Rect2( 7872, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1271]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1272]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1273]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1274]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1275]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1276]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1277]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1278]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1279]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1280]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1281]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1282]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1283]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1284]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1285]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1286]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1287]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1288]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1289]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1290]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1291]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1292]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1293]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1294]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1295]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1296]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1297]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1298]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1299]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1300]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1301]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1302]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1303]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1304]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1305]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1306]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1307]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1308]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1309]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1310]
+atlas = ExtResource( 346 )
+region = Rect2( 768, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1311]
+atlas = ExtResource( 346 )
+region = Rect2( 960, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1312]
+atlas = ExtResource( 346 )
+region = Rect2( 1152, 960, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1313]
+atlas = ExtResource( 346 )
+region = Rect2( 0, 1152, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1314]
+atlas = ExtResource( 346 )
+region = Rect2( 192, 1152, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1315]
+atlas = ExtResource( 346 )
+region = Rect2( 384, 1152, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=1316]
+atlas = ExtResource( 346 )
+region = Rect2( 576, 1152, 192, 192 )
+
 [sub_resource type="AtlasTexture" id=670]
 atlas = ExtResource( 142 )
 region = Rect2( 0, 0, 192, 192 )
@@ -4233,6 +4588,16 @@ animations = [ {
 "name": "seperate",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 1229 ), SubResource( 1230 ), SubResource( 1231 ), SubResource( 1232 ), SubResource( 1233 ), SubResource( 1234 ), SubResource( 1235 ), SubResource( 1236 ), SubResource( 1237 ), SubResource( 1238 ), SubResource( 1239 ), SubResource( 1240 ), SubResource( 1241 ), SubResource( 1242 ), SubResource( 1243 ), SubResource( 1244 ), SubResource( 1245 ), SubResource( 1246 ), SubResource( 1247 ), SubResource( 1248 ), SubResource( 1249 ), SubResource( 1250 ), SubResource( 1251 ), SubResource( 1252 ), SubResource( 1253 ), SubResource( 1254 ), SubResource( 1255 ), SubResource( 1256 ), SubResource( 1257 ), SubResource( 1258 ), SubResource( 1259 ), SubResource( 1260 ), SubResource( 1261 ), SubResource( 1262 ), SubResource( 1263 ), SubResource( 1264 ), SubResource( 1265 ), SubResource( 1266 ), SubResource( 1267 ), SubResource( 1268 ), SubResource( 1269 ), SubResource( 1270 ) ],
+"loop": true,
+"name": "sin release",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1271 ), SubResource( 1272 ), SubResource( 1273 ), SubResource( 1274 ), SubResource( 1275 ), SubResource( 1276 ), SubResource( 1277 ), SubResource( 1278 ), SubResource( 1279 ), SubResource( 1280 ), SubResource( 1281 ), SubResource( 1282 ), SubResource( 1283 ), SubResource( 1284 ), SubResource( 1285 ), SubResource( 1286 ), SubResource( 1287 ), SubResource( 1288 ), SubResource( 1289 ), SubResource( 1290 ), SubResource( 1291 ), SubResource( 1292 ), SubResource( 1293 ), SubResource( 1294 ), SubResource( 1295 ), SubResource( 1296 ), SubResource( 1297 ), SubResource( 1298 ), SubResource( 1299 ), SubResource( 1300 ), SubResource( 1301 ), SubResource( 1302 ), SubResource( 1303 ), SubResource( 1304 ), SubResource( 1305 ), SubResource( 1306 ), SubResource( 1307 ), SubResource( 1308 ), SubResource( 1309 ), SubResource( 1310 ), SubResource( 1311 ), SubResource( 1312 ), SubResource( 1313 ), SubResource( 1314 ), SubResource( 1315 ), SubResource( 1316 ) ],
+"loop": true,
+"name": "sin release broly",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 670 ), SubResource( 671 ), SubResource( 672 ), SubResource( 673 ), SubResource( 674 ), SubResource( 675 ), SubResource( 676 ), SubResource( 677 ), SubResource( 678 ) ],
 "loop": true,
 "name": "slice",
@@ -4608,6 +4973,21 @@ frame_4/delay_sec = 0.0
 frame_5/texture = ExtResource( 163 )
 frame_5/delay_sec = 0.5
 
+[sub_resource type="AnimatedTexture" id=1317]
+frames = 6
+fps = 8.0
+frame_0/texture = ExtResource( 161 )
+frame_1/texture = ExtResource( 157 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 158 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 159 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 160 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 163 )
+frame_5/delay_sec = 0.0
+
 [node name="Nun" instance=ExtResource( 1 )]
 material = SubResource( 2 )
 script = ExtResource( 128 )
@@ -4643,6 +5023,7 @@ SSCROSS
 Pressure_Left
 Pressure_Amount
 Pressure_MinAmount
+PressureParams
 
 Glass_Shatter
 specialman
@@ -4653,7 +5034,11 @@ my_var
 insane
 insanity
 insanity_Amount
-insanity_MinAmount"
+insanity_MinAmount
+
+offset
+Names
+state"
 enable_extra_aesthetic_hitstop = true
 character_portrait = ExtResource( 5 )
 player_info_scene = ExtResource( 202 )
@@ -4666,8 +5051,7 @@ extra_color_2 = Color( 1, 0.588235, 0.588235, 1 )
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 3 )
 frames = SubResource( 965 )
-animation = "SlicenDice"
-frame = 8
+animation = "sin release broly"
 offset = Vector2( 0, -15 )
 
 [node name="STACK" parent="Flip/Particles" index="0" instance=ExtResource( 143 )]
@@ -4757,6 +5141,7 @@ offset = Vector2( 0, -26 )
 
 [node name="Halo" type="Sprite" parent="Flip" index="8"]
 unique_name_in_owner = true
+visible = false
 material = SubResource( 952 )
 z_index = -2
 texture = ExtResource( 309 )
@@ -5384,9 +5769,9 @@ hitstun_ticks = 19
 hitlag_ticks = 2
 cancellable = false
 di_modifier = "0.5"
-sdi_modifier = "0.2"
+sdi_modifier = "0.5"
 block_cancel_allowed = false
-plus_frames = 2
+plus_frames = 1
 hit_height = 0
 hit_particle = ExtResource( 93 )
 replace_hit_particle = true
@@ -5484,7 +5869,7 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 sprite_animation = "PressureSlicenDice"
-anim_length = 28
+anim_length = 30
 ticks_per_frame = 2
 force_dir_x = "9"
 force_speed = "1"
@@ -5519,7 +5904,6 @@ height = 16
 damage = 20
 hitstun_ticks = 19
 hitlag_ticks = 2
-victim_hitlag = 4
 cancellable = false
 di_modifier = "0.5"
 sdi_modifier = "0.5"
@@ -5547,7 +5931,7 @@ width = 18
 height = 19
 damage = 60
 hitstun_ticks = 23
-hitlag_ticks = 12
+hitlag_ticks = 6
 force_grounded = true
 plus_frames = 2
 hit_height = 0
@@ -5897,17 +6281,13 @@ SubResource( 82 ): {
 "x": -64,
 "y": -2
 },
-SubResource( 78 ): {
-"x": -65,
-"y": -2
-},
-SubResource( 81 ): {
-"x": -62,
-"y": -4
-},
 SubResource( 77 ): {
 "x": -68,
 "y": -3
+},
+SubResource( 78 ): {
+"x": -65,
+"y": -2
 },
 SubResource( 80 ): {
 "x": -64,
@@ -5915,6 +6295,10 @@ SubResource( 80 ): {
 },
 SubResource( 79 ): {
 "x": -64,
+"y": -4
+},
+SubResource( 81 ): {
+"x": -62,
 "y": -4
 }
 }
@@ -6011,8 +6395,9 @@ hit_particle = ExtResource( 57 )
 replace_hit_particle = true
 whiff_sound = ExtResource( 244 )
 hit_sound = ExtResource( 117 )
-dir_x = "0.8"
-knockback = "7"
+dir_x = "1"
+dir_y = "-0.75"
+knockback = "8"
 block_pushback_modifier = "0.2"
 grounded_hit_state = "HurtAerial"
 ground_bounce = false
@@ -6042,8 +6427,9 @@ hit_particle = ExtResource( 57 )
 replace_hit_particle = true
 whiff_sound = ExtResource( 244 )
 hit_sound = ExtResource( 117 )
-dir_x = "0.75"
-knockback = "11"
+dir_x = "1"
+dir_y = "-0.75"
+knockback = "8"
 grounded_hit_state = "HurtAerial"
 ground_bounce = false
 start_tick = 9
@@ -6277,40 +6663,40 @@ null: {
 "x": 30,
 "y": -8
 },
-SubResource( 143 ): {
-"x": 30,
-"y": -7
-},
-SubResource( 147 ): {
-"x": 29,
-"y": -6
-},
-SubResource( 148 ): {
-"x": 27,
+SubResource( 144 ): {
+"x": 31,
 "y": -8
 },
 SubResource( 145 ): {
 "x": 29,
 "y": -8
 },
+SubResource( 148 ): {
+"x": 27,
+"y": -8
+},
+SubResource( 142 ): {
+"x": 30,
+"y": -8
+},
+SubResource( 143 ): {
+"x": 30,
+"y": -7
+},
 SubResource( 149 ): {
 "x": 25,
 "y": -8
 },
-SubResource( 141 ): {
-"x": 34,
-"y": -8
-},
-SubResource( 144 ): {
-"x": 31,
-"y": -8
+SubResource( 147 ): {
+"x": 29,
+"y": -6
 },
 SubResource( 146 ): {
 "x": 30,
 "y": -8
 },
-SubResource( 142 ): {
-"x": 30,
+SubResource( 141 ): {
+"x": 34,
 "y": -8
 }
 }
@@ -6380,7 +6766,7 @@ apply_fric = true
 apply_grav = true
 apply_forces_no_limit = true
 sprite_animation = "slice"
-anim_length = 20
+anim_length = 25
 ticks_per_frame = 2
 enter_force_dir_x = "1"
 enter_force_speed = "13"
@@ -6408,7 +6794,7 @@ x = 25
 y = -25
 width = 25
 height = 17
-damage = 75
+damage = 150
 chip_damage_modifier = "1.5"
 hitstun_ticks = 15
 hitlag_ticks = 8
@@ -6647,9 +7033,6 @@ breaker"
 interrupt_into_string = "Grounded"
 hit_cancel_into_string = "GroundedAttack
 Grounded"
-super_level_ = 1
-super_freeze_ticks_ = 4
-super_effect_ = true
 
 [node name="ThrowBox" type="Node2D" parent="StateMachine/HELLO" index="0"]
 z_index = 1000
@@ -6700,7 +7083,7 @@ start_throw_pos_x = 40
 hitstun_ticks = 60
 knockback = "20"
 grounded_hit_state = "HurtAerial"
-damage = 170
+damage = 200
 screenshake_amount = 6
 screenshake_frames = 9
 hard_knockdown = true
@@ -6741,6 +7124,7 @@ self_hit_cancellable = false
 self_interruptable = false
 reversible = false
 force_feintable = true
+can_feint_if_possible = false
 interrupt_from_string = "Grounded
 GroundedAttack
 Aerial
@@ -6977,14 +7361,11 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 reset_momentum = true
+apply_custom_y_fric = true
+custom_y_fric = "0.2"
 sprite_animation = "lock on"
 anim_length = 15
 ticks_per_frame = 2
-force_dir_y = "-1"
-force_speed = "3"
-force_tick = 11
-enter_force_dir_y = "-1"
-enter_force_speed = "5"
 particle_scene = ExtResource( 125 )
 state_screenshake_tick = 11
 state_screenshake_dir = Vector2( 3, 0 )
@@ -7023,6 +7404,7 @@ data_ui_scene = ExtResource( 271 )
 button_texture = ExtResource( 162 )
 air_type = 2
 self_interruptable = false
+can_feint_if_possible = false
 interrupt_from_string = "Grounded
 Aerial"
 interrupt_into_string = "Grounded
@@ -7770,6 +8152,18 @@ force_tick = 11
 enter_force_dir_x = "1.0"
 enter_force_speed = "2.0"
 throw_positions = {
+SubResource( 659 ): {
+"x": 26,
+"y": 0
+},
+SubResource( 663 ): {
+"x": 24,
+"y": -2
+},
+SubResource( 664 ): {
+"x": 22,
+"y": 0
+},
 SubResource( 660 ): {
 "x": 27,
 "y": 0
@@ -7778,33 +8172,21 @@ SubResource( 661 ): {
 "x": 27,
 "y": 0
 },
-SubResource( 664 ): {
-"x": 22,
-"y": 0
-},
-SubResource( 667 ): {
-"x": 27,
-"y": -1
-},
-SubResource( 659 ): {
-"x": 26,
-"y": 0
+SubResource( 662 ): {
+"x": 24,
+"y": -2
 },
 SubResource( 666 ): {
 "x": 24,
 "y": -1
 },
+SubResource( 667 ): {
+"x": 27,
+"y": -1
+},
 SubResource( 665 ): {
 "x": 24,
 "y": -1
-},
-SubResource( 662 ): {
-"x": 24,
-"y": -2
-},
-SubResource( 663 ): {
-"x": 24,
-"y": -2
 }
 }
 show_in_menu = false
@@ -7939,7 +8321,7 @@ hit_sound_volume = -10.0
 start_tick = 52
 active_ticks = 3
 
-[node name="knock knock" type="Node2D" parent="StateMachine" index="104"]
+[node name="Knock Knock" type="Node2D" parent="StateMachine" index="104"]
 script = ExtResource( 199 )
 apply_forces = true
 apply_fric = true
@@ -7956,7 +8338,6 @@ title = "KNOCK KNOCK"
 type = 1
 button_texture = ExtResource( 260 )
 usable_from_whiff_cancel_if_possible = false
-self_hit_cancellable = false
 reversible = false
 interrupt_from_string = "Grounded
 GroundedAttack"
@@ -7966,7 +8347,7 @@ hit_cancel_into_string = "Grounded"
 allowed_stances_string = "Slasher"
 change_stance_to = "Slasher"
 
-[node name="Hitbox" type="Node2D" parent="StateMachine/knock knock" index="0"]
+[node name="Hitbox" type="Node2D" parent="StateMachine/Knock Knock" index="0"]
 z_index = 1000
 script = ExtResource( 82 )
 x = 14
@@ -8074,7 +8455,6 @@ apply_forces = true
 apply_fric = true
 apply_grav = true
 apply_forces_no_limit = true
-fallback_state = "Sprint"
 sprite_animation = "sprint"
 anim_length = 16
 ticks_per_frame = 2
@@ -8083,6 +8463,7 @@ particle_scene = ExtResource( 270 )
 button_texture = ExtResource( 266 )
 interruptible_on_opponent_turn = true
 next_state_on_hold_on_opponent_turn = true
+hold_restart = "Sprint"
 self_hit_cancellable = false
 self_interruptable = false
 reversible = false
@@ -8364,7 +8745,7 @@ wall_slam = true
 start_tick = 25
 active_ticks = 2
 
-[node name="SSexpunge" type="Node2D" parent="StateMachine" index="114"]
+[node name="Expunge" type="Node2D" parent="StateMachine" index="114"]
 script = ExtResource( 282 )
 apply_forces = true
 apply_fric = true
@@ -8450,13 +8831,13 @@ knockdown = true
 start_tick = 11
 active_ticks = 4
 
-[node name="SSsin release" type="Node2D" parent="StateMachine" index="116"]
+[node name="Sin Release" type="Node2D" parent="StateMachine" index="116"]
 script = ExtResource( 289 )
 apply_forces = true
 apply_fric = true
 reset_momentum = true
-sprite_animation = "sin release"
-anim_length = 82
+sprite_animation = "sin release broly"
+anim_length = 90
 ticks_per_frame = 2
 particle_scene = ExtResource( 95 )
 particle_position = Vector2( 0, -18 )
@@ -8468,10 +8849,11 @@ sfx_tick = 34
 sfx_volume = -8.0
 title = "Sin Release"
 type = 3
+button_texture = SubResource( 1317 )
+neutral_only = true
 self_hit_cancellable = false
 self_interruptable = false
 can_feint_if_possible = false
-selectable = false
 interrupt_from_string = "Grounded"
 interrupt_into_string = "Grounded"
 apply_pushback = false
@@ -8479,7 +8861,7 @@ super_level_ = 2
 super_freeze_ticks_ = 4
 super_effect_ = true
 
-[node name="Hitbox" type="Node2D" parent="StateMachine/SSsin release" index="0"]
+[node name="Hitbox" type="Node2D" parent="StateMachine/Sin Release" index="0"]
 visible = false
 z_index = 1000
 script = ExtResource( 82 )
@@ -8627,14 +9009,16 @@ Aerial"
 interrupt_into_string = "Grounded
 Aerial"
 
-[node name="heel" type="Node2D" parent="StateMachine" index="121"]
+[node name="Heel" type="Node2D" parent="StateMachine" index="121"]
 script = ExtResource( 318 )
 apply_forces = true
 apply_fric = true
 apply_grav = true
+sprite_animation = "heel"
 anim_length = 18
 sprite_anim_length = -2
 ticks_per_frame = 2
+title = "Heel"
 type = 1
 button_texture = ExtResource( 269 )
 air_type = 1
@@ -8647,7 +9031,7 @@ interrupt_into_string = "Aerial
 hit_cancel_into_string = "Aerial
 AerialAttack"
 
-[node name="Hitbox" type="Node2D" parent="StateMachine/heel" index="0"]
+[node name="Hitbox" type="Node2D" parent="StateMachine/Heel" index="0"]
 z_index = 1000
 script = ExtResource( 82 )
 x = 13
@@ -8711,9 +9095,38 @@ endless = true
 
 [node name="Debug" type="Node2D" parent="StateMachine" index="123"]
 script = ExtResource( 64 )
+sprite_animation = "stalk enter"
+anim_length = 13
+ticks_per_frame = 2
+interruptible_on_opponent_turn = true
 interrupt_from_string = "Grounded
 GroundedSpecial"
 interrupt_into_string = "Grounded"
+
+[node name="TestElim" type="Node2D" parent="StateMachine" index="124"]
+script = ExtResource( 328 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "stalk enter"
+anim_length = 28
+enter_force_dir_x = "-0.5"
+enter_force_speed = "1"
+selectable = false
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/TestElim" index="0"]
+z_index = 1000
+script = ExtResource( 82 )
+x = 60
+y = -18
+width = 60
+hitbox_type = 6
+start_tick = 13
+active_ticks = 4
 
 [node name="OverloadTimer" type="Label" parent="." index="15"]
 unique_name_in_owner = true

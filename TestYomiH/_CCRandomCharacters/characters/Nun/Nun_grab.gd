@@ -16,7 +16,7 @@ func _frame_13():
 
 func _frame_19():
 
-	host.Pressure_Left -= 3.0
+	host.Pressure_Left -= 2
 	host.opponent.hitlag_ticks = 2
 	host.hitlag_ticks = 2
 

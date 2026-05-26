@@ -20,8 +20,6 @@ func _frame_19():
 	if host.Pressure_Left > host.Pressure_MinAmount:
 		host.Pressure_Left -= clamp(1.5, 0, host.Pressure_Amount - host.Pressure_MinAmount) 
 
-	#host.spawn_particle_effect(particle_scene, host.get_pos_visual() + Vector2(18 * host.get_facing_int(), -29))
-
 	pass
 
 func _frame_30():

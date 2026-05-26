@@ -5,9 +5,8 @@ func register(codex):
 	codex.set_summary(""" Precise rushdown, prioritizing managing her [color=#ff2d2d][url=tab:Pressure]PRESSURE[/url][/color] to not obtain [color=#279FF5][url=tab:Insanity]INSANITY[/url][/color]. While having decent damage and tools to win the game.
 	""")
 
-#	codex.moveset["Awaken"].desc = "30%/0.3 more dmg dealt, and 20%/0.2 more damage received, Buffs certain moves, and Allows to [rainbow freq=0.5 sat=10 val=20]Exceed[/rainbow] the pressure limit"
-	codex.moveset["Eliminate"].desc = "In Awakening hits f9 - 10."
-	codex.moveset["Descend"].desc = "Hitbox spawn depends on when she hits the ground, Upgraded Version hits OTG and is faster."
+	codex.moveset["Eliminate"].desc = "In OVERLOAD hits f9 - 10."
+	codex.moveset["Descend"].desc = "Normal Version is Block Punishable, Upgraded Version Isnt."
 	codex.moveset["Affix"].desc = "Swap Places with the most recent Skull, Also Swapping its momentum with yours and vice versa. This builds a small amount of [color=#ff2d2d][url=tab:Pressure]PRESSURE[/url][/color], but if DI isnt dead center when using the Projectile will be propelled in the DI's direction. Building even more pressure."
 	codex.moveset["Intimidate"].desc = "Walk, Nothing special. Gains a small amount of pressure while doing it."
 	codex.moveset["SpinningSkulls"].desc = "Spawn 2 non-hostile projectiles that move in a straight line, upon coming in contact gain a momentum boost based on current DI."
@@ -17,7 +16,7 @@ func register(codex):
 	
 	codex.moveset["OVERLOAD"].desc = "Upon successful use (Not getting hit in startup), Nun goes into a TEMPORARY state where her pressure does not go down and is not affected by [color=#279FF5][url=tab:Insanity]INSANITY[/url][/color], BUT -- once the timer shown above her head is over she is immediately affected by [color=#279FF5][url=tab:Insanity]INSANITY[/url][/color]. "
 	codex.moveset["STALK DECIMATE"].desc = "Command grab which amount of stabs correlate to amount of pressure. The rest is self explanatory, play the character."
-	codex.moveset["Impalation"].desc = "This modifies Nuns hitbox and gives a short amount of proj invulnerability. Starting from frame 3, in combo it skd (soft knockdown) the enemy, Meaning it ends combo."
+	codex.moveset["Impalation"].desc = "This modifies Nuns hitbox and gives a short amount of proj invulnerability. In combo it skd's (soft knockdowns) the enemy, ending the combo."
 	codex.moveset["Taunt"].desc = "Removes a considerable amount of pressure on use."
 
 	codex.moveset["Descend"].define_hitbox("Hitbox", {
@@ -79,9 +78,9 @@ func setup_achievements(list):
 	list.set_desc("beat_5_shikas_ach", "Beat Shika 5 times.")
 	list.assign_counter("beat_5_shikas_ach", "shikas_defeated", 5)
 
-	list.set_title("beat_50_char_ach", "Repentance.")
-	list.set_desc("beat_50_char_ach", "Defeat 50 DIFFERENT modded / base characters.")
-	list.assign_counter("beat_50_char_ach", "chars_defeated", 50)
+#	list.set_title("beat_50_char_ach", "Repentance.")
+#	list.set_desc("beat_50_char_ach", "Defeat 50 DIFFERENT modded / base characters.")
+#	list.assign_counter("beat_50_char_ach", "chars_defeated", 50)
 
 	list.set_title("decimate_finisher_ach", "Bloody Hands.")
 	list.set_desc("decimate_finisher_ach", "Finish a Player with Decimate")
@@ -91,11 +90,11 @@ func setup_achievements(list):
 	list.assign_counter("First_ach", "Wins", 1)
 
 	list.set_title("Executor_ach", "Executor.")
-	list.set_desc("Executor_ach", "Win 75 Multiplayer Matches, This Rewards the Executor Skin")
+	list.set_desc("Executor_ach", "Win 75 Multiplayer Matches, This Rewards the Executor Skin.")
 	list.assign_counter("Executor_ach", "Wins", 75)
 
 	list.set_title("Greaper_ach", "Grim Reaper.")
-	list.set_desc("Greaper_ach", "Win 150 Multiplayer Matches, This Rewards the Grim Reaper Skin")
+	list.set_desc("Greaper_ach", "Win 150 Multiplayer Matches, This Rewards the Grim Reaper Skin.")
 	list.assign_counter("Greaper_ach", "Wins", 150)
 
 	list.set_title("insanity_ach", "Brain Damage.")
@@ -109,6 +108,9 @@ func setup_achievements(list):
 	list.set_desc("pushblock_ach", "In a Single Match, Have an Opponent use Pushblock against you 3 times OR hit them 3 times in Pushblock.")
 	list.assign_counter("pushblock_ach", "pushblocks", 3)
 
-	list.set_title("secret_ach", "You Still Remember.")
-	list.set_desc("secret_ach", "The day where it all changed.")
+	list.set_title("SinRelease_ach", "Destroyed.")
+	list.set_desc("SinRelease_ach", "Land the Sin Release Finisher.")
+
+	list.set_title("secret_ach", "suhfsejmkfs.")
+	list.set_desc("secret_ach", "fseufhesjkmfls")
 	list.mark_secret("secret_ach")

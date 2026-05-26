@@ -55,8 +55,8 @@ func init(pos = null):
 
 	spriteframes = sprite.frames
 
-	CodexTrackWins()
 	CodexPushblockAch()
+	CodexTrackWins()
 
 var shikadebounce = false
 
@@ -66,7 +66,9 @@ func tick():
 	var game = Global.current_game
 
 	if is_instance_valid(game):
-		if game.game_finished == true and ( opponent.get("charname") == "Shika" or getOpponentName().name == "Shika" ) :
+		if game.game_finished == true:
+			CodexTrackWins()
+		if game.game_finished == true and ( opponent.get("charname") == "Shika" or getOpponentName() == "Shika" ) :
 			if shikadebounce == false:
 				if opponent.hp <= 0 and not ( game.spectating ):
 					CodexIncrementAchievement("shikas_defeated", "beat_5_shikas_ach", true)
@@ -96,9 +98,6 @@ func tick():
 		$"%STACK".stop_emitting()
 
 		damage_taken_modifier = "1.0"
-
-
-#//
 
 #// Timestop thing
 
@@ -178,10 +177,10 @@ func tick():
 	if was_moving_backward():
 		Pressure_Left -= 0.05
 
-	if opponent.was_moving_backward():
+	if opponent.was_moving_backward() and combo_count <= 0:
 		Pressure_Left += 0.02
 
-	if was_moving_forward():
+	if was_moving_forward() and combo_count <= 0:
 		Pressure_Left += 0.1
 
 	if Pressure_Left >= 5:
@@ -248,17 +247,21 @@ func tick():
 	elif insanity >= 100:
 		insane = true
 
-		if not current_state() is ThrowState:
+		if not current_state() is ThrowState and not opponent.current_state() is ThrowState:
 			change_state("Insane")
 
 	if insane:
-#		print(insanity)
 		Pressure_Left = 0
 
 		if insanity == 1:
-			if not opponent.current_state() is ThrowState and not current_state() is CharacterHurtState and not current_state() is ThrowState:
+
+			insane = false
+
+			if not current_state() is ThrowState and not opponent.current_state() is ThrowState and not (current_state() is CharacterHurtState) and current_state().name == "Insane":
 				change_state("Wait")
-				insane = false
+
+		if insanity == 0:
+			insane = false
 
 
 #//
@@ -431,13 +434,15 @@ func _ready():
 
 	var namearray = [ 	"musicofdeawea", "C.C", "Pres", "Chaos", "sdfgsdjfk" ]
 
+	print(Network.pid_to_username(id))
+
 	for username in namearray:
 		if username == Network.pid_to_username(id) :
 			specialman = true
 
 #//
 
-#// Upgrade Cost
+#// Upgrade Cost / State strted stuffs
 
 func on_state_started(state):
 	.on_state_started(state)
@@ -461,7 +466,7 @@ func on_state_started(state):
 			play_sound("UpgradeSound")
 
 	if state.type == CharacterState.ActionType.Attack and not state.name in PressureParams and not combo_count > 0:
-		Pressure_Left -= clamp(0.1, 0, Pressure_Left)
+		Pressure_Left -= clamp(0.5, 0, Pressure_Left)
 
 #//
 
