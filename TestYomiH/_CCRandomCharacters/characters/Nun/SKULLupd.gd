@@ -22,6 +22,7 @@ func hit_by(hitbox):
 			
 		if host.is_in_group("Fighter"):
 			disable()
+			creator.SUFFER_ACTIVE -= 1
 
 
 

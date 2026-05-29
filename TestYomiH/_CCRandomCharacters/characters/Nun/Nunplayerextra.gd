@@ -47,7 +47,7 @@ func update_selected_move(move_state):
 	.update_selected_move(move_state)
 
 	if move_state:
-		if not "UC" in move_state:
+		if not "UC" in move_state or move_state and move_state.get("AirPapercuts"):
 			print("UC Not in Move")
 			Alleviate.hide()
 			Alleviate.set_pressed_no_signal(false)
@@ -57,6 +57,7 @@ func update_selected_move(move_state):
 			print("UC dectected")
 			Alleviate.show()
 			Alleviate.disabled = true
+			Alleviate.text = "COST : " + str(move_state.get("UC"))
 			if move_state.get("UC") <= fighter.Pressure_Left:
 				Alleviate.disabled = false
 

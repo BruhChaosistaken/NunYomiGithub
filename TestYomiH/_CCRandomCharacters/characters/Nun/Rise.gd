@@ -1,7 +1,5 @@
 extends CharacterState
 
-export var UC: float = 4
-
 func _frame_10():
 
 	if host.initiative:

@@ -78,10 +78,6 @@ func setup_achievements(list):
 	list.set_desc("beat_5_shikas_ach", "Beat Shika 5 times.")
 	list.assign_counter("beat_5_shikas_ach", "shikas_defeated", 5)
 
-#	list.set_title("beat_50_char_ach", "Repentance.")
-#	list.set_desc("beat_50_char_ach", "Defeat 50 DIFFERENT modded / base characters.")
-#	list.assign_counter("beat_50_char_ach", "chars_defeated", 50)
-
 	list.set_title("decimate_finisher_ach", "Bloody Hands.")
 	list.set_desc("decimate_finisher_ach", "Finish a Player with Decimate")
 

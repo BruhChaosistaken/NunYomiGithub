@@ -4,7 +4,7 @@
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon15.png" type="Texture" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/Icoon1.png" type="Texture" id=5]
+[ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/IcoonCrucify.png" type="Texture" id=5]
 [ext_resource path="res://_CCRandomCharacters/characters/Nun/Sprites/Icons/Uper/IcoonUpgrade.png" type="Texture" id=6]
 
 [node name="PlayerExtra" instance=ExtResource( 4 )]
@@ -33,29 +33,28 @@ icon_align = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." index="1"]
 margin_left = 90.0
-margin_right = 132.0
+margin_right = 174.0
 margin_bottom = 360.0
 alignment = 2
 
 [node name="Alleviate" type="CheckButton" parent="VBoxContainer2" index="0"]
 unique_name_in_owner = true
 margin_top = 340.0
-margin_right = 42.0
+margin_right = 84.0
 margin_bottom = 360.0
 rect_min_size = Vector2( 34, 20 )
-hint_tooltip = "Upgrade Moves by expending presure"
+hint_tooltip = "Upgrade Moves by Spending pressure."
 size_flags_horizontal = 15
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Alleviate"
+text = "UPGRADE"
 icon = ExtResource( 6 )
-clip_text = true
 align = 2
 icon_align = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="." index="2"]
-margin_left = 136.0
-margin_right = 178.0
+margin_left = 178.0
+margin_right = 220.0
 margin_bottom = 360.0
 alignment = 2
 

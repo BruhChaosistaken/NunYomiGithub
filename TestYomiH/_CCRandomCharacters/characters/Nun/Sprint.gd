@@ -17,8 +17,8 @@ func _frame_11():
 
 func _tick():
 	
-	if host.Pressure_Left > 0.8 and current_tick % 3 == 0:
-		host.Pressure_Left -= 0.8
+	if host.Pressure_Left > 0.03 and current_tick % 5 == 0:
+		host.Pressure_Left -= 0.03
 
 	elif current_tick % 3 == 0:
 		host.create_speed_after_image_from_style(1)

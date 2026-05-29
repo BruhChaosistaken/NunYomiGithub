@@ -1,6 +1,6 @@
 extends CharacterState
 
-const charge = preload("res://_CCRandomCharacters/characters/Nun/VFX/chargeeffexct.tscn")
+const charge = preload("res://_CCRandomCharacters/characters/Nun/VFX/Chargeeffexct.tscn")
 
 export var DESCEND_SPEED = "1.0"
 

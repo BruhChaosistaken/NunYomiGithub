@@ -23,7 +23,7 @@ func _tick():
 		host.create_speed_after_image_from_style(1)
 
 	if current_tick in [4,8,12]:
-		spawn_particle_relative(preload("res://_CCRandomCharacters/characters/Nun/VFX/chargeeffexct.tscn"))
+		spawn_particle_relative(preload("res://_CCRandomCharacters/characters/Nun/VFX/Chargeeffexct.tscn"))
 
 #	if current_tick < 13 and data.x == 1 or current_tick < 13 and data.x == 2:
 #		host.set_vel(fixed.mul("10", str(host.get_facing_int())), "0")

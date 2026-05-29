@@ -20,6 +20,9 @@ func _tick():
 
 func _on_hit_something(opponent, hitbox):
 	._on_hit_something(opponent, hitbox)
+	if host.creator.Pressure_Left >= 5.0:
+		host.creator.Pressure_Left -= abs(clamp(0.5, 0,  host.creator.Pressure_Left - host.creator.Pressure_Amount / 2 ))
+
 	if host.creator.opponent.hp <= 0:
 		host.creator.opponent.sprite.hide()
 		h.victim_hitlag = 500
